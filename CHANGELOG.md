@@ -1,0 +1,22 @@
+# Changelog
+
+## 1.0.0 (2025-06-25)
+
+
+### Features
+
+* add api endpoint ([6ae9e16](https://github.com/nilsgstrabo/learnrelease/commit/6ae9e162ce8e11be8093fd68d293ada182086e0d))
+* add helm chart ([70141eb](https://github.com/nilsgstrabo/learnrelease/commit/70141ebc5eecb246e0638d1ff3c4505fc8b6ff4e))
+
+
+### Bug Fixes
+
+* add package ([b00f8d3](https://github.com/nilsgstrabo/learnrelease/commit/b00f8d33a0463b6ddec5b0d0caaa609076cd8d1e))
+* create release.yml ([a049245](https://github.com/nilsgstrabo/learnrelease/commit/a0492454a2c7bebfa28cb29e25633e0ae3d9e529))
+* remove extyra-files ([c32d3c7](https://github.com/nilsgstrabo/learnrelease/commit/c32d3c7954785761f38e21292de347a53012bd09))
+* set extra-files ([0b12866](https://github.com/nilsgstrabo/learnrelease/commit/0b128666416e6a88e09c75fab542ff36fc391736))
+* simple release-type ([ff4dcdc](https://github.com/nilsgstrabo/learnrelease/commit/ff4dcdc13ae28454f7c37aaf206a62d97cf8697a))
+* test ([b07ba31](https://github.com/nilsgstrabo/learnrelease/commit/b07ba3179a94a9ca8277d4222d24a999e2579191))
+* test extra-files ([23d03c0](https://github.com/nilsgstrabo/learnrelease/commit/23d03c0898316efe6d50d65272305e30e961f7c8))
+* update manifest ([e163233](https://github.com/nilsgstrabo/learnrelease/commit/e163233d1e96947e5cce0e508137b7e529e6a7a3))
+* update release-please config ([0ecf49b](https://github.com/nilsgstrabo/learnrelease/commit/0ecf49bc549529e1706cd2885ac04ff5ad3ddc59))
