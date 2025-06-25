@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.0](https://github.com/nilsgstrabo/learnrelease/compare/v1.0.0...v1.1.0) (2025-06-25)
+
+
+### Features
+
+* add extra endpoint ([64944cb](https://github.com/nilsgstrabo/learnrelease/commit/64944cb951cd9cfbd8f37766755ab07f136b0df2))
+
+
+### Bug Fixes
+
+* config ([3e820fb](https://github.com/nilsgstrabo/learnrelease/commit/3e820fb7692105f443ac8052ca6c5e463a2a1030))
+* test some funky stuff ([03e67b4](https://github.com/nilsgstrabo/learnrelease/commit/03e67b4e78de66bd5e84c4834df871d1c29008d0))
+
 ## 1.0.0 (2025-06-25)
 
 
