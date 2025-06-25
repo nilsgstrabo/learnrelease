@@ -9,5 +9,8 @@
       "prerelease": false
     }
   },
+  "extra-files": [
+    "charts/learnrelease/Chart.yaml"
+  ],
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
 }
