@@ -9,3 +9,7 @@ source .env && release-please bootstrap \
     --release-type=go
 
 ```
+
+source .env && release-please release-pr \
+    --token=$RELEASE_PLEASE_GITHUB_TOKEN \
+    --repo-url=nilsgstrabo/learnrelease
