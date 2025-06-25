@@ -11,7 +11,11 @@
     "charts/learnrelease": {
       "release-type": "simple",
       "draft": false,
-      "extra-files": ["values.yaml"]
+      "extra-files": [
+        {"path": "Chart.yaml", "type": "generic"},
+        {"path": "values.yaml", "type": "generic"}
+      ]
+
     }
   },
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
