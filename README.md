@@ -5,6 +5,7 @@ Init:
 ```
 source .env && release-please bootstrap \
     --token=$RELEASE_PLEASE_GITHUB_TOKEN \
-    --repo-url=nilsgstrabo/learnrelease
+    --repo-url=nilsgstrabo/learnrelease \
+    --release-type=go
 
 ```
