@@ -9,7 +9,7 @@
       "prerelease": false
     },
     "charts/learnrelease": {
-      "release-type": "helm",
+      "release-type": "simple",
       "draft": false,
       "extra-files": ["Chart.yaml"]
     }
