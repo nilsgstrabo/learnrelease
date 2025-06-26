@@ -10,7 +10,7 @@ permissions:
 name: release-please
   
 jobs:
-    release-please:
+    prerelease:
       runs-on: ubuntu-latest
       steps:
         - uses: googleapis/release-please-action@v4
@@ -18,5 +18,12 @@ jobs:
             token: ${{ secrets.GH_TOKEN }}
             config-file: .release-please/prerelease-config.json
             manifest-file: .release-please/prerelease-manifest.json
-
+    release:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: googleapis/release-please-action@v4
+          with:
+            token: ${{ secrets.GH_TOKEN }}
+            config-file: .release-please/release-config.json
+            manifest-file: .release-please/release-manifest.json
 
