@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/nilsgstrabo/learnrelease/compare/v1.2.0...v1.2.1) (2025-06-26)
+
+
+### Bug Fixes
+
+* status ([4e60d7b](https://github.com/nilsgstrabo/learnrelease/commit/4e60d7b395d6702744a381c538c6c47e660fff4d))
+
 ## [1.2.0](https://github.com/nilsgstrabo/learnrelease/compare/v1.1.4...v1.2.0) (2025-06-26)
 
 
