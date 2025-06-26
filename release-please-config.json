@@ -6,7 +6,8 @@
       "bump-minor-pre-major": false,
       "bump-patch-for-minor-pre-major": false,
       "draft": false,
-      "prerelease": false,
+      "prerelease-type": "beta",
+      "prerelease": true,
       "extra-files": [
         {"path": "charts/learnrelease/Chart.yaml", "type": "generic"}
       ]
