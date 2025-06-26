@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.0-beta.1](https://github.com/nilsgstrabo/learnrelease/compare/v1.3.0-beta...v1.3.0-beta.1) (2025-06-26)
+
+
+### Bug Fixes
+
+* remove exclamations from status ([b0d71aa](https://github.com/nilsgstrabo/learnrelease/commit/b0d71aa32cce07a6f8a522979d9d5fdb6f7fc145))
+* test ([ae97187](https://github.com/nilsgstrabo/learnrelease/commit/ae97187e8294f0bcb46d9540ccfc63b919146b70))
+
 ## [1.3.0-beta](https://github.com/nilsgstrabo/learnrelease/compare/v1.2.0...v1.3.0-beta) (2025-06-26)
 
 
