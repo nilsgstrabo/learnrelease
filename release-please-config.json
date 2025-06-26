@@ -2,12 +2,12 @@
   "packages": {
     ".": {
       "changelog-path": "CHANGELOG.md",
-      "release-type": "go",
+      "release-type": "simple",
       "bump-minor-pre-major": false,
       "bump-patch-for-minor-pre-major": false,
       "draft": false,
-      "prerelease-type": "beta",
       "prerelease": true,
+      "prerelease-type": "beta",
       "extra-files": [
         {"path": "charts/learnrelease/Chart.yaml", "type": "generic"}
       ]
