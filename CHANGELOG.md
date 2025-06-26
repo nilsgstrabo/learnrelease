@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.3.0-beta](https://github.com/nilsgstrabo/learnrelease/compare/v1.2.0...v1.3.0-beta) (2025-06-26)
+
+
+### Features
+
+* status endpoint ([9e4ebac](https://github.com/nilsgstrabo/learnrelease/commit/9e4ebac68c815f56d8ec43d33a02d92023a28c3c))
+
+
+### Bug Fixes
+
+* incorrect response from status ([a6443e1](https://github.com/nilsgstrabo/learnrelease/commit/a6443e16145464d3780a325555a3ac428e7f1b26))
+* status ([4e60d7b](https://github.com/nilsgstrabo/learnrelease/commit/4e60d7b395d6702744a381c538c6c47e660fff4d))
+* status endpoint three exclamations ([ad96118](https://github.com/nilsgstrabo/learnrelease/commit/ad96118041c2494c8e6dc1fc5426ff4ef8e3f93e))
+
 ## [1.2.0](https://github.com/nilsgstrabo/learnrelease/compare/v1.1.4...v1.2.0) (2025-06-26)
 
 
