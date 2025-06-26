@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/nilsgstrabo/learnrelease/compare/v1.1.4...v1.2.0) (2025-06-26)
+
+
+### Features
+
+* fancy styff ([aba0c9a](https://github.com/nilsgstrabo/learnrelease/commit/aba0c9a1a27970f79fa2565f4fcc685b9bd2b2e7))
+
 ## [1.1.4](https://github.com/nilsgstrabo/learnrelease/compare/v1.1.3...v1.1.4) (2025-06-26)
 
 
