@@ -12,4 +12,7 @@ source .env && release-please bootstrap \
 
 source .env && release-please release-pr \
     --token=$RELEASE_PLEASE_GITHUB_TOKEN \
-    --repo-url=nilsgstrabo/learnrelease
+    --repo-url=nilsgstrabo/learnrelease \
+    --versioning-strategy=always-bump-major 
+    --dry-run \
+    
