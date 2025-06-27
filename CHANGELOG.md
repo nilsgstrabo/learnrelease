@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.5.0](https://github.com/nilsgstrabo/learnrelease/compare/v1.4.0...v1.5.0) (2025-06-27)
+
+
+### Features
+
+* test ([777e4fd](https://github.com/nilsgstrabo/learnrelease/commit/777e4fd89046df0633c27b8860b2ec9e74009165))
+* test2 ([505bee6](https://github.com/nilsgstrabo/learnrelease/commit/505bee68a8809d7132e2d0f6f31af15c83bbe366))
+* test3 ([a64b0d7](https://github.com/nilsgstrabo/learnrelease/commit/a64b0d73cd4733cf51f62470f4babbb0caa09e3e))
+* test5 ([c48092f](https://github.com/nilsgstrabo/learnrelease/commit/c48092f5c1965b0811ace813d4efa8b86f434b5e))
+* test5 ([d78904b](https://github.com/nilsgstrabo/learnrelease/commit/d78904b84608e0d0a561d63633ecdc299f043f39))
+
+
+### Bug Fixes
+
+* change status message ([dc5bfe5](https://github.com/nilsgstrabo/learnrelease/commit/dc5bfe5f176494abb7eb1183bb5202a72430d717))
+* test3 ([d07c116](https://github.com/nilsgstrabo/learnrelease/commit/d07c11627cd8d34c0b02e997bb3017b45a136624))
+* test3 again ([dbb1fca](https://github.com/nilsgstrabo/learnrelease/commit/dbb1fca023eb71bc2c4296289a63ea1721ae4634))
+* test5 ([7f099e2](https://github.com/nilsgstrabo/learnrelease/commit/7f099e2b17b3751dbb075f2e0ed252c223f84760))
+* test6 ([04a1742](https://github.com/nilsgstrabo/learnrelease/commit/04a1742243d08636bc97ddd0433cfb8586cea8a9))
+
 ## [1.4.0](https://github.com/nilsgstrabo/learnrelease/compare/v1.3.0-beta...v1.4.0) (2025-06-27)
 
 
