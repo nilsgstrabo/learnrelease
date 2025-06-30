@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0-rc.2](https://github.com/nilsgstrabo/learnrelease/compare/v1.5.0-rc.1...v1.5.0-rc.2) (2025-06-30)
+
+
+### Bug Fixes
+
+* response ([39359e8](https://github.com/nilsgstrabo/learnrelease/commit/39359e81ae41925d74405769dee380547b04ab33))
+
 ## [1.5.0-rc.1](https://github.com/nilsgstrabo/learnrelease/compare/v1.5.0-rc.0...v1.5.0-rc.1) (2025-06-30)
 
 
