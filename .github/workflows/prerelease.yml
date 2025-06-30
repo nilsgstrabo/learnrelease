@@ -91,6 +91,10 @@ jobs:
 
       - uses: docker/setup-buildx-action@v3
 
+
+      - name: Show new container tag
+        run: echo ${{ env.IMAGE_NAME }}:${{ steps.ver.outputs.new_tag }}
+
       - uses: docker/build-push-action@v6
         with:
           push: true
