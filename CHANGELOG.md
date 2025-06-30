@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0-rc.1](https://github.com/nilsgstrabo/learnrelease/compare/v1.5.0-rc.0...v1.5.0-rc.1) (2025-06-30)
+
+
+### Features
+
+* test5 ([c48092f](https://github.com/nilsgstrabo/learnrelease/commit/c48092f5c1965b0811ace813d4efa8b86f434b5e))
+* test5 ([d78904b](https://github.com/nilsgstrabo/learnrelease/commit/d78904b84608e0d0a561d63633ecdc299f043f39))
+
+
+### Bug Fixes
+
+* response ([39359e8](https://github.com/nilsgstrabo/learnrelease/commit/39359e81ae41925d74405769dee380547b04ab33))
+* status ([b13f928](https://github.com/nilsgstrabo/learnrelease/commit/b13f9289040b39e363dde2d0a58fe3591c20c9ed))
+* test3 ([d07c116](https://github.com/nilsgstrabo/learnrelease/commit/d07c11627cd8d34c0b02e997bb3017b45a136624))
+* test3 again ([dbb1fca](https://github.com/nilsgstrabo/learnrelease/commit/dbb1fca023eb71bc2c4296289a63ea1721ae4634))
+* test5 ([7f099e2](https://github.com/nilsgstrabo/learnrelease/commit/7f099e2b17b3751dbb075f2e0ed252c223f84760))
+* test6 ([04a1742](https://github.com/nilsgstrabo/learnrelease/commit/04a1742243d08636bc97ddd0433cfb8586cea8a9))
+
 ## [1.5.0-rc.2](https://github.com/nilsgstrabo/learnrelease/compare/v1.5.0-rc.1...v1.5.0-rc.2) (2025-06-30)
 
 
