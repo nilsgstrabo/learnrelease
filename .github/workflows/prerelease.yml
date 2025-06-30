@@ -96,18 +96,18 @@ jobs:
       - name: Show new container tag
         run: echo ${{ env.IMAGE_NAME }}:${{ steps.ver.outputs.new_ver }}
 
-      - uses: docker/build-push-action@v6
-        with:
-          push: true
-          tags: ${{ env.IMAGE_NAME }}:${{ steps.ver.outputs.new_ver }}
+    #   - uses: docker/build-push-action@v6
+    #     with:
+    #       push: true
+    #       tags: ${{ env.IMAGE_NAME }}:${{ steps.ver.outputs.new_ver }}
 
-      # ---------- package & upload Helm chart (to the just‑created prerelease) ----------
-      - uses: helm/chart-releaser-action@v1
-        id: helmrelease
-        with:
-            charts_dir: $CHART_DIR
-        env:
-          CR_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
+    #   # ---------- package & upload Helm chart (to the just‑created prerelease) ----------
+    #   - uses: helm/chart-releaser-action@v1
+    #     id: helmrelease
+    #     with:
+    #         charts_dir: $CHART_DIR
+    #     env:
+    #       CR_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Show released version
-        run: echo "Released helm versioin = ${{ steps.helmrelease.outputs.chart_version }}"          
+    #   - name: Show released version
+    #     run: echo "Released helm versioin = ${{ steps.helmrelease.outputs.chart_version }}"          
