@@ -1,5 +1,7 @@
 # Changelog
 
+---
+
 ## [1.5.0](https://github.com/nilsgstrabo/learnrelease/compare/v1.4.0...v1.5.0) (2025-06-27)
 
 
