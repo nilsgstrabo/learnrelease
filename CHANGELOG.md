@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0-rc.2](https://github.com/nilsgstrabo/learnrelease/compare/v1.5.0-rc.1...v1.5.0-rc.2) (2025-06-30)
+
+
+### Bug Fixes
+
+* add dockerfile ([200b9e9](https://github.com/nilsgstrabo/learnrelease/commit/200b9e921bfa00892427b81a0d2b1d2c102383fd))
+
 ## [1.5.0-rc.1](https://github.com/nilsgstrabo/learnrelease/compare/v1.5.0-rc.0...v1.5.0-rc.1) (2025-06-30)
 
 
