@@ -40,7 +40,7 @@ jobs:
         with:
             token: ${{ github.token }}
             branch: main                             # analyse commits on main
-            fallbackTag: 1.0.0
+            fallbackTag: 0.0.0
             noVersionBumpBehavior: silent
             # you can customise the lists if you diverge from fix/feat/! defaults
 
