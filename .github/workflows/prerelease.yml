@@ -1,0 +1,102 @@
+# ---- .github/workflows/prerelease.yml ------------------------------
+name: prerelease (alpha on every push)
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'CHANGELOG.md'          # avoid loops when we commit changelog
+
+jobs:
+  prerelease:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write           # push tags & CHANGELOG
+      packages: write           # push images, helm charts
+
+    env:
+      IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/myapp
+      CHART_DIR: chart/learnrelease
+      PRE_ID: rc             # the semver pre‑identifier
+
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+
+      - name: Set up Git identity
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      # ---------- work out next prerelease version ----------
+      - name: Get base version from conventional commits
+        id: semver
+        uses: ietf-tools/semver-action@v1          # outputs `next`, `nextStrict`, …
+        with:
+            token: ${{ github.token }}
+            branch: main                             # analyse commits on main
+            # you can customise the lists if you diverge from fix/feat/! defaults
+
+      - name: Build prerelease tag "x.y.z-rc.N"
+        id: ver
+        run: |
+            BASE=${{ steps.semver.outputs.nextStrict }}      # 1.2.0
+            PRE=rc
+            # count existing prereleases for this base version → N
+            N=$(git tag --list "v${BASE}-${PRE}.*" \
+                | sed -E "s/.*-${PRE}\.//" \
+                | sort -V | tail -n1)
+            if [[ -z "$N" ]]; then N=0; else N=$((N+1)); fi
+            TAG=v${BASE}-${PRE}.${N}
+            echo "new_tag=$TAG"       >>"$GITHUB_OUTPUT"
+            echo "new_ver=${TAG#v}"   >>"$GITHUB_OUTPUT"
+
+      - name: Show computed version
+        run: echo "Next prerelease = ${{ steps.ver.outputs.new_tag }}"
+
+      # ---------- bump chart & CHANGELOG (standard-version) ----------
+    #   - uses: actions/setup-node@v4
+    #     with: { node-version: '20' }
+
+    #   - name: Install helpers
+    #     run: |
+    #       npm i -g standard-version@^9      # CHANGELOG + version commit
+    #       sudo wget -qO /usr/local/bin/yq \
+    #            https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 && \
+    #            sudo chmod +x /usr/local/bin/yq
+
+    #   - name: Update chart and changelog
+    #     env:
+    #       NEW_TAG: ${{ steps.ver.outputs.new_tag }}
+    #     run: |
+    #       yq -i '.version=(strenv(NEW_TAG) | sub("^v";""))'      $CHART_DIR/Chart.yaml
+    #       yq -i '.appVersion=(strenv(NEW_TAG) | sub("^v";""))'   $CHART_DIR/Chart.yaml
+
+    #       # create CHANGELOG + release commit/tag
+    #       standard-version \
+    #         --release-as "${NEW_TAG#v}" \
+    #         --prerelease $PRE_ID \
+    #         --skip.verify
+
+    #   - name: Push commit & tag
+    #     run: git push --follow-tags origin HEAD
+
+    #   # ---------- build & push docker image ----------
+    #   - uses: docker/login-action@v3
+    #     with:
+    #         registry: ghcr.io
+    #         username: ${{ github.actor }}
+    #         password: ${{ secrets.GITHUB_TOKEN }}
+
+    #   - uses: docker/setup-buildx-action@v3
+
+    #   - uses: docker/build-push-action@v5
+    #     with:
+    #       push: true
+    #       tags: ${{ env.IMAGE_NAME }}:${{ steps.ver.outputs.new_tag }}
+
+    #   # ---------- package & upload Helm chart (to the just‑created prerelease) ----------
+    #   - uses: helm/chart-releaser-action@v1
+    #     env:
+    #       CR_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
