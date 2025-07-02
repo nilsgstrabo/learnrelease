@@ -66,6 +66,12 @@ jobs:
                     -vv --tag ${{ steps.ver.outputs.next_stable_tag }} --ignore-tags ${{ env.PRERELEASE_SUFFIX }}
               env:
                 OUTPUT: CHANGELOG.md
+            - name: Update version in Chart.yaml
+              env:
+                version: ${${{steps.ver.outputs.next_stable_tag}}#v}
+              run: >
+                echo $version
+                
                 
             - name: Create stable release PR
               uses: peter-evans/create-pull-request@v7
