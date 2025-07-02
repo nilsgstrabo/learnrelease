@@ -54,8 +54,13 @@ jobs:
                 echo "next_stable_tag = ${{ steps.ver.outputs.next_stable_tag }}"
                 echo "latest_tag = ${{ steps.ver.outputs.latest_tag }}"
                 echo "commits_since_latest_tag = ${{ steps.ver.outputs.commits_since_latest_tag }}"
-                yq -V
 
+            - name: Generate changelog
+              uses: orhun/git-cliff-action@v3
+              with:
+                config: cliff.toml
+              env:
+                GIT_CLIFF_TAG: ${{ steps.ver.outputs.next_stable_tag }}
                 
             - name: Create release PR
               id: release-pr
