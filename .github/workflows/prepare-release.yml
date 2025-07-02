@@ -31,16 +31,16 @@ jobs:
                 next_stable_tag=v$(cli next)
                 latest_tag=v$(cli latest --include-pre-releases)
 
-                if git show-ref --quiet --verify "refs/tags/${latest_tag}"; then
-                    commits_since_latest_tag=$(git log ${latest_tag}..HEAD | wc -l)
-                else
-                    commits_since_latest_tag=$(git log | wc -l)
-                fi
+                # if git show-ref --quiet --verify "refs/tags/${latest_tag}"; then
+                #     commits_since_latest_tag=$(git log ${latest_tag}..HEAD | wc -l)
+                # else
+                #     commits_since_latest_tag=$(git log | wc -l)
+                # fi
 
                 echo "next_prerelease_tag=$next_prerelease_tag" >>"$GITHUB_OUTPUT"
                 echo "next_stable_tag=$next_stable_tag" >>"$GITHUB_OUTPUT"
                 echo "latest_tag=$latest_tag" >>"$GITHUB_OUTPUT"
-                echo "commits_since_latest_tag=$commits_since_latest_tag" >>"$GITHUB_OUTPUT"
+                # echo "commits_since_latest_tag=$commits_since_latest_tag" >>"$GITHUB_OUTPUT"
             - name: Show computed version
               run: |
                 echo "next_prerelease_tag = ${{ steps.ver.outputs.next_prerelease_tag }}"
