@@ -58,7 +58,7 @@ jobs:
                 echo "latest_tag = ${{ steps.ver.outputs.latest_tag }}"
                 echo "commits_since_latest_tag = ${{ steps.ver.outputs.commits_since_latest_tag }}"
 
-            - name: Generate stable release changelog full
+            - name: Generate stable release changelog
               uses: orhun/git-cliff-action@v3
               with:
                 config: cliff.toml
@@ -67,7 +67,7 @@ jobs:
               env:
                 OUTPUT: CHANGELOG.md
 
-            - name: Generate stable release changelog for unreleased
+            - name: Generate stable release changelog for PR body
               id: stable-changelog
               uses: orhun/git-cliff-action@v3
               with:
@@ -75,11 +75,8 @@ jobs:
                 args:
                     -vv -u --strip all --tag ${{ steps.ver.outputs.next_stable_tag }} --ignore-tags ${{ env.PRERELEASE_SUFFIX }}
               env:
-                OUTPUT: ${{ runner.temp }}/changelog.md
+                OUTPUT: ${{ runner.temp }}/stablechangelog.md
 
-            - name: Print changelog
-              run: |
-                echo "${{ steps.stable-changelog.outputs.content }}"
             - name: Update stable version in Chart.yaml
               env:
                 tag: ${{steps.ver.outputs.next_stable_tag}}
@@ -95,20 +92,21 @@ jobs:
                 title: "chore: release ${{ steps.ver.outputs.next_stable_tag }}"
                 branch: release/stable
                 labels: stablerelease
+                body: ${{ steps.stable-changelog.outputs.content }}
 
             - name: Check git status
               run: |
                 git status
 
-            # - name: Generate prerelease changelog
-            #   uses: orhun/git-cliff-action@v3
-            #   if: steps.ver.outputs.commits_since_latest_tag > 0
-            #   with:
-            #     config: cliff.toml
-            #     args:
-            #         -vv --tag ${{ steps.ver.outputs.next_prerelease_tag }}
-            #   env:
-            #     OUTPUT: CHANGELOG.md
+            - name: Generate prerelease changelog for PR body
+              id: unreleased-changelog
+              uses: orhun/git-cliff-action@v3
+              with:
+                config: cliff.toml
+                args:
+                    -vv -u --strip all --tag ${{ steps.ver.outputs.next_prerelease_tag }}
+              env:
+                OUTPUT: ${{ runner.temp }}/prereleasechangelog.md                
 
             - name: Update prerelease version in Chart.yaml
               if: steps.ver.outputs.commits_since_latest_tag > 0
@@ -126,6 +124,7 @@ jobs:
                 title: "chore: prerelease ${{ steps.ver.outputs.next_prerelease_tag }}"
                 branch: release/prerelease
                 labels: prerelease
+                body: ${{ steps.unreleased-changelog.outputs.content }}
 
             
 
