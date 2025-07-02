@@ -3,7 +3,7 @@ name: Prepare release PR
 on:
     push: 
         tags:
-            - v*
+            - v**
         branches: 
             - main
     workflow_dispatch:
