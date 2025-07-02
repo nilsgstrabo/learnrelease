@@ -16,6 +16,7 @@ jobs:
             pull-requests: write
             contents: read
         steps:
+            - uses: actions/checkout@v4
             - uses: actions/setup-go@v5
               with:
                   go-version-file: go.mod
@@ -23,7 +24,6 @@ jobs:
               run: |
                 go install github.com/psanetra/git-semver/cli
                 # mv $(which cli) $(dirname $(which cli))/git-semver
-            - uses: actions/checkout@v4
             - name: Build release and prerelease tag
               id: ver
               run: |
