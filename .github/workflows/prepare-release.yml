@@ -2,6 +2,8 @@ name: Prepare release PR
 
 on:
     push: 
+        tags:
+            - v*
         branches: 
             - main
     workflow_dispatch:
@@ -52,6 +54,17 @@ jobs:
                 echo "next_stable_tag = ${{ steps.ver.outputs.next_stable_tag }}"
                 echo "latest_tag = ${{ steps.ver.outputs.latest_tag }}"
                 echo "commits_since_latest_tag = ${{ steps.ver.outputs.commits_since_latest_tag }}"
+                yq -V
+
+                
+            - name: Create release PR
+              id: release-pr
+              uses: peter-evans/create-pull-request@v7
+              with:
+                delete-branch: true
+                title: Release ${{ steps.ver.outputs.next_stable_tag }}
+                branch: release/stable
+                labels: stablerelease
 
             
 
