@@ -8,7 +8,8 @@ on:
             - main
     workflow_dispatch:
 
-
+env:
+    PRERELEASE_SUFFIX: rc
 
 jobs:
     prepare-release:
@@ -34,7 +35,7 @@ jobs:
             - name: Build release and prerelease tag
               id: ver
               run: |
-                next_prerelease_tag=v$(cli next --pre-release-tag rc --pre-release-counter)
+                next_prerelease_tag=v$(cli next --pre-release-tag $PRERELEASE_SUFFIX --pre-release-counter)
                 next_stable_tag=v$(cli next)
                 latest_tag=v$(cli latest --include-pre-releases)
 
@@ -62,7 +63,7 @@ jobs:
               with:
                 config: cliff.toml
                 args:
-                    --tag ${{ steps.ver.outputs.next_stable_tag }}
+                    -vv --tag ${{ steps.ver.outputs.next_stable_tag }} --ignore-tags $PRERELEASE_SUFFIX
               env:
                 OUTPUT: CHANGELOG.md
                 
