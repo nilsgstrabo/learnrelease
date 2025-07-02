@@ -63,7 +63,8 @@ jobs:
                 config: cliff.toml
                 args:
                     --tag ${{ steps.ver.outputs.next_stable_tag }}
-                    --output CHANGELOG.md
+              env:
+                OUTPUT: CHANGELOG.md
                 
             - name: Create release PR
               id: release-pr
