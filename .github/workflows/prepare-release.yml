@@ -67,13 +67,15 @@ jobs:
               env:
                 OUTPUT: CHANGELOG.md
 
-            - name: Generate stable release changelog full
+            - name: Generate stable release changelog for unreleased
               id: stable-changelog
               uses: orhun/git-cliff-action@v3
               with:
                 config: cliff.toml
                 args:
                     -vv -u --strip all --tag ${{ steps.ver.outputs.next_stable_tag }} --ignore-tags ${{ env.PRERELEASE_SUFFIX }}
+              env:
+                OUTPUT: .tmp/stable.md
 
             - name: Print changelog
               run: |
