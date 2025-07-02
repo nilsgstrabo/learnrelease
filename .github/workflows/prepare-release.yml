@@ -71,7 +71,7 @@ jobs:
                 tag: ${{steps.ver.outputs.next_stable_tag}}
               run: >
                 yq
-                '.version = strenv(tag) | sub("^v";""), .appVersion = strenv(tag) | sub("^v";"")'
+                '.version = (strenv(tag) | sub("^v";"")), .appVersion = (strenv(tag) | sub("^v";""))'
                 -i charts/learnrelease/Chart.yaml
                 
             - name: Create stable release PR
@@ -102,7 +102,7 @@ jobs:
                 tag: ${{steps.ver.outputs.next_prerelease_tag}}
               run: >
                 yq
-                '.version = strenv(tag) | sub("^v";""), .appVersion = strenv(tag) | sub("^v";"")'
+                '.version = (strenv(tag) | sub("^v";"")), .appVersion = (strenv(tag) | sub("^v";""))'
                 -i charts/learnrelease/Chart.yaml
 
             - name: Create prerelease PR
@@ -111,7 +111,7 @@ jobs:
                 delete-branch: true
                 title: "chore: prerelease ${{ steps.ver.outputs.next_prerelease_tag }}"
                 branch: release/prerelease
-                labels: prerelease                
+                labels: prerelease
 
             
 
