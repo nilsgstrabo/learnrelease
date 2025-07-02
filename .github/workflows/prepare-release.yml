@@ -59,8 +59,9 @@ jobs:
               uses: orhun/git-cliff-action@v3
               with:
                 config: cliff.toml
-              env:
-                GIT_CLIFF_TAG: ${{ steps.ver.outputs.next_stable_tag }}
+                args:
+                    --tag ${{ steps.ver.outputs.next_stable_tag }}
+                    --output CHANGELOG.md
                 
             - name: Create release PR
               id: release-pr
