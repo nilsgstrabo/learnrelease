@@ -93,7 +93,7 @@ jobs:
               uses: peter-evans/create-pull-request@v7
               with:
                 delete-branch: true
-                title: "chore: prerelease ${{ steps.ver.outputs.next_stable_tag }}"
+                title: "chore: prerelease ${{ steps.ver.outputs.next_prerelease_tag }}"
                 branch: release/prerelease
                 labels: prerelease                
 
