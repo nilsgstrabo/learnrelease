@@ -3,7 +3,7 @@ name: Prepare release PR
 on:
     push: 
         tags:
-            - v**
+            - '**'
         branches: 
             - main
     workflow_dispatch:
@@ -71,7 +71,7 @@ jobs:
               uses: peter-evans/create-pull-request@v7
               with:
                 delete-branch: true
-                title: Release ${{ steps.ver.outputs.next_stable_tag }}
+                title: "chore: release ${{ steps.ver.outputs.next_stable_tag }}"
                 branch: release/stable
                 labels: stablerelease
 
