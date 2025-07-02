@@ -76,5 +76,9 @@ jobs:
                 branch: release/stable
                 labels: stablerelease
 
+            - name: Check git status
+              run: |
+                git status
+
             
 
