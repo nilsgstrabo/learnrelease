@@ -79,15 +79,15 @@ jobs:
               run: |
                 git status
 
-            - name: Generate prerelease changelog
-              uses: orhun/git-cliff-action@v3
-              if: steps.ver.outputs.commits_since_latest_tag > 0
-              with:
-                config: cliff.toml
-                args:
-                    -vv --tag ${{ steps.ver.outputs.next_prerelease_tag }}
-              env:
-                OUTPUT: CHANGELOG.md
+            # - name: Generate prerelease changelog
+            #   uses: orhun/git-cliff-action@v3
+            #   if: steps.ver.outputs.commits_since_latest_tag > 0
+            #   with:
+            #     config: cliff.toml
+            #     args:
+            #         -vv --tag ${{ steps.ver.outputs.next_prerelease_tag }}
+            #   env:
+            #     OUTPUT: CHANGELOG.md
 
             - name: Create prerelease PR
               uses: peter-evans/create-pull-request@v7
