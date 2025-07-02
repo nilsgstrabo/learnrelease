@@ -66,12 +66,14 @@ jobs:
                     -vv --tag ${{ steps.ver.outputs.next_stable_tag }} --ignore-tags ${{ env.PRERELEASE_SUFFIX }}
               env:
                 OUTPUT: CHANGELOG.md
-            - name: Update version in Chart.yaml
+            - name: Update stable version in Chart.yaml
               env:
-                version: ${${{steps.ver.outputs.next_stable_tag}}#v}
-              run: >
-                echo $version
-                
+                tag: ${{steps.ver.outputs.next_stable_tag}}
+              run: |
+                version=${tag#v}
+                yq \
+                    '.version = env(ver), .appVersion = env(ver)' \
+                    -i charts/learnrelease/Chart.yaml
                 
             - name: Create stable release PR
               uses: peter-evans/create-pull-request@v7
@@ -94,6 +96,15 @@ jobs:
             #         -vv --tag ${{ steps.ver.outputs.next_prerelease_tag }}
             #   env:
             #     OUTPUT: CHANGELOG.md
+
+            - name: Update prerelease version in Chart.yaml
+              env:
+                tag: ${{steps.ver.outputs.next_prerelease_tag}}
+              run: |
+                version=${tag#v}
+                yq \
+                    '.version = env(ver), .appVersion = env(ver)' \
+                    -i charts/learnrelease/Chart.yaml
 
             - name: Create prerelease PR
               uses: peter-evans/create-pull-request@v7
