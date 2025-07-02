@@ -75,7 +75,7 @@ jobs:
                 args:
                     -vv -u --strip all --tag ${{ steps.ver.outputs.next_stable_tag }} --ignore-tags ${{ env.PRERELEASE_SUFFIX }}
               env:
-                OUTPUT: $(mktemp)
+                OUTPUT: ${{ runner.temp }}/changelog.md
 
             - name: Print changelog
               run: |
