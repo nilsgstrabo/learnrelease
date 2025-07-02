@@ -1,0 +1,47 @@
+name: Prepare release PR
+
+on:
+    push: 
+        branches: 
+            - main
+    workflow_dispatch:
+
+
+
+jobs:
+    prepare-release:
+        name: Prepare release
+        runs-on: ubuntu-latest
+        permissions: 
+            pull-requests: write
+            contents: read
+        steps:
+            - uses: actions/setup-go@v5
+              with:
+                  go-version-file: go.mod
+            - name: Install git-semver
+              run: |
+                go install github.com/psanetra/git-semver/cli
+                # mv $(which cli) $(dirname $(which cli))/git-semver
+            - uses: actions/checkout@v4
+            - name: Build release and prerelease tag
+              id: ver
+              run: |
+                next_prerelease_tag=v$(cli next --pre-release-tag rc --pre-release-counter)
+                next_stable_tag=v$(cli next)
+                latest_tag=v$(cli latest --include-pre-releases)
+                commits_since_latest_tag=$(git log ${latest_tag}..HEAD | wc -l)
+
+                echo "next_prerelease_tag=$next_prerelease_tag" >>"$GITHUB_OUTPUT"
+                echo "next_stable_tag=$next_stable_tag" >>"$GITHUB_OUTPUT"
+                echo "latest_tag=$latest_tag" >>"$GITHUB_OUTPUT"
+                echo "commits_since_latest_tag=$commits_since_latest_tag" >>"$GITHUB_OUTPUT"
+            - name: Show computed version
+              run: |
+                echo "next_prerelease_tag = ${{ steps.ver.outputs.next_prerelease_tag }}"
+                echo "next_stable_tag = ${{ steps.ver.outputs.next_stable_tag }}"
+                echo "latest_tag = ${{ steps.ver.outputs.latest_tag }}"
+                echo "commits_since_latest_tag = ${{ steps.ver.outputs.commits_since_latest_tag }}"
+
+            
+
