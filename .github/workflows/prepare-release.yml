@@ -59,7 +59,7 @@ jobs:
                 echo "commits_since_latest_tag = ${{ steps.ver.outputs.commits_since_latest_tag }}"
 
             - name: Generate stable release changelog
-              uses: orhun/git-cliff-action@v3
+              uses: orhun/git-cliff-action@v4
               with:
                 config: cliff.toml
                 args:
@@ -69,7 +69,7 @@ jobs:
 
             - name: Generate stable release changelog for PR body
               id: stable-changelog
-              uses: orhun/git-cliff-action@v3
+              uses: orhun/git-cliff-action@v4
               with:
                 config: cliff.toml
                 args:
@@ -100,7 +100,7 @@ jobs:
 
             - name: Generate prerelease changelog for PR body
               id: unreleased-changelog
-              uses: orhun/git-cliff-action@v3
+              uses: orhun/git-cliff-action@v4
               with:
                 config: cliff.toml
                 args:
