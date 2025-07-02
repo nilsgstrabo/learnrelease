@@ -22,7 +22,7 @@ jobs:
                   go-version-file: go.mod
             - name: Install git-semver
               run: |
-                go install github.com/psanetra/git-semver/cli
+                go install github.com/psanetra/git-semver/cli@v1.1.2
                 # mv $(which cli) $(dirname $(which cli))/git-semver
             - name: Build release and prerelease tag
               id: ver
