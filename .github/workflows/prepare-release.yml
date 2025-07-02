@@ -40,10 +40,10 @@ jobs:
 
                 if git show-ref --quiet --verify "refs/tags/${latest_tag}"; then
                     echo "Counting commits since ${latest_tag}"
-                    commits_since_latest_tag=$(git log ${latest_tag}..HEAD | wc -l)
+                    commits_since_latest_tag=$(git log  --oneline ${latest_tag}..HEAD | wc -l)
                 else
                     echo "Counting all commits"
-                    commits_since_latest_tag=$(git log | wc -l)
+                    commits_since_latest_tag=$(git log --oneline | wc -l)
                 fi
 
                 echo "next_prerelease_tag=$next_prerelease_tag" >>"$GITHUB_OUTPUT"
