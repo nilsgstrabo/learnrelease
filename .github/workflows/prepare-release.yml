@@ -58,7 +58,7 @@ jobs:
                 echo "latest_tag = ${{ steps.ver.outputs.latest_tag }}"
                 echo "commits_since_latest_tag = ${{ steps.ver.outputs.commits_since_latest_tag }}"
 
-            - name: Generate changelog
+            - name: Generate stable release changelog
               uses: orhun/git-cliff-action@v3
               with:
                 config: cliff.toml
@@ -67,8 +67,7 @@ jobs:
               env:
                 OUTPUT: CHANGELOG.md
                 
-            - name: Create release PR
-              id: release-pr
+            - name: Create stable release PR
               uses: peter-evans/create-pull-request@v7
               with:
                 delete-branch: true
@@ -79,6 +78,24 @@ jobs:
             - name: Check git status
               run: |
                 git status
+
+            - name: Generate prerelease changelog
+              uses: orhun/git-cliff-action@v3
+              if: steps.ver.outputs.commits_since_latest_tag > 0
+              with:
+                config: cliff.toml
+                args:
+                    -vv --tag ${{ steps.ver.outputs.next_prerelease_tag }}
+              env:
+                OUTPUT: CHANGELOG.md
+
+            - name: Create prerelease PR
+              uses: peter-evans/create-pull-request@v7
+              with:
+                delete-branch: true
+                title: "chore: prerelease ${{ steps.ver.outputs.next_stable_tag }}"
+                branch: release/prerelease
+                labels: prerelease                
 
             
 
