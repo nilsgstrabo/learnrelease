@@ -69,11 +69,10 @@ jobs:
             - name: Update stable version in Chart.yaml
               env:
                 tag: ${{steps.ver.outputs.next_stable_tag}}
-              run: |
-                version=${tag#v}
-                yq \
-                    '.version = env(version), .appVersion = env(version)' \
-                    -i charts/learnrelease/Chart.yaml
+              run: >
+                yq
+                '.version = env(tag) | sub("^v";""), .appVersion = env(tag) | sub("^v";"")'
+                -i charts/learnrelease/Chart.yaml
                 
             - name: Create stable release PR
               uses: peter-evans/create-pull-request@v7
@@ -101,11 +100,10 @@ jobs:
               if: steps.ver.outputs.commits_since_latest_tag > 0
               env:
                 tag: ${{steps.ver.outputs.next_prerelease_tag}}
-              run: |
-                version=${tag#v}
-                yq \
-                    '.version = env(version), .appVersion = env(version)' \
-                    -i charts/learnrelease/Chart.yaml
+              run: >
+                yq
+                '.version = env(tag) | sub("^v";""), .appVersion = env(tag) | sub("^v";"")'
+                -i charts/learnrelease/Chart.yaml
 
             - name: Create prerelease PR
               uses: peter-evans/create-pull-request@v7
