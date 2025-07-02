@@ -58,7 +58,7 @@ jobs:
                 echo "latest_tag = ${{ steps.ver.outputs.latest_tag }}"
                 echo "commits_since_latest_tag = ${{ steps.ver.outputs.commits_since_latest_tag }}"
 
-            - name: Generate stable release changelog
+            - name: Generate stable release changelog full
               uses: orhun/git-cliff-action@v3
               with:
                 config: cliff.toml
@@ -66,6 +66,18 @@ jobs:
                     -vv --tag ${{ steps.ver.outputs.next_stable_tag }} --ignore-tags ${{ env.PRERELEASE_SUFFIX }}
               env:
                 OUTPUT: CHANGELOG.md
+
+            - name: Generate stable release changelog full
+              id: stable-changelog
+              uses: orhun/git-cliff-action@v3
+              with:
+                config: cliff.toml
+                args:
+                    -vv -u --strip all --tag ${{ steps.ver.outputs.next_stable_tag }} --ignore-tags ${{ env.PRERELEASE_SUFFIX }}
+
+            - name: Print changelog
+              run: |
+                echo "${{ steps.stable-changelog.outputs.content }}"
             - name: Update stable version in Chart.yaml
               env:
                 tag: ${{steps.ver.outputs.next_stable_tag}}
