@@ -93,6 +93,10 @@ jobs:
                 branch: release/stable
                 labels: stablerelease
                 body: ${{ steps.stable-changelog.outputs.content }}
+                sign-commits: true
+                add-paths: |
+                    CHANGELOG.md
+                    charts/learnrelease/Chart.yaml                
 
             - name: Check git status
               run: |
@@ -125,6 +129,10 @@ jobs:
                 branch: release/prerelease
                 labels: prerelease
                 body: ${{ steps.unreleased-changelog.outputs.content }}
+                sign-commits: true
+                add-paths: |
+                    CHANGELOG.md
+                    charts/learnrelease/Chart.yaml
 
             
 
