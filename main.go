@@ -8,9 +8,15 @@ func main() {
 
 func initHandler() http.Handler {
 	mux := http.NewServeMux()
+	mux.HandleFunc("/", rootHandler)
 	mux.HandleFunc("/api", apiHandler)
 	mux.HandleFunc("/status", statusHandler)
 	return mux
+}
+
+func rootHandler(w http.ResponseWriter, req *http.Request) {
+	w.WriteHeader(200)
+	w.Write([]byte("welcome"))
 }
 
 func apiHandler(w http.ResponseWriter, req *http.Request) {
