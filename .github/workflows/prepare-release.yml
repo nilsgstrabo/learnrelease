@@ -112,7 +112,7 @@ jobs:
               charts/learnrelease/Chart.yaml                
 
     prerelease-pr:
-      name: Stable release PR
+      name: Prerelease PR
       runs-on: ubuntu-latest
       needs: metadata
       permissions: 
