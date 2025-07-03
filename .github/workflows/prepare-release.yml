@@ -2,8 +2,8 @@ name: Prepare release PR
 
 on:
     push: 
-        tags:
-            - '**'
+        # tags:
+        #     - '**'
         branches: 
             - main
     workflow_dispatch:
