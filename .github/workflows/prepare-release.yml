@@ -106,6 +106,7 @@ jobs:
             branch: release/stable
             labels: stablerelease
             body: ${{ steps.stable-changelog.outputs.content }}
+            commit-message: "chore(release): prepare for stable release ${{ needs.metadata.outputs.next_stable_tag }}"
             sign-commits: true
             add-paths: |
               CHANGELOG.md
@@ -148,6 +149,7 @@ jobs:
             branch: release/prerelease
             labels: prerelease
             body: ${{ steps.unreleased-changelog.outputs.content }}
+            commit-message: "chore(release): prepare for prerelease ${{ needs.metadata.outputs.next_prerelease_tag }}"
             sign-commits: true
             add-paths: |
               CHANGELOG.md
