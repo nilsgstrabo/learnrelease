@@ -42,6 +42,14 @@ All notable changes to this project will be documented in this file.
 
 - Test - ([535b52b](https://github.com/nilsgstrabo/learnrelease/commit/535b52bec96a36ae1c8c029c1efd3f8c68576e01)) by @nilsgstrabo
 
+- Test - ([a2142ff](https://github.com/nilsgstrabo/learnrelease/commit/a2142ffbc59b1ab086ebb4c04611c3d55f18d463)) by @nilsgstrabo
+
+- Test - ([eb0564e](https://github.com/nilsgstrabo/learnrelease/commit/eb0564eaf54c5aab7f1cec410ebda16d75fcccbe)) by @nilsgstrabo
+
+- Test - ([80d244d](https://github.com/nilsgstrabo/learnrelease/commit/80d244d1187c176ff3ea5954f5080b2b124f6f2c)) by @nilsgstrabo
+
+- Test - ([73c6ec0](https://github.com/nilsgstrabo/learnrelease/commit/73c6ec06dc2393b2456aa19c996d68905639801f)) by @nilsgstrabo
+
 
 ## [2.0.0](https://github.com/nilsgstrabo/learnrelease/compare/v1.0.0..v2.0.0) - 2025-07-03
 
