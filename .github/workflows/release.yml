@@ -23,7 +23,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}  
         run: |
           pending_releases=$(gh pr list --json title,labels,mergeCommit,state,id --state merged --label "release: pending")
-          echo "pending_releases=$pending" >>"$GITHUB_OUTPUT"
+          echo "pending_releases=$pending_releases" >>"$GITHUB_OUTPUT"
       - name: Print metadata
         run: |
           echo ${{ steps.metadata.outputs.pending_releases }}
