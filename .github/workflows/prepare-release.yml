@@ -104,7 +104,7 @@ jobs:
             delete-branch: true
             title: "chore: release ${{ needs.metadata.outputs.next_stable_tag }}"
             branch: release/stable
-            labels: stablerelease
+            labels: "release: pending"
             body: ${{ steps.stable-changelog.outputs.content }}
             commit-message: "chore(release): prepare for stable release ${{ needs.metadata.outputs.next_stable_tag }}"
             sign-commits: true
@@ -147,7 +147,7 @@ jobs:
             delete-branch: true
             title: "chore: prerelease ${{ needs.metadata.outputs.next_prerelease_tag }}"
             branch: release/prerelease
-            labels: prerelease
+            labels: "release: pending"
             body: ${{ steps.unreleased-changelog.outputs.content }}
             commit-message: "chore(release): prepare for prerelease ${{ needs.metadata.outputs.next_prerelease_tag }}"
             sign-commits: true
