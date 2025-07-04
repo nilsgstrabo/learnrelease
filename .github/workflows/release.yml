@@ -35,8 +35,8 @@ jobs:
       - metadata
     strategy:
       matrix:
-        releases: [1,2,3]
+        release-pr: ${{ fromJson(needs.metadata.outputs.pending_releases) }}
     steps:
       - name: Print
         run: |
-          echo "matrix value: ${{ matrix.releases }}"
+          echo "matrix value: ${{ matrix.release-pr }}"
