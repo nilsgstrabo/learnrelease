@@ -24,7 +24,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}  
         run: |
-          pending_releases=$(gh pr list --json title,id --state merged --label "release: pending")
+          pending_releases=$(gh pr list --json title,number --state merged --label "release: pending")
           echo "pending_releases=$pending_releases" >>"$GITHUB_OUTPUT"
       - name: Print metadata
         run: |
