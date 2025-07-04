@@ -2,137 +2,46 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.4.0](https://github.com/nilsgstrabo/learnrelease/compare/v1.4.0...v1.4.0) (2025-07-04)
+## [2.1.0](https://github.com/nilsgstrabo/learnrelease/compare/v2.0.0..v2.1.0) - 2025-07-04
+
+### 🚀 Features
+
+- *(api)* New endpoint - ([4bee5b2](https://github.com/nilsgstrabo/learnrelease/commit/4bee5b26d9f12042bf2417e24fe73ffa39ab25e5)) by @nilsgstrabo
 
 
-### ⚠ BREAKING CHANGES
+### 🐛 Bug Fixes
 
-* added root endpoint
+- *(api)* Use json response - ([1a9bc0f](https://github.com/nilsgstrabo/learnrelease/commit/1a9bc0fe26f3de54ee822a32886d4e7428826abb)) by @nilsgstrabo
 
-### Features
-
-* add api endpoint ([6ae9e16](https://github.com/nilsgstrabo/learnrelease/commit/6ae9e162ce8e11be8093fd68d293ada182086e0d))
-* add extra endpoint ([64944cb](https://github.com/nilsgstrabo/learnrelease/commit/64944cb951cd9cfbd8f37766755ab07f136b0df2))
-* add helm chart ([70141eb](https://github.com/nilsgstrabo/learnrelease/commit/70141ebc5eecb246e0638d1ff3c4505fc8b6ff4e))
-* added root endpoint ([41690a0](https://github.com/nilsgstrabo/learnrelease/commit/41690a0b468adadd332a56e158d544171c606139))
-* **api:** new endpoint ([4bee5b2](https://github.com/nilsgstrabo/learnrelease/commit/4bee5b26d9f12042bf2417e24fe73ffa39ab25e5))
-* fance new feature ([9fadb65](https://github.com/nilsgstrabo/learnrelease/commit/9fadb655985cd8cf1dcb5be1a76418853f91507d))
-* fancy styff ([aba0c9a](https://github.com/nilsgstrabo/learnrelease/commit/aba0c9a1a27970f79fa2565f4fcc685b9bd2b2e7))
-* status endpoint ([9e4ebac](https://github.com/nilsgstrabo/learnrelease/commit/9e4ebac68c815f56d8ec43d33a02d92023a28c3c))
-* test ([777e4fd](https://github.com/nilsgstrabo/learnrelease/commit/777e4fd89046df0633c27b8860b2ec9e74009165))
-* test2 ([505bee6](https://github.com/nilsgstrabo/learnrelease/commit/505bee68a8809d7132e2d0f6f31af15c83bbe366))
-* test3 ([a64b0d7](https://github.com/nilsgstrabo/learnrelease/commit/a64b0d73cd4733cf51f62470f4babbb0caa09e3e))
-* test5 ([c48092f](https://github.com/nilsgstrabo/learnrelease/commit/c48092f5c1965b0811ace813d4efa8b86f434b5e))
-* test5 ([d78904b](https://github.com/nilsgstrabo/learnrelease/commit/d78904b84608e0d0a561d63633ecdc299f043f39))
+- *(api)* Handle errors - ([0dc44f9](https://github.com/nilsgstrabo/learnrelease/commit/0dc44f9218a04972f078295a07ad30828daed600)) by @nilsgstrabo
 
 
-### Bug Fixes
+### ⚙️ Miscellaneous Tasks
 
-* add dockerfile ([200b9e9](https://github.com/nilsgstrabo/learnrelease/commit/200b9e921bfa00892427b81a0d2b1d2c102383fd))
-* add package ([b00f8d3](https://github.com/nilsgstrabo/learnrelease/commit/b00f8d33a0463b6ddec5b0d0caaa609076cd8d1e))
-* **api:** handle errors ([0dc44f9](https://github.com/nilsgstrabo/learnrelease/commit/0dc44f9218a04972f078295a07ad30828daed600))
-* **api:** incorrect response ([f96b7e3](https://github.com/nilsgstrabo/learnrelease/commit/f96b7e3d8e93242bde921009d204e0df90ef844f))
-* **api:** use json response ([1a9bc0f](https://github.com/nilsgstrabo/learnrelease/commit/1a9bc0fe26f3de54ee822a32886d4e7428826abb))
-* change status message ([dc5bfe5](https://github.com/nilsgstrabo/learnrelease/commit/dc5bfe5f176494abb7eb1183bb5202a72430d717))
-* config ([3e820fb](https://github.com/nilsgstrabo/learnrelease/commit/3e820fb7692105f443ac8052ca6c5e463a2a1030))
-* create release.yml ([a049245](https://github.com/nilsgstrabo/learnrelease/commit/a0492454a2c7bebfa28cb29e25633e0ae3d9e529))
-* foo bar ([5e39c4b](https://github.com/nilsgstrabo/learnrelease/commit/5e39c4b4149d7ddd18e61bf413b5653f5e0c5903))
-* incorrect response from status ([a6443e1](https://github.com/nilsgstrabo/learnrelease/commit/a6443e16145464d3780a325555a3ac428e7f1b26))
-* msg ([d3f145e](https://github.com/nilsgstrabo/learnrelease/commit/d3f145eef96bed6fc7a473537d5c71c114cdbd3b))
-* msg again ([65a2eb2](https://github.com/nilsgstrabo/learnrelease/commit/65a2eb2490ab87f43b219275f8b8e190c9134e16))
-* release main ([#5](https://github.com/nilsgstrabo/learnrelease/issues/5)) ([5e4e20e](https://github.com/nilsgstrabo/learnrelease/commit/5e4e20e933bb7749956105d69c9cfb09ba28a9ca))
-* remove exclamations from status ([b0d71aa](https://github.com/nilsgstrabo/learnrelease/commit/b0d71aa32cce07a6f8a522979d9d5fdb6f7fc145))
-* remove extyra-files ([c32d3c7](https://github.com/nilsgstrabo/learnrelease/commit/c32d3c7954785761f38e21292de347a53012bd09))
-* response ([39359e8](https://github.com/nilsgstrabo/learnrelease/commit/39359e81ae41925d74405769dee380547b04ab33))
-* set extra-files ([0b12866](https://github.com/nilsgstrabo/learnrelease/commit/0b128666416e6a88e09c75fab542ff36fc391736))
-* simple release-type ([ff4dcdc](https://github.com/nilsgstrabo/learnrelease/commit/ff4dcdc13ae28454f7c37aaf206a62d97cf8697a))
-* some stuff ([17de760](https://github.com/nilsgstrabo/learnrelease/commit/17de76040dbbba8f8b1cef6cd7dadb7ed7dbf754))
-* status ([b13f928](https://github.com/nilsgstrabo/learnrelease/commit/b13f9289040b39e363dde2d0a58fe3591c20c9ed))
-* status ([4e60d7b](https://github.com/nilsgstrabo/learnrelease/commit/4e60d7b395d6702744a381c538c6c47e660fff4d))
-* status endpoint ([aa01524](https://github.com/nilsgstrabo/learnrelease/commit/aa015248e564816e17d801ca9d2f22feabce054d))
-* status endpoint three exclamations ([ad96118](https://github.com/nilsgstrabo/learnrelease/commit/ad96118041c2494c8e6dc1fc5426ff4ef8e3f93e))
-* test ([ae97187](https://github.com/nilsgstrabo/learnrelease/commit/ae97187e8294f0bcb46d9540ccfc63b919146b70))
-* test ([b07ba31](https://github.com/nilsgstrabo/learnrelease/commit/b07ba3179a94a9ca8277d4222d24a999e2579191))
-* test extra-files ([23d03c0](https://github.com/nilsgstrabo/learnrelease/commit/23d03c0898316efe6d50d65272305e30e961f7c8))
-* test some funky stuff ([03e67b4](https://github.com/nilsgstrabo/learnrelease/commit/03e67b4e78de66bd5e84c4834df871d1c29008d0))
-* test3 ([d07c116](https://github.com/nilsgstrabo/learnrelease/commit/d07c11627cd8d34c0b02e997bb3017b45a136624))
-* test3 again ([dbb1fca](https://github.com/nilsgstrabo/learnrelease/commit/dbb1fca023eb71bc2c4296289a63ea1721ae4634))
-* test5 ([7f099e2](https://github.com/nilsgstrabo/learnrelease/commit/7f099e2b17b3751dbb075f2e0ed252c223f84760))
-* test6 ([04a1742](https://github.com/nilsgstrabo/learnrelease/commit/04a1742243d08636bc97ddd0433cfb8586cea8a9))
-* update manifest ([e163233](https://github.com/nilsgstrabo/learnrelease/commit/e163233d1e96947e5cce0e508137b7e529e6a7a3))
-* update release-please config ([0ecf49b](https://github.com/nilsgstrabo/learnrelease/commit/0ecf49bc549529e1706cd2885ac04ff5ad3ddc59))
-* update status message ([#25](https://github.com/nilsgstrabo/learnrelease/issues/25)) ([4deffd7](https://github.com/nilsgstrabo/learnrelease/commit/4deffd79dabf05c896691a5b9b8eb0f6dbf5d344))
+- *(main)* Release 1.4.0 (#30) - ([3de7817](https://github.com/nilsgstrabo/learnrelease/commit/3de78172c569dcabb3414f6895c203a9d010aa27)) by @nilsgstrabo in [#30](https://github.com/nilsgstrabo/learnrelease/pull/30)
 
+- *(main)* Release 1.4.0 (#31) - ([9b58e6f](https://github.com/nilsgstrabo/learnrelease/commit/9b58e6fc3015f64050d7808115342b919bf0400c)) by @nilsgstrabo in [#31](https://github.com/nilsgstrabo/learnrelease/pull/31)
 
-### Miscellaneous Chores
+- Test release action - ([944bd82](https://github.com/nilsgstrabo/learnrelease/commit/944bd82f073cb5c8df58a0ea9a822e8a9b82789b)) by @nilsgstrabo
 
-* release 1.4.0 ([b4ee263](https://github.com/nilsgstrabo/learnrelease/commit/b4ee26395e2dd117fdf675b9079a6774b4348ef0))
+- Change trigger for action - ([d83dad3](https://github.com/nilsgstrabo/learnrelease/commit/d83dad3a3b1d0280acdf3377d1e67f77db6bd90f)) by @nilsgstrabo
 
-## 1.4.0 (2025-07-04)
+- Test release-please - ([94db92a](https://github.com/nilsgstrabo/learnrelease/commit/94db92ae4cad9fc5e078b73b5425d97bc87f9c61)) by @nilsgstrabo
 
+- Disable old workflows - ([c14dc4a](https://github.com/nilsgstrabo/learnrelease/commit/c14dc4a7a06dc92f0ce9619efec7cd88d967bd58)) by @nilsgstrabo
 
-### ⚠ BREAKING CHANGES
+- Test - ([f8503a5](https://github.com/nilsgstrabo/learnrelease/commit/f8503a5d2ea5c9eee7aa5902b02bd6c1237da35e)) by @nilsgstrabo
 
-* added root endpoint
+- Fix gh cli - ([6068222](https://github.com/nilsgstrabo/learnrelease/commit/606822203151c1cbbac779085d6e86f72f773530)) by @nilsgstrabo
 
-### Features
+- Test release - ([5b7ccea](https://github.com/nilsgstrabo/learnrelease/commit/5b7ccea57c3a67232e1ecfae33d62b0a49341b72)) by @nilsgstrabo
 
-* add api endpoint ([6ae9e16](https://github.com/nilsgstrabo/learnrelease/commit/6ae9e162ce8e11be8093fd68d293ada182086e0d))
-* add extra endpoint ([64944cb](https://github.com/nilsgstrabo/learnrelease/commit/64944cb951cd9cfbd8f37766755ab07f136b0df2))
-* add helm chart ([70141eb](https://github.com/nilsgstrabo/learnrelease/commit/70141ebc5eecb246e0638d1ff3c4505fc8b6ff4e))
-* added root endpoint ([41690a0](https://github.com/nilsgstrabo/learnrelease/commit/41690a0b468adadd332a56e158d544171c606139))
-* **api:** new endpoint ([4bee5b2](https://github.com/nilsgstrabo/learnrelease/commit/4bee5b26d9f12042bf2417e24fe73ffa39ab25e5))
-* fance new feature ([9fadb65](https://github.com/nilsgstrabo/learnrelease/commit/9fadb655985cd8cf1dcb5be1a76418853f91507d))
-* fancy styff ([aba0c9a](https://github.com/nilsgstrabo/learnrelease/commit/aba0c9a1a27970f79fa2565f4fcc685b9bd2b2e7))
-* status endpoint ([9e4ebac](https://github.com/nilsgstrabo/learnrelease/commit/9e4ebac68c815f56d8ec43d33a02d92023a28c3c))
-* test ([777e4fd](https://github.com/nilsgstrabo/learnrelease/commit/777e4fd89046df0633c27b8860b2ec9e74009165))
-* test2 ([505bee6](https://github.com/nilsgstrabo/learnrelease/commit/505bee68a8809d7132e2d0f6f31af15c83bbe366))
-* test3 ([a64b0d7](https://github.com/nilsgstrabo/learnrelease/commit/a64b0d73cd4733cf51f62470f4babbb0caa09e3e))
-* test5 ([c48092f](https://github.com/nilsgstrabo/learnrelease/commit/c48092f5c1965b0811ace813d4efa8b86f434b5e))
-* test5 ([d78904b](https://github.com/nilsgstrabo/learnrelease/commit/d78904b84608e0d0a561d63633ecdc299f043f39))
+- Test - ([9852e1a](https://github.com/nilsgstrabo/learnrelease/commit/9852e1a275b63634573013bb3c42754f4b4bfc13)) by @nilsgstrabo
 
+- Test - ([506386a](https://github.com/nilsgstrabo/learnrelease/commit/506386a3fbca503f14790b6ac9f0859a70d1d4f9)) by @nilsgstrabo
 
-### Bug Fixes
+- Test - ([535b52b](https://github.com/nilsgstrabo/learnrelease/commit/535b52bec96a36ae1c8c029c1efd3f8c68576e01)) by @nilsgstrabo
 
-* add dockerfile ([200b9e9](https://github.com/nilsgstrabo/learnrelease/commit/200b9e921bfa00892427b81a0d2b1d2c102383fd))
-* add package ([b00f8d3](https://github.com/nilsgstrabo/learnrelease/commit/b00f8d33a0463b6ddec5b0d0caaa609076cd8d1e))
-* **api:** handle errors ([0dc44f9](https://github.com/nilsgstrabo/learnrelease/commit/0dc44f9218a04972f078295a07ad30828daed600))
-* **api:** incorrect response ([f96b7e3](https://github.com/nilsgstrabo/learnrelease/commit/f96b7e3d8e93242bde921009d204e0df90ef844f))
-* **api:** use json response ([1a9bc0f](https://github.com/nilsgstrabo/learnrelease/commit/1a9bc0fe26f3de54ee822a32886d4e7428826abb))
-* change status message ([dc5bfe5](https://github.com/nilsgstrabo/learnrelease/commit/dc5bfe5f176494abb7eb1183bb5202a72430d717))
-* config ([3e820fb](https://github.com/nilsgstrabo/learnrelease/commit/3e820fb7692105f443ac8052ca6c5e463a2a1030))
-* create release.yml ([a049245](https://github.com/nilsgstrabo/learnrelease/commit/a0492454a2c7bebfa28cb29e25633e0ae3d9e529))
-* foo bar ([5e39c4b](https://github.com/nilsgstrabo/learnrelease/commit/5e39c4b4149d7ddd18e61bf413b5653f5e0c5903))
-* incorrect response from status ([a6443e1](https://github.com/nilsgstrabo/learnrelease/commit/a6443e16145464d3780a325555a3ac428e7f1b26))
-* msg ([d3f145e](https://github.com/nilsgstrabo/learnrelease/commit/d3f145eef96bed6fc7a473537d5c71c114cdbd3b))
-* msg again ([65a2eb2](https://github.com/nilsgstrabo/learnrelease/commit/65a2eb2490ab87f43b219275f8b8e190c9134e16))
-* release main ([#5](https://github.com/nilsgstrabo/learnrelease/issues/5)) ([5e4e20e](https://github.com/nilsgstrabo/learnrelease/commit/5e4e20e933bb7749956105d69c9cfb09ba28a9ca))
-* remove exclamations from status ([b0d71aa](https://github.com/nilsgstrabo/learnrelease/commit/b0d71aa32cce07a6f8a522979d9d5fdb6f7fc145))
-* remove extyra-files ([c32d3c7](https://github.com/nilsgstrabo/learnrelease/commit/c32d3c7954785761f38e21292de347a53012bd09))
-* response ([39359e8](https://github.com/nilsgstrabo/learnrelease/commit/39359e81ae41925d74405769dee380547b04ab33))
-* set extra-files ([0b12866](https://github.com/nilsgstrabo/learnrelease/commit/0b128666416e6a88e09c75fab542ff36fc391736))
-* simple release-type ([ff4dcdc](https://github.com/nilsgstrabo/learnrelease/commit/ff4dcdc13ae28454f7c37aaf206a62d97cf8697a))
-* some stuff ([17de760](https://github.com/nilsgstrabo/learnrelease/commit/17de76040dbbba8f8b1cef6cd7dadb7ed7dbf754))
-* status ([b13f928](https://github.com/nilsgstrabo/learnrelease/commit/b13f9289040b39e363dde2d0a58fe3591c20c9ed))
-* status ([4e60d7b](https://github.com/nilsgstrabo/learnrelease/commit/4e60d7b395d6702744a381c538c6c47e660fff4d))
-* status endpoint ([aa01524](https://github.com/nilsgstrabo/learnrelease/commit/aa015248e564816e17d801ca9d2f22feabce054d))
-* status endpoint three exclamations ([ad96118](https://github.com/nilsgstrabo/learnrelease/commit/ad96118041c2494c8e6dc1fc5426ff4ef8e3f93e))
-* test ([ae97187](https://github.com/nilsgstrabo/learnrelease/commit/ae97187e8294f0bcb46d9540ccfc63b919146b70))
-* test ([b07ba31](https://github.com/nilsgstrabo/learnrelease/commit/b07ba3179a94a9ca8277d4222d24a999e2579191))
-* test extra-files ([23d03c0](https://github.com/nilsgstrabo/learnrelease/commit/23d03c0898316efe6d50d65272305e30e961f7c8))
-* test some funky stuff ([03e67b4](https://github.com/nilsgstrabo/learnrelease/commit/03e67b4e78de66bd5e84c4834df871d1c29008d0))
-* test3 ([d07c116](https://github.com/nilsgstrabo/learnrelease/commit/d07c11627cd8d34c0b02e997bb3017b45a136624))
-* test3 again ([dbb1fca](https://github.com/nilsgstrabo/learnrelease/commit/dbb1fca023eb71bc2c4296289a63ea1721ae4634))
-* test5 ([7f099e2](https://github.com/nilsgstrabo/learnrelease/commit/7f099e2b17b3751dbb075f2e0ed252c223f84760))
-* test6 ([04a1742](https://github.com/nilsgstrabo/learnrelease/commit/04a1742243d08636bc97ddd0433cfb8586cea8a9))
-* update manifest ([e163233](https://github.com/nilsgstrabo/learnrelease/commit/e163233d1e96947e5cce0e508137b7e529e6a7a3))
-* update release-please config ([0ecf49b](https://github.com/nilsgstrabo/learnrelease/commit/0ecf49bc549529e1706cd2885ac04ff5ad3ddc59))
-* update status message ([#25](https://github.com/nilsgstrabo/learnrelease/issues/25)) ([4deffd7](https://github.com/nilsgstrabo/learnrelease/commit/4deffd79dabf05c896691a5b9b8eb0f6dbf5d344))
-
-
-### Miscellaneous Chores
-
-* release 1.4.0 ([b4ee263](https://github.com/nilsgstrabo/learnrelease/commit/b4ee26395e2dd117fdf675b9079a6774b4348ef0))
 
 ## [2.0.0](https://github.com/nilsgstrabo/learnrelease/compare/v1.0.0..v2.0.0) - 2025-07-03
 
@@ -315,7 +224,7 @@ All notable changes to this project will be documented in this file.
 
 ## New Contributors ❤️
 
-* @github-actions[bot] made their first contribution in [#24](https://github.com/nilsgstrabo/learnrelease/pull/24)
+* @github-actions[bot] made their first contribution in [#23](https://github.com/nilsgstrabo/learnrelease/pull/23)
 ## [1.0.0](https://github.com/nilsgstrabo/learnrelease/compare/v0.2.0..v1.0.0) - 2025-06-27
 
 ### 🚀 Features
