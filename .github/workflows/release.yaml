@@ -1,0 +1,19 @@
+name: Release
+
+on:
+    push: 
+        branches:
+          - main
+
+
+jobs:
+  release:
+    # if: contains(github.event.pull_request.labels.*.name, '') && github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check label
+        # if: contains(github.event.pull_request.labels.*.name, '')
+        run: |
+            echo "merged: ${{ github.event.pull_request.merged }}"
+            echo "labels: ${{ github.event.pull_request.labels }}"
+            
