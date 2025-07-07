@@ -47,6 +47,8 @@ jobs:
     steps:
       - name: Release metadata
         id: metadata
+        env:
+          GH_TOKEN: ${{ github.token }}  
         run: |
           set -Eeuo pipefail
           echo "test"
