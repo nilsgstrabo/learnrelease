@@ -27,5 +27,5 @@ echo $tag
 echo $release_body
 
 gh release create $tag --notes "$release_body" --target $commit --title "$tag"
-
+gh pr edit $1 --remove-label "release: pending" --add-label "release: tagged"
 # Docker build + push (hvilke tags)
