@@ -54,9 +54,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}  
         run: |
           set -Eeuo pipefail
-          echo "test"
           pr_number=${{ matrix.release-pr.number }}
-          echo "number $pr_number"
           pr_info=$(gh pr view $pr_number --json title,labels,mergeCommit,state,number,body | jq 'select(.state=="MERGED" and (.labels[] | .name=="release: pending"))')
           [[ -z "$pr_info" ]] && { echo "Pull request $pr_number has invalid release state"; exit 1; }
 
@@ -69,7 +67,7 @@ jobs:
           echo "commit=$commit" >>"$GITHUB_OUTPUT"
           echo "version=$version" >>"$GITHUB_OUTPUT"
           echo "tag=$tag" >>"$GITHUB_OUTPUT"
-          echo "release_body=$release_body" >>"$GITHUB_OUTPUT"
+          echo "release_body="$release_body"" >>"$GITHUB_OUTPUT"
       - name: Print metadata
         run: |
           echo "commit: ${{ steps.metadata.outputs.commit }}"

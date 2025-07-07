@@ -25,7 +25,10 @@ release_body=$(echo $pr_info | jq -r .body)
 echo $commit
 echo $version
 echo $tag
-echo $release_body
+echo "release_body="$release_body""
+
+
+
 
 # gh release create $tag --notes "$release_body" --target $commit --title "$tag"
 # gh pr edit $1 --remove-label "release: pending" --add-label "release: tagged"
