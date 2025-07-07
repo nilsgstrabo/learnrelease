@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.1.0](https://github.com/nilsgstrabo/learnrelease/compare/v2.0.0..v2.1.0) - 2025-07-04
+## [2.1.0](https://github.com/nilsgstrabo/learnrelease/compare/v2.0.0..v2.1.0) - 2025-07-07
 
 ### 🚀 Features
 
 - *(api)* New endpoint - ([4bee5b2](https://github.com/nilsgstrabo/learnrelease/commit/4bee5b26d9f12042bf2417e24fe73ffa39ab25e5)) by @nilsgstrabo
+
+- *(api)* First - ([40db0e0](https://github.com/nilsgstrabo/learnrelease/commit/40db0e0df34c5980d801f0ca2b0fcbabac0af665)) by @nilsgstrabo
+
+- *(api)* Second - ([e207cd8](https://github.com/nilsgstrabo/learnrelease/commit/e207cd867c367f2f3552bf5281b7d4561cafe8f2)) by @nilsgstrabo
+
+- *(api)* Three - ([29b48cf](https://github.com/nilsgstrabo/learnrelease/commit/29b48cf3962af5dcef5aca0b510eb7d6fdd5a27f)) by @nilsgstrabo
+
+- *(api)* Four - ([6ba8a6a](https://github.com/nilsgstrabo/learnrelease/commit/6ba8a6aa126ac96ca4afb2baeb41e33101b4bbca)) by @nilsgstrabo
+
+- Add magic func - ([8a368dd](https://github.com/nilsgstrabo/learnrelease/commit/8a368dd58a2522fc7f95c18e2e79a1e7e7948077)) by @nilsgstrabo
 
 
 ### 🐛 Bug Fixes
@@ -41,6 +51,28 @@ All notable changes to this project will be documented in this file.
 - Test - ([506386a](https://github.com/nilsgstrabo/learnrelease/commit/506386a3fbca503f14790b6ac9f0859a70d1d4f9)) by @nilsgstrabo
 
 - Test - ([535b52b](https://github.com/nilsgstrabo/learnrelease/commit/535b52bec96a36ae1c8c029c1efd3f8c68576e01)) by @nilsgstrabo
+
+- Test - ([a2142ff](https://github.com/nilsgstrabo/learnrelease/commit/a2142ffbc59b1ab086ebb4c04611c3d55f18d463)) by @nilsgstrabo
+
+- Test - ([eb0564e](https://github.com/nilsgstrabo/learnrelease/commit/eb0564eaf54c5aab7f1cec410ebda16d75fcccbe)) by @nilsgstrabo
+
+- Test - ([80d244d](https://github.com/nilsgstrabo/learnrelease/commit/80d244d1187c176ff3ea5954f5080b2b124f6f2c)) by @nilsgstrabo
+
+- Test - ([73c6ec0](https://github.com/nilsgstrabo/learnrelease/commit/73c6ec06dc2393b2456aa19c996d68905639801f)) by @nilsgstrabo
+
+- Test checkout HEAD - ([33d894f](https://github.com/nilsgstrabo/learnrelease/commit/33d894f945ad3693388e8f7236aef8f397cf5eb4)) by @nilsgstrabo
+
+- Test - ([811bda6](https://github.com/nilsgstrabo/learnrelease/commit/811bda67c9b54d8cee94d4b044a4d1038788c63f)) by @nilsgstrabo
+
+- Concurrency - ([27f2b9a](https://github.com/nilsgstrabo/learnrelease/commit/27f2b9ad93ed6ea214c461ead3fcc1cdc6bbaeaf)) by @nilsgstrabo
+
+- Comment - ([b3cfb8e](https://github.com/nilsgstrabo/learnrelease/commit/b3cfb8efbfd75e576287e45a7c012362ada26516)) by @nilsgstrabo
+
+- Misc - ([aa02da1](https://github.com/nilsgstrabo/learnrelease/commit/aa02da1a1b43456b969f0a90288702c8122303d5)) by @nilsgstrabo
+
+- Release script - ([2967fd3](https://github.com/nilsgstrabo/learnrelease/commit/2967fd38797c0021dcc5b6af5470f79f65c4577f)) by @nilsgstrabo
+
+- Fix release action when no pending release PR - ([7ef7533](https://github.com/nilsgstrabo/learnrelease/commit/7ef75339b53f9a7cddb0988fb3c4b224853ce950)) by @nilsgstrabo
 
 
 ## [2.0.0](https://github.com/nilsgstrabo/learnrelease/compare/v1.0.0..v2.0.0) - 2025-07-03
