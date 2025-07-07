@@ -15,6 +15,7 @@ jobs:
       contents: read
     outputs:
       pending_releases: ${{ steps.metadata.outputs.pending_releases }}
+      pending_releases_count: ${{ steps.metadata.outputs.pending_releases_count }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -25,14 +26,15 @@ jobs:
           GH_TOKEN: ${{ github.token }}  
         run: |
           pending_releases=$(gh pr list --json title,number --state merged --label "release: pending")
+          pending_releases_count=$(echo $pending_releases | jq '. | length')
+          
           echo "pending_releases=$pending_releases" >>"$GITHUB_OUTPUT"
-      - name: Print metadata
-        run: |
-          echo ${{ steps.metadata.outputs.pending_releases }}
+          echo "pending_releases_count=$pending_releases_count" >>"$GITHUB_OUTPUT"
 
   release:
     name: Create release
     runs-on: ubuntu-latest
+    if: ${{ needs.releases-metadata.outputs.pending_releases_count > 0}}
     needs:
       - releases-metadata
     strategy:
