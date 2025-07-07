@@ -7,8 +7,8 @@ concurrency:
   group: ${{ github.workflow }}
 
 jobs:
-  metadata:
-    name: Metadata
+  releases-metadata:
+    name: Metadata for pending releases
     runs-on: ubuntu-latest
     permissions: 
       pull-requests: read
@@ -34,12 +34,12 @@ jobs:
     name: Create release
     runs-on: ubuntu-latest
     needs:
-      - metadata
+      - releases-metadata
     strategy:
       # max-parallel: 1
       matrix:
-        release-pr: ${{ fromJson(needs.metadata.outputs.pending_releases) }}
+        release-pr: ${{ fromJson(needs.releases-metadata.outputs.pending_releases) }}
     steps:
       - name: Print
         run: |
-          echo "matrix value: ${{ matrix.release-pr }}"
+          echo "matrix value: ${{ toJson(matrix.release-pr) }}"
