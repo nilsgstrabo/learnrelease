@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -Eeuo pipefail
+
 
 # json=$(gh pr list --json title,labels,mergeCommit,state,number --state merged --label "release: pending")
 
@@ -9,11 +9,12 @@ set -Eeuo pipefail
 #     git show "$commit":charts/learnrelease/Chart.yaml | yq .version
 # done
 
-pr_info=$(gh pr view $1 --json title,labels,mergeCommit,state,number,body | jq 'select(.state=="MERGED" and (.labels[] | .name=="release: pending"))')
+set -Eeuo pipefail
 
-[[ -z "$pr_info" ]] && { echo "Pull request ${1} has invalid release state"; exit 1; }
+pr_number=$1
 
-echo $pr_info | jq .
+pr_info=$(gh pr view $pr_number --json title,labels,mergeCommit,state,number,body | jq 'select(.state=="MERGED" and (.labels[] | .name=="release: pending"))')
+[[ -z "$pr_info" ]] && { echo "Pull request $pr_number has invalid release state"; exit 1; }
 
 commit=$(echo $pr_info | jq -r .mergeCommit.oid)
 version=$(git show "$commit":charts/learnrelease/Chart.yaml | yq .version)
@@ -26,6 +27,6 @@ echo $version
 echo $tag
 echo $release_body
 
-gh release create $tag --notes "$release_body" --target $commit --title "$tag"
-gh pr edit $1 --remove-label "release: pending" --add-label "release: tagged"
+# gh release create $tag --notes "$release_body" --target $commit --title "$tag"
+# gh pr edit $1 --remove-label "release: pending" --add-label "release: tagged"
 # Docker build + push (hvilke tags)
