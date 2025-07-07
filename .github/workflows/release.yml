@@ -36,6 +36,7 @@ jobs:
     needs:
       - metadata
     strategy:
+      # max-parallel: 1
       matrix:
         release-pr: ${{ fromJson(needs.metadata.outputs.pending_releases) }}
     steps:
