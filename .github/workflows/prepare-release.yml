@@ -71,7 +71,9 @@ jobs:
         - uses: actions/checkout@v4
           with:
             fetch-depth: 0
-        - run: git checkout HEAD^
+        - run: |
+            git checkout ${{ github.ref_name }}
+            git log -1
         - name: Generate stable release changelog
           uses: orhun/git-cliff-action@v4
           with:
@@ -125,7 +127,9 @@ jobs:
         - uses: actions/checkout@v4
           with:
             fetch-depth: 0
-        - run: git checkout HEAD^
+        - run: |
+            git checkout ${{ github.ref_name }}
+            git log -1
         - name: Generate prerelease changelog for PR body
           id: unreleased-changelog
           uses: orhun/git-cliff-action@v4
