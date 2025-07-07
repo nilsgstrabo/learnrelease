@@ -42,7 +42,7 @@ jobs:
       matrix:
         release-pr: ${{ fromJson(needs.releases-metadata.outputs.pending_releases) }}
     permissions: 
-      contents: read
+      contents: write
       packages: write
     steps:
       - uses: actions/checkout@v4
