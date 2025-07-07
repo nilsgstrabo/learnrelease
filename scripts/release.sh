@@ -20,12 +20,14 @@ commit=$(echo $pr_info | jq -r .mergeCommit.oid)
 version=$(git show "$commit":charts/learnrelease/Chart.yaml | yq .version)
 version=${version#v}
 tag=v${version}
-release_body=$(echo $pr_info | jq -r .body)
+release_body=$(echo $pr_info | jq .body)
+echo $pr_info | jq .body
 
 echo $commit
 echo $version
 echo $tag
-echo "release_body="$release_body""
+echo "$release_body"
+# echo "release_body="$release_body""
 
 
 

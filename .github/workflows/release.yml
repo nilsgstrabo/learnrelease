@@ -62,13 +62,13 @@ jobs:
           version=$(git show "$commit":charts/learnrelease/Chart.yaml | yq .version)
           version=${version#v}
           tag=v${version}
-          release_body=$(echo $pr_info | jq -r .body)
+          release_body=$(echo $pr_info | jq .body)
 
           echo "commit=$commit" >>"$GITHUB_OUTPUT"
           echo "version=$version" >>"$GITHUB_OUTPUT"
           echo "tag=$tag" >>"$GITHUB_OUTPUT"
-          echo "release_body="$release_body"" >>"$GITHUB_OUTPUT"
-      - name: Print metadata
+          echo "release_body=$release_body" >>"$GITHUB_OUTPUT"
+      - name: Print release metadata
         run: |
           echo "commit: ${{ steps.metadata.outputs.commit }}"
           echo "version: ${{ steps.metadata.outputs.version }}"
@@ -93,5 +93,24 @@ jobs:
         run: |
           echo "tags: ${{ steps.container-metadata.outputs.tags }}"
           echo "labels: ${{ steps.container-metadata.outputs.labels }}"
+      - name: Build and push container image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          platforms: |
+            linux/amd64
+            linux/arm64
+          tags: ${{ steps.container-metadata.outputs.tags }}
+          labels: ${{ steps.container-metadata.outputs.labels }}      
+      - name: Helm release
+        id: helm-release
+        uses: helm/chart-releaser-action@v1
+        with:
+          charts_dir: charts/learnrelease
+      - name: Print Helm release info
+        run: |
+          echo "chart version: ${{ steps.helm-release.outputs.chart_version }}"
+          echo "changed charts: ${{ steps.helm-release.outputs.changed_charts }}"
 
       
