@@ -49,7 +49,9 @@ jobs:
         id: metadata
         run: |
           set -Eeuo pipefail
-          pr_number="${{ toJson(matrix.release-pr) }}" | jq -r .number
+          echo "test"
+          pr_number=${{ matrix.release-pr.number }}
+          # pr_number="${{ toJson(matrix.release-pr) }}" | jq -r .number
           pr_info=$(gh pr view $pr_number --json title,labels,mergeCommit,state,number,body | jq 'select(.state=="MERGED" and (.labels[] | .name=="release: pending"))')
           [[ -z "$pr_info" ]] && { echo "Pull request $pr_number has invalid release state"; exit 1; }
 
