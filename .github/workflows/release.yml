@@ -108,8 +108,11 @@ jobs:
       - name: Helm release
         id: helm-release
         uses: helm/chart-releaser-action@v1
+        env:
+          CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           charts_dir: charts/learnrelease
+          
       - name: Print Helm release info
         run: |
           echo "chart version: ${{ steps.helm-release.outputs.chart_version }}"
