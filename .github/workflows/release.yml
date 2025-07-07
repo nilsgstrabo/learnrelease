@@ -105,17 +105,30 @@ jobs:
             linux/arm64
           tags: ${{ steps.container-metadata.outputs.tags }}
           labels: ${{ steps.container-metadata.outputs.labels }}      
-      - name: Helm release
-        id: helm-release
-        uses: helm/chart-releaser-action@v1
-        env:
-          CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install Helm
+        uses: azure/setup-helm@v4
         with:
-          charts_dir: charts/learnrelease
-          
-      - name: Print Helm release info
+          version: v3.13.3
+      - name: Helm login
         run: |
-          echo "chart version: ${{ steps.helm-release.outputs.chart_version }}"
-          echo "changed charts: ${{ steps.helm-release.outputs.changed_charts }}"
+          helm registry login ${{env.CONTAINER_REGISTRY }} \
+            --username ${{ github.actor }} \
+            --password ${{ secrets.GITHUB_TOKEN }}
+      - name: Helm package and push
+        working-directory: charts/learnrelease
+        run: |
+          helm package .
+          oci_repo=oci://${{ env.CONTAINER_REGISTRY }}/${{ github.repository }}/helm
+          helm push learnrelease-${{ steps.metadata.outputs.version }}.tgz $oci_repo
+
+      # - name: Helm release
+      #   id: helm-release
+      #   uses: helm/chart-releaser-action@v1
+      #   env:
+      #     CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     charts_dir: charts/learnrelease
+
+
 
       
