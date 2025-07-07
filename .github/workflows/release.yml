@@ -73,7 +73,7 @@ jobs:
           echo "commit: ${{ steps.metadata.outputs.commit }}"
           echo "version: ${{ steps.metadata.outputs.version }}"
           echo "tag: ${{ steps.metadata.outputs.tag }}"
-          echo "release_body: ${{ steps.metadata.outputs.release_body }}"
+          echo "release_body: "${{ steps.metadata.outputs.release_body }}""
       - uses: actions/checkout@v4
         with:
           ref: ${{ steps.metadata.outputs.commit }}
