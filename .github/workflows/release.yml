@@ -22,8 +22,8 @@ jobs:
           fetch-depth: 0
       - name: Metadata
         id: metadata
-        env:
-          GH_TOKEN: ${{ github.token }}  
+        # env:
+        #   GH_TOKEN: ${{ github.token }}  
         run: |
           pending_releases=$(gh pr list --json title,number --state merged --label "release: pending")
           pending_releases_count=$(echo $pending_releases | jq '. | length')
