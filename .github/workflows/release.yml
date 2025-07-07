@@ -108,7 +108,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v4
         with:
-          version: v3.13.3
+          version: v3.18.3
       - name: Helm login
         run: |
           helm registry login ${{env.CONTAINER_REGISTRY }} \
