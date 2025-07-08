@@ -64,12 +64,12 @@ jobs:
           version=$(git show "$commit":charts/learnrelease/Chart.yaml | yq .version)
           version=${version#v}
           tag=v${version}
-          release_body=$(echo $pr_info | jq .body)
+          release_body=$(echo $pr_info | jq -r .body)
 
           echo "commit=$commit" >>"$GITHUB_OUTPUT"
           echo "version=$version" >>"$GITHUB_OUTPUT"
           echo "tag=$tag" >>"$GITHUB_OUTPUT"
-          echo "release_body=$release_body" >>"$GITHUB_OUTPUT"
+          echo "release_body="$release_body"" >>"$GITHUB_OUTPUT"
       - name: Print release metadata
         run: |
           echo "commit: ${{ steps.metadata.outputs.commit }}"
@@ -125,7 +125,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release create ${{ steps.metadata.outputs.tag }} \
-            --notes ${{ steps.metadata.outputs.release_body }} \
+            --notes "${{ steps.metadata.outputs.release_body }}" \
             --target ${{ steps.metadata.outputs.commit }} \
             --title ${{ steps.metadata.outputs.tag }}
       - name: Mark PR as tagged
