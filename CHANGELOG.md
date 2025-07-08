@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.1](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.1..v2.2.1) - 2025-07-08
+
+### ⚙️ Miscellaneous Tasks
+
+- *(prepare-release)* Rename git-semver - ([f29084e](https://github.com/nilsgstrabo/learnrelease/commit/f29084e3aa89c43fa5082d6b72ee0d37ea198e25)) by @nilsgstrabo
+
+- *(prepare-release)* Remove  latest-tag from output - ([d3e1b89](https://github.com/nilsgstrabo/learnrelease/commit/d3e1b895334f03ca0a27a7ed13139ab73b550732)) by @nilsgstrabo
+
+- *(prepare-release)* Compare next tags with latest - ([6a667f8](https://github.com/nilsgstrabo/learnrelease/commit/6a667f81af287d0e803f6aaa1951df1664903b7c)) by @nilsgstrabo
+
+- Test - ([4618f23](https://github.com/nilsgstrabo/learnrelease/commit/4618f233e98ca9ee968c3ed48005d9c62876b2c0)) by @nilsgstrabo
+
+
 ## [2.2.1](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.0..v2.2.1) - 2025-07-08
 
 ### 🐛 Bug Fixes
