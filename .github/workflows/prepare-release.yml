@@ -2,8 +2,8 @@ name: Prepare release PR
 
 on:
     push: 
-        # tags:
-        #     - '**'
+        tags:
+            - '**'
         branches: 
             - main
     workflow_dispatch:
@@ -29,6 +29,7 @@ jobs:
         - uses: actions/checkout@v4
           with:
             fetch-depth: 0
+            # ref: refs/heads/main
         - uses: actions/setup-go@v5
           with:
               go-version-file: go.mod
