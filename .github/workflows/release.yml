@@ -125,7 +125,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release create ${{ steps.metadata.outputs.tag }} \
-            --notes "${{ steps.metadata.outputs.release_body }}" \
+            --notes ${{ steps.metadata.outputs.release_body }} \
             --target ${{ steps.metadata.outputs.commit }} \
             --title ${{ steps.metadata.outputs.tag }}
       - name: Mark PR as tagged
