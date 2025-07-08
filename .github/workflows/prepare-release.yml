@@ -51,13 +51,27 @@ jobs:
                 commits_since_latest_tag=$(git log --oneline | wc -l)
             fi
 
+            next_stable_tag_greater_than_latest="false"
+            if [ "$(git-semver compare $next_stable_tag $latest_tag 2>&1)" = ">" ]; then
+                next_stable_tag_greater_than_latest="true"
+            fi
+
+            next_prerelease_tag_greater_than_latest="false"
+            if [ "$(git-semver compare $next_prerelease_tag $latest_tag 2>&1)" = ">" ]; then
+                next_prerelease_tag_greater_than_latest="true"
+            fi
+
             echo "next_prerelease_tag=$next_prerelease_tag" >>"$GITHUB_OUTPUT"
             echo "next_stable_tag=$next_stable_tag" >>"$GITHUB_OUTPUT"
+            echo "next_stable_tag_greater_than_latest=$next_stable_tag_greater_than_latest" >>"$GITHUB_OUTPUT"
+            echo "next_prerelease_tag_greater_than_latest=$next_prerelease_tag_greater_than_latest" >>"$GITHUB_OUTPUT"
             echo "commits_since_latest_tag=$commits_since_latest_tag" >>"$GITHUB_OUTPUT"
         - name: Show computed version
           run: |
             echo "next_prerelease_tag = ${{ steps.ver.outputs.next_prerelease_tag }}"
             echo "next_stable_tag = ${{ steps.ver.outputs.next_stable_tag }}"
+            echo "next_stable_tag_greater_than_latest = ${{ steps.ver.outputs.next_stable_tag_greater_than_latest }}"
+            echo "next_prerelease_tag_greater_than_latest = ${{ steps.ver.outputs.next_prerelease_tag_greater_than_latest }}"
             echo "commits_since_latest_tag = ${{ steps.ver.outputs.commits_since_latest_tag }}"        
 
     stable-release-pr:
