@@ -39,5 +39,5 @@ func statusHandler(w http.ResponseWriter, req *http.Request) {
 
 func metricsHandler(w http.ResponseWriter, req *http.Request) {
 	w.WriteHeader(200)
-	w.Write([]byte("metrics"))
+	w.Write([]byte("metrics."))
 }
