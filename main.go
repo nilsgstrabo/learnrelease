@@ -28,7 +28,7 @@ func rootHandler(w http.ResponseWriter, req *http.Request) {
 
 func apiHandler(w http.ResponseWriter, req *http.Request) {
 	w.WriteHeader(200)
-	w.Write([]byte("hello world"))
+	w.Write([]byte("hello universe"))
 }
 
 func statusHandler(w http.ResponseWriter, req *http.Request) {
