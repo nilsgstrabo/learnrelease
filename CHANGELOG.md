@@ -2,6 +2,72 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.1](https://github.com/nilsgstrabo/learnrelease/compare/v2.1.0..v2.1.1) - 2025-07-08
+
+### 🐛 Bug Fixes
+
+- Fix 1 - ([6cc3f74](https://github.com/nilsgstrabo/learnrelease/commit/6cc3f7411660ab931dc3ea726367913b65016c2d)) by @nilsgstrabo
+
+- Add zerolog - ([3909dc6](https://github.com/nilsgstrabo/learnrelease/commit/3909dc6109caba8e4735e4bf574c961479b6012b)) by @nilsgstrabo
+
+
+### ⚙️ Miscellaneous Tasks
+
+- Docker metadata - ([3e93b8d](https://github.com/nilsgstrabo/learnrelease/commit/3e93b8ddddfaaf21907812a52b90a9925f06a4f6)) by @nilsgstrabo
+
+- Remove GH_TOKEN - ([35c184b](https://github.com/nilsgstrabo/learnrelease/commit/35c184bbcd23a4c378bbd8205fec9637a9e5d496)) by @nilsgstrabo
+
+- Gh_token back - ([38d3106](https://github.com/nilsgstrabo/learnrelease/commit/38d31068c63420b99f12991e8546a07315a7270c)) by @nilsgstrabo
+
+- Test release - ([70392a2](https://github.com/nilsgstrabo/learnrelease/commit/70392a26d660bf27afca9cb889df40c06bfc3290)) by @nilsgstrabo
+
+- Test - ([7a15def](https://github.com/nilsgstrabo/learnrelease/commit/7a15def127b8454cc587b6d4481fbcf18eed92db)) by @nilsgstrabo
+
+- Set GH_TOKEN - ([790e5e5](https://github.com/nilsgstrabo/learnrelease/commit/790e5e54bfa3b347ff624d9d23dadce6c27fff15)) by @nilsgstrabo
+
+- Do checkout - ([da24d3e](https://github.com/nilsgstrabo/learnrelease/commit/da24d3edbb9833d527e4686e761418e55818b16c)) by @nilsgstrabo
+
+- Test - ([07eb6c9](https://github.com/nilsgstrabo/learnrelease/commit/07eb6c99522e756d16333db32265531d5fc5240e)) by @nilsgstrabo
+
+- Test docker and helm publish - ([30881e2](https://github.com/nilsgstrabo/learnrelease/commit/30881e24fcd958710f82f2f454efecd04126adf0)) by @nilsgstrabo
+
+- Test output - ([3ad293d](https://github.com/nilsgstrabo/learnrelease/commit/3ad293dd8a633306fd1fc2f32cb6fd1cc5c27af6)) by @nilsgstrabo
+
+- Contents write - ([6f1b8e7](https://github.com/nilsgstrabo/learnrelease/commit/6f1b8e776a989d9df0c61d0f31a07efac16d1a47)) by @nilsgstrabo
+
+- Set registry - ([7b50602](https://github.com/nilsgstrabo/learnrelease/commit/7b50602246d00e6bfb73b902b633fab31679874c)) by @nilsgstrabo
+
+- Set CR_TOKEN - ([db2b521](https://github.com/nilsgstrabo/learnrelease/commit/db2b521c6f6007f962aa82a374ee9b9c58df0d2c)) by @nilsgstrabo
+
+- Manual helm package - ([4e3b371](https://github.com/nilsgstrabo/learnrelease/commit/4e3b371cef287b2659e7f3e6bd55835d856c5e7d)) by @nilsgstrabo
+
+- Use hlem 3.18.3 - ([910181b](https://github.com/nilsgstrabo/learnrelease/commit/910181b8cc0ead480f894467ef4c9a5794ca9943)) by @nilsgstrabo
+
+- Add steps to create tag and release. labels release PR - ([118133e](https://github.com/nilsgstrabo/learnrelease/commit/118133ed07013bbdecb71d115bfaa47539a7a358)) by @nilsgstrabo
+
+- Release body - ([02664f6](https://github.com/nilsgstrabo/learnrelease/commit/02664f670fe35d9d2abb3689078a66d4a44218a6)) by @nilsgstrabo
+
+- Test - ([7dd0c65](https://github.com/nilsgstrabo/learnrelease/commit/7dd0c65a46d49c2fe7711683620bc18b7998403d)) by @nilsgstrabo
+
+- Fix - ([18b6e16](https://github.com/nilsgstrabo/learnrelease/commit/18b6e1693b9996dc2e816ffec2cf47b9bb7c6f2c)) by @nilsgstrabo
+
+- Test with GITHUB_TOKEN - ([cbd70ad](https://github.com/nilsgstrabo/learnrelease/commit/cbd70ad13623b3515c5c4a81321440d83a6d15d6)) by @nilsgstrabo
+
+- Try without target in gh release create - ([7587929](https://github.com/nilsgstrabo/learnrelease/commit/7587929570e399afc50f34544071714362d819e0)) by @nilsgstrabo
+
+- Custom token - ([2fc0619](https://github.com/nilsgstrabo/learnrelease/commit/2fc0619a102a44fa79862ecfd4e071b33f132d35)) by @nilsgstrabo
+
+- Fix misspelled arg - ([1354be4](https://github.com/nilsgstrabo/learnrelease/commit/1354be4583315f0a950d3f777a2dd1cefe1de2c2)) by @nilsgstrabo
+
+- Handle release notes internally in step - ([cc6b9b5](https://github.com/nilsgstrabo/learnrelease/commit/cc6b9b5978ed782bac744fbf10499fe014d2f831)) by @nilsgstrabo
+
+- Set permissions - ([2a6335e](https://github.com/nilsgstrabo/learnrelease/commit/2a6335edf22d05ad617e5ab2625e29affb06454b)) by @nilsgstrabo
+
+- Fix permissions - ([c451ba7](https://github.com/nilsgstrabo/learnrelease/commit/c451ba7d654abef5a55a11971fcf2fdbaa395036)) by @nilsgstrabo
+
+- Detect if version is prerelease - ([faab192](https://github.com/nilsgstrabo/learnrelease/commit/faab192f8c2faee7a9f456adb43ad54be98d11fa)) by @nilsgstrabo
+
+
 ## [2.1.0](https://github.com/nilsgstrabo/learnrelease/compare/v2.0.0..v2.1.0) - 2025-07-07
 
 ### 🚀 Features
