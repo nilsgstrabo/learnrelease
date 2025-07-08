@@ -36,13 +36,13 @@ jobs:
         - name: Install git-semver
           run: |
             go install github.com/psanetra/git-semver/cli@v1.1.2
-            # mv $(which cli) $(dirname $(which cli))/git-semver
+            mv $(which cli) $(dirname $(which cli))/git-semver
         - name: Build release and prerelease tag
           id: ver
           run: |
-            next_prerelease_tag=v$(cli next --pre-release-tag $PRERELEASE_SUFFIX --pre-release-counter)
-            next_stable_tag=v$(cli next)
-            latest_tag=v$(cli latest --include-pre-releases)
+            next_prerelease_tag=v$(git-semver next --pre-release-tag $PRERELEASE_SUFFIX --pre-release-counter)
+            next_stable_tag=v$(git-semver next)
+            latest_tag=v$(git-semver latest --include-pre-releases)
 
             if git show-ref --quiet --verify "refs/tags/${latest_tag}"; then
                 echo "Counting commits since ${latest_tag}"
