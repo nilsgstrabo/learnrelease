@@ -18,6 +18,7 @@ func initHandler() http.Handler {
 	mux.HandleFunc("/", rootHandler)
 	mux.HandleFunc("/api", apiHandler)
 	mux.HandleFunc("/status", statusHandler)
+	mux.HandleFunc("/metrics", metricsHandler)
 	return mux
 }
 
@@ -36,6 +37,7 @@ func statusHandler(w http.ResponseWriter, req *http.Request) {
 	w.Write([]byte("success"))
 }
 
-func Magic() string {
-	return "magic1"
+func metricsHandler(w http.ResponseWriter, req *http.Request) {
+	w.WriteHeader(200)
+	w.Write([]byte("metrics"))
 }
