@@ -21,8 +21,10 @@ jobs:
       permissions:
         contents: read
       outputs:
-        next_prerelease_tag: ${{ steps.ver.outputs.next_prerelease_tag }}
         next_stable_tag: ${{ steps.ver.outputs.next_stable_tag }}
+        next_prerelease_tag: ${{ steps.ver.outputs.next_prerelease_tag }}
+        next_stable_tag_greater_than_latest: ${{ steps.ver.outputs.next_stable_tag_greater_than_latest }}
+        next_prerelease_tag_greater_than_latest: ${{ steps.ver.outputs.next_prerelease_tag_greater_than_latest }}
         latest_tag: ${{ steps.ver.outputs.latest_tag }}
         commits_since_latest_tag: ${{ steps.ver.outputs.commits_since_latest_tag }}
       steps:
@@ -88,6 +90,7 @@ jobs:
             fetch-depth: 0
             ref: main
         - name: Generate stable release changelog
+          if: needs.metadata.outputs.next_stable_tag_greater_than_latest == 'true'
           uses: orhun/git-cliff-action@v4
           with:
             config: cliff.toml
@@ -97,6 +100,7 @@ jobs:
             OUTPUT: CHANGELOG.md
 
         - name: Generate stable release changelog for PR body
+          if: needs.metadata.outputs.next_stable_tag_greater_than_latest == 'true'  
           id: stable-changelog
           uses: orhun/git-cliff-action@v4
           with:
@@ -107,6 +111,7 @@ jobs:
             OUTPUT: ${{ runner.temp }}/stablechangelog.md
 
         - name: Update stable version in Chart.yaml
+          if: needs.metadata.outputs.next_stable_tag_greater_than_latest == 'true'
           env:
             tag: ${{ needs.metadata.outputs.next_stable_tag }}
           run: >
