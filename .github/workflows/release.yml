@@ -58,25 +58,22 @@ jobs:
         run: |
           set -Eeuo pipefail
           pr_number=${{ matrix.release-pr.number }}
-          pr_info=$(gh pr view $pr_number --json title,labels,mergeCommit,state,number,body | jq 'select(.state=="MERGED" and (.labels[] | .name=="release: pending"))')
+          pr_info=$(gh pr view $pr_number --json title,labels,mergeCommit,state,number | jq 'select(.state=="MERGED" and (.labels[] | .name=="release: pending"))')
           [[ -z "$pr_info" ]] && { echo "Pull request $pr_number has invalid release state"; exit 1; }
 
           commit=$(echo $pr_info | jq -r .mergeCommit.oid)
           version=$(git show "$commit":charts/learnrelease/Chart.yaml | yq .version)
           version=${version#v}
           tag=v${version}
-          release_body=$(echo $pr_info | jq -r .body)
 
           echo "commit=$commit" >>"$GITHUB_OUTPUT"
           echo "version=$version" >>"$GITHUB_OUTPUT"
           echo "tag=$tag" >>"$GITHUB_OUTPUT"
-          echo "release_body="$release_body"" >>"$GITHUB_OUTPUT"
       - name: Print release metadata
         run: |
           echo "commit: ${{ steps.metadata.outputs.commit }}"
           echo "version: ${{ steps.metadata.outputs.version }}"
           echo "tag: ${{ steps.metadata.outputs.tag }}"
-          echo "release_body: ${{ steps.metadata.outputs.release_body }}"
       - uses: actions/checkout@v4
         with:
           ref: ${{ steps.metadata.outputs.commit }}
@@ -125,8 +122,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.RELEASE_GH_TOKEN }}
         run: |
+          notes=$(gh pr view ${{ matrix.release-pr.number }} --json body | jq -r .body)
           gh release create ${{ steps.metadata.outputs.tag }} \
-            --notes "${{ steps.metadata.outputs.release_body }}" \
+            --notes "$notes" \
             --target ${{ steps.metadata.outputs.commit }} \
             --title ${{ steps.metadata.outputs.tag }}
       - name: Mark PR as tagged
