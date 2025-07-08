@@ -23,7 +23,7 @@ jobs:
       - name: Metadata
         id: metadata
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pending_releases=$(gh pr list --json title,number --state merged --label "release: pending")
           pending_releases_count=$(echo $pending_releases | jq '. | length')
@@ -44,6 +44,7 @@ jobs:
     permissions: 
       contents: write
       packages: write
+      
     env:
       CONTAINER_REGISTRY: ghcr.io
     steps:
@@ -53,7 +54,7 @@ jobs:
       - name: Release metadata
         id: metadata
         env:
-          GH_TOKEN: ${{ github.token }}  
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
         run: |
           set -Eeuo pipefail
           pr_number=${{ matrix.release-pr.number }}
@@ -122,7 +123,7 @@ jobs:
           helm push learnrelease-${{ steps.metadata.outputs.version }}.tgz $oci_repo
       - name: Create tag and release
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release create ${{ steps.metadata.outputs.tag }} \
             --notes "${{ steps.metadata.outputs.release_body }}" \
@@ -130,7 +131,7 @@ jobs:
             --title ${{ steps.metadata.outputs.tag }}
       - name: Mark PR as tagged
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh pr edit ${{ matrix.release-pr.number }} --remove-label "release: pending" --add-label "release: tagged"
       # - name: Helm release
