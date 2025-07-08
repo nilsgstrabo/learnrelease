@@ -29,7 +29,6 @@ jobs:
         - uses: actions/checkout@v4
           with:
             fetch-depth: 0
-            # ref: refs/heads/main
         - uses: actions/setup-go@v5
           with:
               go-version-file: go.mod
@@ -54,13 +53,11 @@ jobs:
 
             echo "next_prerelease_tag=$next_prerelease_tag" >>"$GITHUB_OUTPUT"
             echo "next_stable_tag=$next_stable_tag" >>"$GITHUB_OUTPUT"
-            echo "latest_tag=$latest_tag" >>"$GITHUB_OUTPUT"
             echo "commits_since_latest_tag=$commits_since_latest_tag" >>"$GITHUB_OUTPUT"
         - name: Show computed version
           run: |
             echo "next_prerelease_tag = ${{ steps.ver.outputs.next_prerelease_tag }}"
             echo "next_stable_tag = ${{ steps.ver.outputs.next_stable_tag }}"
-            echo "latest_tag = ${{ steps.ver.outputs.latest_tag }}"
             echo "commits_since_latest_tag = ${{ steps.ver.outputs.commits_since_latest_tag }}"        
 
     stable-release-pr:
