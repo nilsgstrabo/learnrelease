@@ -127,7 +127,7 @@ jobs:
         run: |
           gh release create ${{ steps.metadata.outputs.tag }} \
             --notes "${{ steps.metadata.outputs.release_body }}" \
-            --tagret ${{ steps.metadata.outputs.commit }} \
+            --target ${{ steps.metadata.outputs.commit }} \
             --title ${{ steps.metadata.outputs.tag }}
       - name: Mark PR as tagged
         env:
