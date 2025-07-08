@@ -1,9 +1,16 @@
 package main
 
-import "net/http"
+import (
+	"net/http"
+
+	"github.com/rs/zerolog/log"
+)
 
 func main() {
-	http.ListenAndServe(":8080", initHandler())
+	log.Info().Msg("starting")
+	err := http.ListenAndServe(":8080", initHandler())
+	log.Info().Err(err).Msg("stopping")
+
 }
 
 func initHandler() http.Handler {
