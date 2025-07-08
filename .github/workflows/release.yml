@@ -66,15 +66,21 @@ jobs:
           version=$(git show "$commit":charts/learnrelease/Chart.yaml | yq .version)
           version=${version#v}
           tag=v${version}
+          is_prerelease="false"
+          if [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+- ]]; then
+              is_prerelease="true"
+          fi
 
           echo "commit=$commit" >>"$GITHUB_OUTPUT"
           echo "version=$version" >>"$GITHUB_OUTPUT"
           echo "tag=$tag" >>"$GITHUB_OUTPUT"
+          echo "is_prerelease=$is_prerelease" >>"$GITHUB_OUTPUT"
       - name: Print release metadata
         run: |
           echo "commit: ${{ steps.metadata.outputs.commit }}"
           echo "version: ${{ steps.metadata.outputs.version }}"
           echo "tag: ${{ steps.metadata.outputs.tag }}"
+          echo "is_prerelease: ${{ steps.metadata.outputs.is_prerelease }}"
       - uses: actions/checkout@v4
         with:
           ref: ${{ steps.metadata.outputs.commit }}
@@ -127,19 +133,16 @@ jobs:
           gh release create ${{ steps.metadata.outputs.tag }} \
             --notes "$notes" \
             --target ${{ steps.metadata.outputs.commit }} \
-            --title ${{ steps.metadata.outputs.tag }}
+            --title ${{ steps.metadata.outputs.tag }} \
+            --prerelease=${{ steps.metadata.outputs.is_prerelease }}
       - name: Mark PR as tagged
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr edit ${{ matrix.release-pr.number }} --remove-label "release: pending" --add-label "release: tagged"
-      # - name: Helm release
-      #   id: helm-release
-      #   uses: helm/chart-releaser-action@v1
-      #   env:
-      #     CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     charts_dir: charts/learnrelease
+          gh pr edit ${{ matrix.release-pr.number }} \
+            --remove-label "release: pending" \
+            --add-label "release: tagged"
+
 
 
 
