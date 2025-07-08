@@ -105,6 +105,7 @@ jobs:
         - name: Create stable release PR
           uses: peter-evans/create-pull-request@v7
           with:
+            base: main
             delete-branch: true
             title: "chore: release ${{ needs.metadata.outputs.next_stable_tag }}"
             branch: release/stable
@@ -148,6 +149,7 @@ jobs:
         - name: Create prerelease PR
           uses: peter-evans/create-pull-request@v7
           with:
+            base: main
             delete-branch: true
             title: "chore: prerelease ${{ needs.metadata.outputs.next_prerelease_tag }}"
             branch: release/prerelease
