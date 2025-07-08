@@ -23,7 +23,7 @@ jobs:
       - name: Metadata
         id: metadata
         env:
-          GH_TOKEN: ${{ github.token }}  
+          GH_TOKEN: ${{ github.token }}
         run: |
           pending_releases=$(gh pr list --json title,number --state merged --label "release: pending")
           pending_releases_count=$(echo $pending_releases | jq '. | length')
@@ -120,7 +120,19 @@ jobs:
           helm package .
           oci_repo=oci://${{ env.CONTAINER_REGISTRY }}/${{ github.repository }}/helm
           helm push learnrelease-${{ steps.metadata.outputs.version }}.tgz $oci_repo
-
+      - name: Create tag and release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create ${{ steps.metadata.outputs.tag }} \
+            --notes "${{ steps.metadata.outputs.release_body }}" \
+            --target ${{ steps.metadata.outputs.commit }} \
+            --title ${{ steps.metadata.outputs.tag }}
+      - name: Mark PR as tagged
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr edit ${{ matrix.release-pr.number }} --remove-label "release: pending" --add-label "release: tagged"
       # - name: Helm release
       #   id: helm-release
       #   uses: helm/chart-releaser-action@v1
