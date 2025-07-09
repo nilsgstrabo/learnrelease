@@ -1,0 +1,13 @@
+name: Release
+on:
+  workflow_dispatch:
+    inputs:
+      pull_request_number:
+        description: Pull request to release
+        type: number
+        required: true
+jobs:
+  release:
+    uses: nilsgstrabo/learnrelease/.github/workflows/template-release-pr.yml@main
+    with:
+      pull_request_number: ${{ inputs.pull_request_number }}
