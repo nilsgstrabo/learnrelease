@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.2](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.1..v2.2.2) - 2025-07-09
+
+### 🐛 Bug Fixes
+
+- *(api)* Root 5 - ([f1f4aba](https://github.com/nilsgstrabo/learnrelease/commit/f1f4aba3073717cdb5ea69095db3178064ccd4dc)) by @nilsgstrabo
+
+- *(api)* Root 6 - ([537626e](https://github.com/nilsgstrabo/learnrelease/commit/537626e5bf765f1be888d48d52e2a998a0560f9a)) by @nilsgstrabo
+
+- Root 4 - ([f8385f3](https://github.com/nilsgstrabo/learnrelease/commit/f8385f361787fc0afd22cb8411dbfae55f075be8)) by @nilsgstrabo
+
+
+### ⚙️ Miscellaneous Tasks
+
+- *(prepare-release)* Rename git-semver - ([f29084e](https://github.com/nilsgstrabo/learnrelease/commit/f29084e3aa89c43fa5082d6b72ee0d37ea198e25)) by @nilsgstrabo
+
+- *(prepare-release)* Remove  latest-tag from output - ([d3e1b89](https://github.com/nilsgstrabo/learnrelease/commit/d3e1b895334f03ca0a27a7ed13139ab73b550732)) by @nilsgstrabo
+
+- *(prepare-release)* Compare next tags with latest - ([6a667f8](https://github.com/nilsgstrabo/learnrelease/commit/6a667f81af287d0e803f6aaa1951df1664903b7c)) by @nilsgstrabo
+
+- *(prepare-release)* Conditionla update of changelog and charts.yaml - ([55e140a](https://github.com/nilsgstrabo/learnrelease/commit/55e140a2b08b13f4ee50eaf771964737096f43d4)) by @nilsgstrabo
+
+- *(prepare-release)* Prerelease condition - ([9c4dfd7](https://github.com/nilsgstrabo/learnrelease/commit/9c4dfd745013e308079d3d17dea6c37413114670)) by @nilsgstrabo
+
+- Test - ([4618f23](https://github.com/nilsgstrabo/learnrelease/commit/4618f233e98ca9ee968c3ed48005d9c62876b2c0)) by @nilsgstrabo
+
+- Conditional prerelease pr - ([3e81426](https://github.com/nilsgstrabo/learnrelease/commit/3e814260fe5d5b7eea85595dd369529ef1cec826)) by @nilsgstrabo
+
+
 ## [2.2.1](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.0..v2.2.1) - 2025-07-08
 
 ### 🐛 Bug Fixes
