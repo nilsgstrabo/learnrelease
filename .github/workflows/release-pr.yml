@@ -10,6 +10,7 @@ jobs:
   release:
     permissions:
       pull-requests: write
+      contents: read
     uses: nilsgstrabo/learnrelease/.github/workflows/template-release-pr.yml@main
     with:
       pull_request_number: ${{ inputs.pull_request_number }}
