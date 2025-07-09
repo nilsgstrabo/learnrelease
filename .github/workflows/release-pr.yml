@@ -8,6 +8,8 @@ on:
         required: true
 jobs:
   release:
+    permissions:
+      pull-requests: write
     uses: nilsgstrabo/learnrelease/.github/workflows/template-release-pr.yml@main
     with:
       pull_request_number: ${{ inputs.pull_request_number }}
