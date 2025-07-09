@@ -45,7 +45,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
         run: |
           set -Eeuo pipefail
-          pr_number=${{ inputs.pull_request_number }}
+          pr_number=${{ inputs.pull-request-number }}
           pr_info=$(gh pr view $pr_number --json title,labels,mergeCommit,state,number | jq 'select(.state=="MERGED" and (.labels[] | .name=="release: pending"))')
           [[ -z "$pr_info" ]] && { echo "Pull request $pr_number has invalid release state"; exit 1; }
 
