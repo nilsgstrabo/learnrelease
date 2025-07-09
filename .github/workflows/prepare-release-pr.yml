@@ -13,6 +13,10 @@ concurrency:
 
 jobs:
   prepare-release-pr:
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     uses: nilsgstrabo/learnrelease/.github/workflows/template-prepare-release-pr.yml@main
     with:
       branch: main
