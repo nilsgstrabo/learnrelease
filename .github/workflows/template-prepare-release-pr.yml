@@ -62,7 +62,7 @@ jobs:
         - name: Build release and prerelease tag
           id: ver
           run: |
-            next_prerelease_tag=v$(git-semver next --pre-release-tag $PRERELEASE_SUFFIX --pre-release-counter)
+            next_prerelease_tag=v$(git-semver next --pre-release-tag ${{ inputs.pre-release-version-prefix }} --pre-release-counter)
             next_stable_tag=v$(git-semver next)
             latest_tag=v$(git-semver latest --include-pre-releases)
 
