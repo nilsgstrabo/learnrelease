@@ -4,29 +4,24 @@ on:
     inputs:
       pull_request_number:
         description: Pull request to release
-        type: number
+        type: string
         required: true
 jobs:
   release:
     permissions:
       pull-requests: write
       contents: read
+    uses: nilsgstrabo/learnrelease/.github/workflows/template-release-pr.yml@main
+    with:
+      pull_request_number: "${{ inputs.pull_request_number }}"
+  result:
     runs-on: ubuntu-latest
+    needs: release
     steps:
-      - name: test
+      - name: Print release output
         run: |
-          echo ${{ inputs.pull_request_number }}
-    # uses: nilsgstrabo/learnrelease/.github/workflows/template-release-pr.yml@main
-    # with:
-    #   pull_request_number: "${{ inputs.pull_request_number }}"
-  # result:
-  #   runs-on: ubuntu-latest
-  #   needs: release
-  #   steps:
-  #     - name: Print release outcome
-  #       run: |
-  #         echo "version: ${{ needs.release.outputs.version }}"
-  #         echo "tag: ${{ needs.release.outputs.tag }}"
-  #         echo "is_prerelease: ${{ needs.release.outputs.is_prerelease }}"
-  #         echo "commit: ${{ needs.release.outputs.commit }}"
+          echo "version: ${{ needs.release.outputs.version }}"
+          echo "tag: ${{ needs.release.outputs.tag }}"
+          echo "is_prerelease: ${{ needs.release.outputs.is_prerelease }}"
+          echo "commit: ${{ needs.release.outputs.commit }}"
     

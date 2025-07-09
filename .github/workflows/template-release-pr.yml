@@ -5,20 +5,20 @@ on:
       pull_request_number:
         description: The pull request number to create release and tag from
         required: true
-        type: number
-    # outputs:
-    #   commit:
-    #     description: The commit that was released
-    #     value: ${{ jobs.metadata.outputs.commit }}
-    #   version:
-    #     description: The commit that was released
-    #     value: ${{ jobs.metadata.outputs.version }}
-    #   tag:
-    #     description: The commit that was released
-    #     value: ${{ jobs.metadata.outputs.tag }}
-    #   is_prerelease:
-    #     description: The commit that was released
-    #     value: ${{ jobs.metadata.outputs.is_prerelease }}
+        type: string
+    outputs:
+      commit:
+        description: The commit that was released
+        value: ${{ jobs.metadata.outputs.commit }}
+      version:
+        description: The commit that was released
+        value: ${{ jobs.metadata.outputs.version }}
+      tag:
+        description: The commit that was released
+        value: ${{ jobs.metadata.outputs.tag }}
+      is_prerelease:
+        description: The commit that was released
+        value: ${{ jobs.metadata.outputs.is_prerelease }}
         
 jobs:
   metadata:
@@ -27,11 +27,11 @@ jobs:
     permissions: 
       pull-requests: read
       contents: read
-    # outputs:
-    #   commit: ${{ steps.metadata.outputs.commit }}
-    #   version: ${{ steps.metadata.outputs.version }}
-    #   tag: ${{ steps.metadata.outputs.tag }}
-    #   is_prerelease: ${{ steps.metadata.outputs.is_prerelease }}
+    outputs:
+      commit: ${{ steps.metadata.outputs.commit }}
+      version: ${{ steps.metadata.outputs.version }}
+      tag: ${{ steps.metadata.outputs.tag }}
+      is_prerelease: ${{ steps.metadata.outputs.is_prerelease }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -59,34 +59,34 @@ jobs:
           # echo "version=$version" >>"$GITHUB_OUTPUT"
           # echo "tag=$tag" >>"$GITHUB_OUTPUT"
           # echo "is_prerelease=$is_prerelease" >>"$GITHUB_OUTPUT"
-      # - name: Print release metadata
-      #   run: |
-      #     echo "commit: ${{ steps.metadata.outputs.commit }}"
-      #     echo "version: ${{ steps.metadata.outputs.version }}"
-      #     echo "tag: ${{ steps.metadata.outputs.tag }}"
-      #     echo "is_prerelease: ${{ steps.metadata.outputs.is_prerelease }}"
-  # release:
-  #   name: Release
-  #   runs-on: ubuntu-latest
-  #   permissions: 
-  #     pull-requests: write
-  #   needs: metadata
-  #   steps:
+      - name: Print release metadata
+        run: |
+          echo "commit: ${{ steps.metadata.outputs.commit }}"
+          echo "version: ${{ steps.metadata.outputs.version }}"
+          echo "tag: ${{ steps.metadata.outputs.tag }}"
+          echo "is_prerelease: ${{ steps.metadata.outputs.is_prerelease }}"
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    permissions: 
+      pull-requests: write
+    needs: metadata
+    steps:
       
-  #     - name: Create tag and release
-  #       env:
-  #         GH_TOKEN: ${{ secrets.RELEASE_GH_TOKEN }}
-  #       run: |
-  #         notes=$(gh pr view ${{ inputs.pull_request_number }} --json body | jq -r .body)
-  #         gh release create ${{ needs.metadata.outputs.tag }} \
-  #           --notes "$notes" \
-  #           --target ${{ needs.metadata.outputs.commit }} \
-  #           --title ${{ needs.metadata.outputs.tag }} \
-  #           --prerelease=${{ needs.metadata.outputs.is_prerelease }}
-  #     - name: Mark pull request as tagged
-  #       env:
-  #         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #       run: |
-  #         gh pr edit ${{ inputs.pull_request_number }} \
-  #           --remove-label "release: pending" \
-  #           --add-label "release: tagged"
+      - name: Create tag and release
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_GH_TOKEN }}
+        run: |
+          notes=$(gh pr view ${{ inputs.pull_request_number }} --json body | jq -r .body)
+          gh release create ${{ needs.metadata.outputs.tag }} \
+            --notes "$notes" \
+            --target ${{ needs.metadata.outputs.commit }} \
+            --title ${{ needs.metadata.outputs.tag }} \
+            --prerelease=${{ needs.metadata.outputs.is_prerelease }}
+      - name: Mark pull request as tagged
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr edit ${{ inputs.pull_request_number }} \
+            --remove-label "release: pending" \
+            --add-label "release: tagged"
