@@ -14,6 +14,12 @@ concurrency:
 env:
     PRERELEASE_SUFFIX: rc
     BRANCH: main
+    CLIFF_CONFIG_PATH: cliff.toml
+    CHANGELOG_PATH: CHANGELOG.md
+    HELM_CHART_PATH: charts/learnrelease/Chart.yaml
+    PRE_RELEASE_PR_BRANCH: release/prerelease
+    STABLE_RELEASE_PR_BRANCH: release/stable
+
 
 jobs:
     metadata:
@@ -94,18 +100,18 @@ jobs:
           if: needs.metadata.outputs.next_stable_tag_greater_than_latest == 'true'
           uses: orhun/git-cliff-action@v4
           with:
-            config: cliff.toml
+            config: ${{ env.CLIFF_CONFIG_PATH }}
             args:
               -vv --tag ${{ needs.metadata.outputs.next_stable_tag }} --ignore-tags ${{ env.PRERELEASE_SUFFIX }}
           env:
-            OUTPUT: CHANGELOG.md
+            OUTPUT: ${{ env.CHANGELOG_PATH }}
 
         - name: Generate stable release changelog for PR body
           if: needs.metadata.outputs.next_stable_tag_greater_than_latest == 'true'  
           id: stable-changelog
           uses: orhun/git-cliff-action@v4
           with:
-            config: cliff.toml
+            config: ${{ env.CLIFF_CONFIG_PATH }}
             args:
               -vv -u --strip all --tag ${{ needs.metadata.outputs.next_stable_tag }} --ignore-tags ${{ env.PRERELEASE_SUFFIX }}
           env:
@@ -118,7 +124,7 @@ jobs:
           run: >
             yq
             '.version = (strenv(tag) | sub("^v";"")), .appVersion = (strenv(tag) | sub("^v";""))'
-            -i charts/learnrelease/Chart.yaml
+            -i ${{ env.HELM_CHART_PATH }}
             
         - name: Create stable release PR
           uses: peter-evans/create-pull-request@v7
@@ -126,14 +132,14 @@ jobs:
             base: ${{ env.BRANCH }}
             delete-branch: true
             title: "chore: release ${{ needs.metadata.outputs.next_stable_tag }}"
-            branch: release/stable
+            branch: ${{ env.STABLE_RELEASE_PR_BRANCH }}
             labels: "release: pending"
             body: ${{ steps.stable-changelog.outputs.content }}
             commit-message: "chore(release): prepare for stable release ${{ needs.metadata.outputs.next_stable_tag }}"
             sign-commits: true
             add-paths: |
-              CHANGELOG.md
-              charts/learnrelease/Chart.yaml                
+              ${{ env.CHANGELOG_PATH }}
+              ${{ env.HELM_CHART_PATH }}
 
     prerelease-pr:
       name: Prerelease PR
@@ -153,7 +159,7 @@ jobs:
           id: unreleased-changelog
           uses: orhun/git-cliff-action@v4
           with:
-            config: cliff.toml
+            config: ${{ env.CLIFF_CONFIG_PATH }}
             args:
               -vv -u --strip all --tag ${{ needs.metadata.outputs.next_prerelease_tag }}
           env:
@@ -166,18 +172,17 @@ jobs:
           run: >
             yq
             '.version = (strenv(tag) | sub("^v";"")), .appVersion = (strenv(tag) | sub("^v";""))'
-            -i charts/learnrelease/Chart.yaml
+            -i ${{ env.HELM_CHART_PATH }}
         - name: Create prerelease PR
           uses: peter-evans/create-pull-request@v7
           with:
             base: ${{ env.BRANCH }}
             delete-branch: true
             title: "chore: prerelease ${{ needs.metadata.outputs.next_prerelease_tag }}"
-            branch: release/prerelease
+            branch: ${{ env.PRE_RELEASE_PR_BRANCH }}
             labels: "release: pending"
             body: ${{ steps.unreleased-changelog.outputs.content }}
             commit-message: "chore(release): prepare for prerelease ${{ needs.metadata.outputs.next_prerelease_tag }}"
             sign-commits: true
             add-paths: |
-              CHANGELOG.md
-              charts/learnrelease/Chart.yaml            
+              ${{ env.HELM_CHART_PATH }}
