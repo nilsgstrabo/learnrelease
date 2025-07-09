@@ -148,7 +148,7 @@ jobs:
             fetch-depth: 0
             ref: main
         - name: Generate prerelease changelog for PR body
-          if: needs.metadata.outputs.next_prerelease_tag_greater_than_latest == 'true'
+          if: needs.metadata.outputs.next_prerelease_tag_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_tag > 0
           id: unreleased-changelog
           uses: orhun/git-cliff-action@v4
           with:
@@ -159,7 +159,7 @@ jobs:
             OUTPUT: ${{ runner.temp }}/prereleasechangelog.md                
         - name: Update prerelease version in Chart.yaml
           # if: needs.metadata.outputs.commits_since_latest_tag > 0
-          if: needs.metadata.outputs.next_prerelease_tag_greater_than_latest == 'true'
+          if: needs.metadata.outputs.next_prerelease_tag_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_tag > 0
           env:
             tag: ${{ needs.metadata.outputs.next_prerelease_tag }}
           run: >
