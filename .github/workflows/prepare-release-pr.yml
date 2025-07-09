@@ -1,0 +1,26 @@
+name: Prepare release PR
+
+on:
+    push: 
+        tags:
+            - '**'
+        branches: 
+            - main
+    workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+
+jobs:
+  prepare-release-pr:
+    uses: nilsgstrabo/learnrelease/.github/workflows/template-prepare-release-pr.yml@main
+    with:
+      branch: main
+      changelog-path: CHANGELOG.md
+      helm-chart-path: charts/learnrelease/Chart.yaml
+      cliff-config-path: cliff.toml
+      pre-release-pr-branch: release/prerelease
+      stable-release-pr-branch: release/stable
+      pre-release-version-prefix: rc
+
+    
