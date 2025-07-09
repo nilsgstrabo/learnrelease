@@ -75,7 +75,9 @@ jobs:
       pull-requests: write
     needs: metadata
     steps:
-      
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Create tag and release
         env:
           GH_TOKEN: ${{ secrets.gh-release-token }}
