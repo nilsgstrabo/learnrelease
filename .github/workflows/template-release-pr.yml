@@ -2,10 +2,14 @@ name: create-release-from-pull-request
 on:
   workflow_call: 
     inputs:
-      pull_request_number:
+      pull-request-number:
         description: The pull request number to create release and tag from
         required: true
         type: string
+    secrets:
+      gh-release-token:
+        description: A Github token with permission to create GitHub release for a specific target commit
+        required: true
     outputs:
       commit:
         description: The commit that was released
@@ -16,7 +20,7 @@ on:
       tag:
         description: The commit that was released
         value: ${{ jobs.metadata.outputs.tag }}
-      is_prerelease:
+      is-prerelease:
         description: The commit that was released
         value: ${{ jobs.metadata.outputs.is_prerelease }}
         
@@ -74,9 +78,9 @@ jobs:
       
       - name: Create tag and release
         env:
-          GH_TOKEN: ${{ secrets.RELEASE_GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.gh-release-token }}
         run: |
-          notes=$(gh pr view ${{ inputs.pull_request_number }} --json body | jq -r .body)
+          notes=$(gh pr view ${{ inputs.pull-request-number }} --json body | jq -r .body)
           gh release create ${{ needs.metadata.outputs.tag }} \
             --notes "$notes" \
             --target ${{ needs.metadata.outputs.commit }} \
@@ -86,6 +90,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr edit ${{ inputs.pull_request_number }} \
+          gh pr edit ${{ inputs.pull-request-number }} \
             --remove-label "release: pending" \
             --add-label "release: tagged"

@@ -2,7 +2,7 @@ name: Release
 on:
   workflow_dispatch:
     inputs:
-      pull_request_number:
+      pull-request-number:
         description: Pull request to release
         type: string
         required: true
@@ -13,7 +13,7 @@ jobs:
       contents: read
     uses: nilsgstrabo/learnrelease/.github/workflows/template-release-pr.yml@main
     with:
-      pull_request_number: "${{ inputs.pull_request_number }}"
+      pull-request-number: "${{ inputs.pull-request-number }}"
   result:
     runs-on: ubuntu-latest
     needs: release
@@ -22,6 +22,6 @@ jobs:
         run: |
           echo "version: ${{ needs.release.outputs.version }}"
           echo "tag: ${{ needs.release.outputs.tag }}"
-          echo "is_prerelease: ${{ needs.release.outputs.is_prerelease }}"
+          echo "is-prerelease: ${{ needs.release.outputs.is-prerelease }}"
           echo "commit: ${{ needs.release.outputs.commit }}"
     
