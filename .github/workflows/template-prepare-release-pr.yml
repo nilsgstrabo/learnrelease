@@ -34,6 +34,11 @@ on:
       cliff-config-path:
         description: The path to cliff.toml configuration file, used to configure the layout of the changelog. See https://git-cliff.org/docs/configuration/ for more information.
         type: string
+      extra-files:
+        type: string
+        default: 
+          file1
+          file2
 
 jobs:
     metadata:
@@ -106,6 +111,8 @@ jobs:
         contents: write
         issues: write
       steps:
+        - run: |
+            echo "json: ${{ toJson(fromJson(inputs.extra-files)) }}"
         - uses: actions/checkout@v4
           with:
             fetch-depth: 0
