@@ -58,8 +58,8 @@ jobs:
           version=$(git show "$commit":"${{ inputs.version-file-path }}")
 
           # Check that extracted version is valid semver
-          if [[ ! "$new_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$ ]]; then
-            echo "Invalid version format. Use full semver: X.Y.Z, X.Y.Z-alpha, etc."
+          if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$ ]]; then
+            echo "Invalid version format for '"$version"'. Use full semver: X.Y.Z, X.Y.Z-alpha, etc."
             exit 1
           fi
 
