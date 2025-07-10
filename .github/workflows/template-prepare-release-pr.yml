@@ -113,6 +113,8 @@ jobs:
       steps:
         - name: test extra-files
           run: |
+            echo ${{ inputs.extra-files }}
+            echo "processing files"
             while IFS= read -r line; do
               echo "extra-file: $line"
             done <<< "${{ inputs.extra-files }}"
