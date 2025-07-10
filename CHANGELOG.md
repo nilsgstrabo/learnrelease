@@ -2,6 +2,98 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.6](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.5..v2.2.6) - 2025-07-10
+
+### 🐛 Bug Fixes
+
+- Root 10 - ([ab52405](https://github.com/nilsgstrabo/learnrelease/commit/ab52405d9afa54175d698a931d6ca16487a1c730)) by @nilsgstrabo
+
+- Count commits - ([a2565aa](https://github.com/nilsgstrabo/learnrelease/commit/a2565aa44dd1d1b62fc079e473edb2332e255ef0)) by @nilsgstrabo
+
+- Root 11 - ([7284ad1](https://github.com/nilsgstrabo/learnrelease/commit/7284ad141852fe6a2b6dc14396e47866a37e3e6b)) by @nilsgstrabo
+
+- Dummy 3 - ([ed599c5](https://github.com/nilsgstrabo/learnrelease/commit/ed599c51f5ec8761a586f5d6487b4ef2426a2f05)) by @nilsgstrabo
+
+- Deploy workflow - ([90642d5](https://github.com/nilsgstrabo/learnrelease/commit/90642d56b607a2d97af9195e7d5211ea84da6a89)) by @nilsgstrabo
+
+- Dummy 4 - ([4314a7a](https://github.com/nilsgstrabo/learnrelease/commit/4314a7ae05745707d41f704aa9e564072b3e7773)) by @nilsgstrabo
+
+- Root 12 - ([6d2ff17](https://github.com/nilsgstrabo/learnrelease/commit/6d2ff17a6f2eb9422d1ac29695dd95fb642809ea)) by @nilsgstrabo
+
+- Dummy 5 - ([5abbd29](https://github.com/nilsgstrabo/learnrelease/commit/5abbd299f60c073b8ccebc9867bd29c212748658)) by @nilsgstrabo
+
+- Dummy 6 - ([e96abf9](https://github.com/nilsgstrabo/learnrelease/commit/e96abf9251872ac3619c2af7029280ff5f84d9fc)) by @nilsgstrabo
+
+
+### ⚙️ Miscellaneous Tasks
+
+- Remove print job - ([5a40783](https://github.com/nilsgstrabo/learnrelease/commit/5a40783f053d895b90b2772363fb915b416d8250)) by @nilsgstrabo
+
+- Misc - ([6e52e39](https://github.com/nilsgstrabo/learnrelease/commit/6e52e393ef45df191bc79a22d3be189297bd7917)) by @nilsgstrabo
+
+- Rename workflow - ([21b073c](https://github.com/nilsgstrabo/learnrelease/commit/21b073cff55caf18bf59bd477c87a24741a9e57e)) by @nilsgstrabo
+
+- Test json input - ([fddf077](https://github.com/nilsgstrabo/learnrelease/commit/fddf0777a97412b58b953de7558eab73139ff537)) by @nilsgstrabo
+
+- Test - ([9497d42](https://github.com/nilsgstrabo/learnrelease/commit/9497d42f53b055fbdf1a8ad455123c7b981c9eb7)) by @nilsgstrabo
+
+- Test - ([7164cf7](https://github.com/nilsgstrabo/learnrelease/commit/7164cf78b3f70a6528395d9e10fd80d109903904)) by @nilsgstrabo
+
+- Multiline - ([9393e17](https://github.com/nilsgstrabo/learnrelease/commit/9393e1792c2e2bfece475f340ac8f5e4239e35f4)) by @nilsgstrabo
+
+- Test - ([de7e855](https://github.com/nilsgstrabo/learnrelease/commit/de7e855c955d19b562bc0cec22bf79eb39f358f5)) by @nilsgstrabo
+
+- Test - ([131179f](https://github.com/nilsgstrabo/learnrelease/commit/131179fc68d8bb81085bf0a7dc837baa7fc872de)) by @nilsgstrabo
+
+- Fix - ([5194d12](https://github.com/nilsgstrabo/learnrelease/commit/5194d12466639f513c7759607f546a598128dcf0)) by @nilsgstrabo
+
+- Use version instead of tag in release pr metadata - ([8ebd183](https://github.com/nilsgstrabo/learnrelease/commit/8ebd183b0431cc818f2b7c4e6b649ff526aaae6f)) by @nilsgstrabo
+
+- Extra-files - ([e253b15](https://github.com/nilsgstrabo/learnrelease/commit/e253b15b8304399170119d7747a007270741ec1e)) by @nilsgstrabo
+
+- Fix - ([2cfd246](https://github.com/nilsgstrabo/learnrelease/commit/2cfd246682611d24aa013d7de104302150d2cdd5)) by @nilsgstrabo
+
+- Check - ([d7f24e3](https://github.com/nilsgstrabo/learnrelease/commit/d7f24e3866a638c34e5c513047b8e5f008109102)) by @nilsgstrabo
+
+- Remove echo used for debugging - ([6c856d9](https://github.com/nilsgstrabo/learnrelease/commit/6c856d9f8b2f7cfa875b6582e1ca08789d99336e)) by @nilsgstrabo
+
+- Update release pr template workflow - ([12545b6](https://github.com/nilsgstrabo/learnrelease/commit/12545b6f36400bc9e97576ef33e82f5a77c05940)) by @nilsgstrabo
+
+- Fix - ([cf31692](https://github.com/nilsgstrabo/learnrelease/commit/cf316923ec31fe34517b99db6c5815becb42e680)) by @nilsgstrabo
+
+- Remove extra $ - ([44d3be5](https://github.com/nilsgstrabo/learnrelease/commit/44d3be5137f12dd1adf7a20a299fc62c36e2d6af)) by @nilsgstrabo
+
+- Fix tag and release template workflow - ([24f9c5d](https://github.com/nilsgstrabo/learnrelease/commit/24f9c5d56b585edfca6053701224be8620eb1fb4)) by @nilsgstrabo
+
+- Fix release pr template - ([1260059](https://github.com/nilsgstrabo/learnrelease/commit/12600598da94eb3d3dbb36360c1952df69bff595)) by @nilsgstrabo
+
+- Add safeguard to release template workflow - ([bd8277d](https://github.com/nilsgstrabo/learnrelease/commit/bd8277d27e709b91cc4e37ee7cd4d99583a91a62)) by @nilsgstrabo
+
+- Fix - ([6bd0c50](https://github.com/nilsgstrabo/learnrelease/commit/6bd0c5081feea2395546cb9acf8191c2b9732bc9)) by @nilsgstrabo
+
+- Misc - ([96c28b8](https://github.com/nilsgstrabo/learnrelease/commit/96c28b8b165db5b54482425c1c4e6191c2c95dc6)) by @nilsgstrabo
+
+- Deploy workflow - ([114eb38](https://github.com/nilsgstrabo/learnrelease/commit/114eb38abed9bbfd02f486b3075b3ee3c39d807b)) by @nilsgstrabo
+
+- Test tag pattern - ([8503438](https://github.com/nilsgstrabo/learnrelease/commit/8503438780b2d84fecede952e2a800edea5ac44a)) by @nilsgstrabo
+
+- Fix tag pattern - ([caf4b0e](https://github.com/nilsgstrabo/learnrelease/commit/caf4b0e81fe61273fa7dc46fce8463f0a13ad9bb)) by @nilsgstrabo
+
+- Run release workflow on push to main - ([820b578](https://github.com/nilsgstrabo/learnrelease/commit/820b578abeb32a4896f9d818533d3534e9b74455)) by @nilsgstrabo
+
+- Do not run release if there is nothing to release - ([94e3eee](https://github.com/nilsgstrabo/learnrelease/commit/94e3eee1a044177d4f8a7eee4376b6f76d6cd340)) by @nilsgstrabo
+
+- Fix - ([9943dba](https://github.com/nilsgstrabo/learnrelease/commit/9943dba60b0bfde99c9a5db762ad02a40ea2b577)) by @nilsgstrabo
+
+- Checkout on deploy helm - ([96947cd](https://github.com/nilsgstrabo/learnrelease/commit/96947cd737884bb6c6f96151edca3d44bf62783b)) by @nilsgstrabo
+
+- Some renaming - ([f30a156](https://github.com/nilsgstrabo/learnrelease/commit/f30a156ae5f35a669b0e96314faed63e2b9049bd)) by @nilsgstrabo
+
+- Add missing quote - ([8189272](https://github.com/nilsgstrabo/learnrelease/commit/81892724fa7f7e2c627fcfe32032adc3f36681ae)) by @nilsgstrabo
+
+- Fix extra line in version.txt - ([88d0a8f](https://github.com/nilsgstrabo/learnrelease/commit/88d0a8f802bb7d2e1dfe50688da74adb2837bfdd)) by @nilsgstrabo
+
+
 ## [2.2.5](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.4..v2.2.5) - 2025-07-10
 
 ### 🐛 Bug Fixes
