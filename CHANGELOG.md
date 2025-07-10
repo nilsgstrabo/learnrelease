@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.7](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.6..v2.2.7) - 2025-07-10
+
+### 🐛 Bug Fixes
+
+- Dummy 7 - ([282e484](https://github.com/nilsgstrabo/learnrelease/commit/282e48498b7ceaa93ad9ed829dae6b130b002217)) by @nilsgstrabo
+
+
+### ⚙️ Miscellaneous Tasks
+
+- Upload helm artifacts to release - ([db1a6f9](https://github.com/nilsgstrabo/learnrelease/commit/db1a6f97d7bd6585b5f12475fdcc8e1becfcb529)) by @nilsgstrabo
+
+
 ## [2.2.6](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.5..v2.2.6) - 2025-07-10
 
 ### 🐛 Bug Fixes
