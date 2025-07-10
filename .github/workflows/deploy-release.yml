@@ -71,6 +71,7 @@ jobs:
           helm registry login ${{env.OCI_REGISTRY }} \
             --username ${{ github.actor }} \
             --password ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v4
       - name: Helm package and push
         id: deploy-helm
         working-directory: charts/learnrelease
