@@ -65,6 +65,16 @@ All notable changes to this project will be documented in this file.
 
 - Fix template - ([8087c1c](https://github.com/nilsgstrabo/learnrelease/commit/8087c1c08556a2fd2c0169c6fe83d86aeaaf58aa)) by @nilsgstrabo
 
+- Change incorrect doc=>docs in cliff.toml - ([cb34f7d](https://github.com/nilsgstrabo/learnrelease/commit/cb34f7d1e46c4ee1c0eda030d0b3e1b4255125d1)) by @nilsgstrabo
+
+- Fix array output - ([f9d7a57](https://github.com/nilsgstrabo/learnrelease/commit/f9d7a57595a02e93e7ee6098fc0e66ac52025285)) by @nilsgstrabo
+
+- Matrix - ([6498180](https://github.com/nilsgstrabo/learnrelease/commit/6498180e4cdf55eb38fdb9904f88d23e5e1ac6db)) by @nilsgstrabo
+
+- Release pr workflow - ([f4a080a](https://github.com/nilsgstrabo/learnrelease/commit/f4a080a2576c036f420f99b2c736fcc3bb12b179)) by @nilsgstrabo
+
+- Rename worklfow - ([c9db532](https://github.com/nilsgstrabo/learnrelease/commit/c9db532956b8f7b85bddda4d06037cf85a073ad8)) by @nilsgstrabo
+
 
 ## [2.2.3](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.2..v2.2.3) - 2025-07-09
 
