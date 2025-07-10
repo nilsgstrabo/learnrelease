@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.9](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.8..v2.2.9) - 2025-07-10
+
+### 🐛 Bug Fixes
+
+- Gh token - ([a1874cd](https://github.com/nilsgstrabo/learnrelease/commit/a1874cdf7f49eb6db9c261eebfd55a5d9dabb94e)) by @nilsgstrabo
+
+- Gh token again - ([2d25597](https://github.com/nilsgstrabo/learnrelease/commit/2d25597f5bfe761486007113d66aa75afb295ee8)) by @nilsgstrabo
+
+
 ## [2.2.8](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.7..v2.2.8) - 2025-07-10
 
 ### 🐛 Bug Fixes
