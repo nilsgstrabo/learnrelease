@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.11](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.10..v2.2.11) - 2025-07-10
+
+### 🐛 Bug Fixes
+
+- Set working-dir - ([f9b8e99](https://github.com/nilsgstrabo/learnrelease/commit/f9b8e9900339350ee8d5b0f9182e78702b1ffa78)) by @nilsgstrabo
+
+
 ## [2.2.10](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.9..v2.2.10) - 2025-07-10
 
 ### 🐛 Bug Fixes
