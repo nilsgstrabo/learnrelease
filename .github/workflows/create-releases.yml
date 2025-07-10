@@ -1,4 +1,4 @@
-name: Create tag and releases for unrelease pull requests
+name: Create release and tags
 on:
   push:
     branches:
