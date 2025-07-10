@@ -21,16 +21,4 @@ jobs:
       pull-request-number: ${{ matrix.pull-request-number }}
     secrets:
       gh-release-token: ${{ secrets.RELEASE_GH_TOKEN }}
-  print-release-output:
-    runs-on: ubuntu-latest
-    needs: release-pull-request
-    steps:
-        - run: |
-            echo "is-prerelease: ${{ needs.release-pull-request.outputs.is-prerelease }}"
-            echo "version: ${{ needs.release-pull-request.outputs.version }}"
-            echo "tag: ${{ needs.release-pull-request.outputs.tag }}"
-            echo "commit: ${{ needs.release-pull-request.outputs.commit }}"
-  
-      
-
     
