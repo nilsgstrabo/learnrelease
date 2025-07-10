@@ -1,4 +1,4 @@
-name: Get metadata for unrelease pull requests
+name: Create tag and releases for unrelease pull requests
 on:
   workflow_dispatch:
   
