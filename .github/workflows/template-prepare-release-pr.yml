@@ -47,12 +47,12 @@ jobs:
       permissions:
         contents: read
       outputs:
-        next_stable_tag: ${{ steps.ver.outputs.next_stable_tag }}
-        next_prerelease_tag: ${{ steps.ver.outputs.next_prerelease_tag }}
-        next_stable_tag_greater_than_latest: ${{ steps.ver.outputs.next_stable_tag_greater_than_latest }}
-        next_prerelease_tag_greater_than_latest: ${{ steps.ver.outputs.next_prerelease_tag_greater_than_latest }}
-        latest_tag: ${{ steps.ver.outputs.latest_tag }}
-        commits_since_latest_tag: ${{ steps.ver.outputs.commits_since_latest_tag }}
+        next_stable_version: ${{ steps.ver.outputs.next_stable_version }}
+        next_prerelease_version: ${{ steps.ver.outputs.next_prerelease_version }}
+        next_stable_version_greater_than_latest: ${{ steps.ver.outputs.next_stable_version_greater_than_latest }}
+        next_prerelease_version_greater_than_latest: ${{ steps.ver.outputs.next_prerelease_version_greater_than_latest }}
+        latest_version: ${{ steps.ver.outputs.latest_version }}
+        commits_since_latest_version: ${{ steps.ver.outputs.commits_since_latest_version }}
       steps:
         - uses: actions/checkout@v4
           with:
@@ -67,40 +67,40 @@ jobs:
         - name: Build release and prerelease tag
           id: ver
           run: |
-            next_prerelease_tag=v$(git-semver next --pre-release-tag ${{ inputs.pre-release-version-prefix }} --pre-release-counter)
-            next_stable_tag=v$(git-semver next)
-            latest_tag=v$(git-semver latest --include-pre-releases)
+            next_prerelease_version=$(git-semver next --pre-release-tag ${{ inputs.pre-release-version-prefix }} --pre-release-counter)
+            next_stable_version=$(git-semver next)
+            latest_version=$(git-semver latest --include-pre-releases)
 
-            if git show-ref --quiet --verify "refs/tags/${latest_tag}"; then
-                echo "Counting commits since ${latest_tag}"
-                commits_since_latest_tag=$(git log  --oneline ${latest_tag}..HEAD | wc -l)
+            if git show-ref --quiet --verify "refs/tags/$v{latest_version}"; then
+                echo "Counting commits since v${latest_version}"
+                commits_since_latest_version=$(git log  --oneline v${latest_version}..HEAD | wc -l)
             else
                 echo "Counting all commits"
-                commits_since_latest_tag=$(git log --oneline | wc -l)
+                commits_since_latest_version=$(git log --oneline | wc -l)
             fi
 
-            next_stable_tag_greater_than_latest="false"
-            if [ "$(git-semver compare $next_stable_tag $latest_tag 2>&1)" = ">" ]; then
-                next_stable_tag_greater_than_latest="true"
+            next_stable_version_greater_than_latest="false"
+            if [ "$(git-semver compare $next_stable_version $latest_version 2>&1)" = ">" ]; then
+                next_stable_version_greater_than_latest="true"
             fi
 
-            next_prerelease_tag_greater_than_latest="false"
-            if [ "$(git-semver compare $next_prerelease_tag $latest_tag 2>&1)" = ">" ]; then
-                next_prerelease_tag_greater_than_latest="true"
+            next_prerelease_version_greater_than_latest="false"
+            if [ "$(git-semver compare $next_prerelease_version $latest_version 2>&1)" = ">" ]; then
+                next_prerelease_version_greater_than_latest="true"
             fi
 
-            echo "next_prerelease_tag=$next_prerelease_tag" >>"$GITHUB_OUTPUT"
-            echo "next_stable_tag=$next_stable_tag" >>"$GITHUB_OUTPUT"
-            echo "next_stable_tag_greater_than_latest=$next_stable_tag_greater_than_latest" >>"$GITHUB_OUTPUT"
-            echo "next_prerelease_tag_greater_than_latest=$next_prerelease_tag_greater_than_latest" >>"$GITHUB_OUTPUT"
-            echo "commits_since_latest_tag=$commits_since_latest_tag" >>"$GITHUB_OUTPUT"
+            echo "next_prerelease_version=$next_prerelease_version" >>"$GITHUB_OUTPUT"
+            echo "next_stable_version=$next_stable_version" >>"$GITHUB_OUTPUT"
+            echo "next_stable_version_greater_than_latest=$next_stable_version_greater_than_latest" >>"$GITHUB_OUTPUT"
+            echo "next_prerelease_version_greater_than_latest=$next_prerelease_version_greater_than_latest" >>"$GITHUB_OUTPUT"
+            echo "commits_since_latest_version=$commits_since_latest_version" >>"$GITHUB_OUTPUT"
         - name: Show computed version
           run: |
-            echo "next_prerelease_tag = ${{ steps.ver.outputs.next_prerelease_tag }}"
-            echo "next_stable_tag = ${{ steps.ver.outputs.next_stable_tag }}"
-            echo "next_stable_tag_greater_than_latest = ${{ steps.ver.outputs.next_stable_tag_greater_than_latest }}"
-            echo "next_prerelease_tag_greater_than_latest = ${{ steps.ver.outputs.next_prerelease_tag_greater_than_latest }}"
-            echo "commits_since_latest_tag = ${{ steps.ver.outputs.commits_since_latest_tag }}"        
+            echo "next_prerelease_version = ${{ steps.ver.outputs.next_prerelease_version }}"
+            echo "next_stable_version = ${{ steps.ver.outputs.next_stable_version }}"
+            echo "next_stable_version_greater_than_latest = ${{ steps.ver.outputs.next_stable_version_greater_than_latest }}"
+            echo "next_prerelease_version_greater_than_latest = ${{ steps.ver.outputs.next_prerelease_version_greater_than_latest }}"
+            echo "commits_since_latest_version = ${{ steps.ver.outputs.commits_since_latest_version }}"        
 
     stable-release-pr:
       name: Stable release PR
@@ -124,33 +124,33 @@ jobs:
             fetch-depth: 0
             ref: ${{ inputs.branch }}
         - name: Generate stable release changelog
-          if: needs.metadata.outputs.next_stable_tag_greater_than_latest == 'true'
+          if: needs.metadata.outputs.next_stable_version_greater_than_latest == 'true'
           uses: orhun/git-cliff-action@v4
           with:
             config: ${{ inputs.cliff-config-path }}
             args:
-              -vv --tag ${{ needs.metadata.outputs.next_stable_tag }} --ignore-tags ${{ inputs.pre-release-version-prefix }}
+              -vv --tag v${{ needs.metadata.outputs.next_stable_version }} --ignore-tags ${{ inputs.pre-release-version-prefix }}
           env:
             OUTPUT: ${{ inputs.changelog-path }}
 
         - name: Generate stable release changelog for PR body
-          if: needs.metadata.outputs.next_stable_tag_greater_than_latest == 'true'  
+          if: needs.metadata.outputs.next_stable_version_greater_than_latest == 'true'  
           id: stable-changelog
           uses: orhun/git-cliff-action@v4
           with:
             config: ${{ inputs.cliff-config-path }}
             args:
-              -vv -u --strip all --tag ${{ needs.metadata.outputs.next_stable_tag }} --ignore-tags ${{ inputs.pre-release-version-prefix }}
+              -vv -u --strip all --tag v${{ needs.metadata.outputs.next_stable_version }} --ignore-tags ${{ inputs.pre-release-version-prefix }}
           env:
             OUTPUT: ${{ runner.temp }}/stablechangelog.md
 
         - name: Update stable version in Chart.yaml
-          if: needs.metadata.outputs.next_stable_tag_greater_than_latest == 'true'
+          if: needs.metadata.outputs.next_stable_version_greater_than_latest == 'true'
           env:
-            tag: ${{ needs.metadata.outputs.next_stable_tag }}
+            version: ${{ needs.metadata.outputs.next_stable_version }}
           run: >
             yq
-            '.version = (strenv(tag) | sub("^v";"")), .appVersion = (strenv(tag) | sub("^v";""))'
+            '.version = strenv(version), .appVersion = strenv(version)'
             -i ${{ inputs.helm-chart-path }}
             
         - name: Create stable release PR
@@ -158,11 +158,11 @@ jobs:
           with:
             base: ${{ inputs.branch }}
             delete-branch: true
-            title: "chore: release ${{ needs.metadata.outputs.next_stable_tag }}"
+            title: "chore: release ${{ needs.metadata.outputs.next_stable_version }}"
             branch: ${{ inputs.stable-release-pr-branch }}
             labels: "release: pending"
             body: ${{ steps.stable-changelog.outputs.content }}
-            commit-message: "chore(release): prepare for stable release ${{ needs.metadata.outputs.next_stable_tag }}"
+            commit-message: "chore(release): prepare for stable release ${{ needs.metadata.outputs.next_stable_version }}"
             sign-commits: true
             add-paths: |
               ${{ inputs.changelog-path }}
@@ -182,34 +182,33 @@ jobs:
             fetch-depth: 0
             ref: ${{ inputs.branch }}
         - name: Generate prerelease changelog for PR body
-          if: needs.metadata.outputs.next_prerelease_tag_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_tag > 0
+          if: needs.metadata.outputs.next_prerelease_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
           id: unreleased-changelog
           uses: orhun/git-cliff-action@v4
           with:
             config: ${{ inputs.cliff-config-path }}
             args:
-              -vv -u --strip all --tag ${{ needs.metadata.outputs.next_prerelease_tag }}
+              -vv -u --strip all --tag v${{ needs.metadata.outputs.next_prerelease_version }}
           env:
             OUTPUT: ${{ runner.temp }}/prereleasechangelog.md                
         - name: Update prerelease version in Chart.yaml
-          # if: needs.metadata.outputs.commits_since_latest_tag > 0
-          if: needs.metadata.outputs.next_prerelease_tag_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_tag > 0
+          if: needs.metadata.outputs.next_prerelease_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
           env:
-            tag: ${{ needs.metadata.outputs.next_prerelease_tag }}
+            version: ${{ needs.metadata.outputs.next_prerelease_version }}
           run: >
             yq
-            '.version = (strenv(tag) | sub("^v";"")), .appVersion = (strenv(tag) | sub("^v";""))'
+            '.version = strenv(version), .appVersion = strenv(version)'
             -i ${{ inputs.helm-chart-path }}
         - name: Create prerelease PR
           uses: peter-evans/create-pull-request@v7
           with:
             base: ${{ inputs.branch }}
             delete-branch: true
-            title: "chore: prerelease ${{ needs.metadata.outputs.next_prerelease_tag }}"
+            title: "chore: prerelease ${{ needs.metadata.outputs.next_prerelease_version }}"
             branch: ${{ inputs.pre-release-pr-branch }}
             labels: "release: pending"
             body: ${{ steps.unreleased-changelog.outputs.content }}
-            commit-message: "chore(release): prepare for prerelease ${{ needs.metadata.outputs.next_prerelease_tag }}"
+            commit-message: "chore(release): prepare for prerelease ${{ needs.metadata.outputs.next_prerelease_version }}"
             sign-commits: true
             add-paths: |
               ${{ inputs.helm-chart-path }}
