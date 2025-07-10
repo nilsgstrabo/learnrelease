@@ -2,6 +2,11 @@ name: Template - Prepare release pull requests
 on:
   workflow_call:
     inputs:
+      version-file-path:
+        description: The path to the file where the new version is written to.
+        required: true
+        type: string
+        default: version.txt
       pre-release-version-prefix:
         description: The prefix to use in identifier for calculating pre-release versions. For example, if this value is set to "rc" (default), the first pre-release version for version "1.5.0" will be "1.5.0-rc.1", then "1.5.0-rc.2", and so on.
         required: true
@@ -35,10 +40,9 @@ on:
         description: The path to cliff.toml configuration file, used to configure the layout of the changelog. See https://git-cliff.org/docs/configuration/ for more information.
         type: string
       extra-files:
+        description: A list of files to update with new version number. For each file, the workflow will look for lines containing the text '# x-patch-semver', and replace anything that matches a semver version with the new version.
         type: string
-        default: 
-          file1
-          file2
+        required: false
 
 jobs:
     metadata:
@@ -144,14 +148,24 @@ jobs:
           env:
             OUTPUT: ${{ runner.temp }}/stablechangelog.md
 
-        - name: Update stable version in Chart.yaml
+        - name: Update version tracking file
           if: needs.metadata.outputs.next_stable_version_greater_than_latest == 'true'
-          env:
-            version: ${{ needs.metadata.outputs.next_stable_version }}
-          run: >
-            yq
-            '.version = strenv(version), .appVersion = strenv(version)'
-            -i ${{ inputs.helm-chart-path }}
+          run: |
+            echo "${{ needs.metadata.outputs.next_stable_version }}" > ${{ inputs.version-file-path }}
+        - name: Update extra files
+          if: inputs.extra-files != '' && needs.metadata.outputs.next_stable_version_greater_than_latest == 'true'
+          working-directory: ./scripts
+          run: |
+            ./patch-semver.sh "$${{ needs.metadata.outputs.next_stable_version }}" "${{ inputs.extra-files }}"
+
+        # - name: Update stable version in Chart.yaml
+        #   if: needs.metadata.outputs.next_stable_version_greater_than_latest == 'true'
+        #   env:
+        #     version: ${{ needs.metadata.outputs.next_stable_version }}
+        #   run: >
+        #     yq
+        #     '.version = strenv(version), .appVersion = strenv(version)'
+        #     -i ${{ inputs.helm-chart-path }}
             
         - name: Create stable release PR
           uses: peter-evans/create-pull-request@v7
@@ -190,15 +204,24 @@ jobs:
             args:
               -vv -u --strip all --tag v${{ needs.metadata.outputs.next_prerelease_version }}
           env:
-            OUTPUT: ${{ runner.temp }}/prereleasechangelog.md                
-        - name: Update prerelease version in Chart.yaml
+            OUTPUT: ${{ runner.temp }}/prereleasechangelog.md
+        - name: Update version tracking file
           if: needs.metadata.outputs.next_prerelease_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
-          env:
-            version: ${{ needs.metadata.outputs.next_prerelease_version }}
-          run: >
-            yq
-            '.version = strenv(version), .appVersion = strenv(version)'
-            -i ${{ inputs.helm-chart-path }}
+          run: |
+            echo "${{ needs.metadata.outputs.next_prerelease_version }}" > ${{ inputs.version-file-path }}
+        - name: Update extra files
+          if: inputs.extra-files != '' && needs.metadata.outputs.next_stable_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
+          working-directory: ./scripts
+          run: |
+            ./patch-semver.sh "$${{ needs.metadata.outputs.next_prerelease_version }}" "${{ inputs.extra-files }}"            
+        # - name: Update prerelease version in Chart.yaml
+        #   if: needs.metadata.outputs.next_prerelease_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
+        #   env:
+        #     version: ${{ needs.metadata.outputs.next_prerelease_version }}
+        #   run: >
+        #     yq
+        #     '.version = strenv(version), .appVersion = strenv(version)'
+        #     -i ${{ inputs.helm-chart-path }}
         - name: Create prerelease PR
           uses: peter-evans/create-pull-request@v7
           with:
