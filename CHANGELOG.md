@@ -2,6 +2,70 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.4](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.3..v2.2.4) - 2025-07-10
+
+### 🐛 Bug Fixes
+
+- *(api)* Root 7 - ([020e3b6](https://github.com/nilsgstrabo/learnrelease/commit/020e3b6d99ea3d0313f9eb89c1c83148cc7bb534)) by @nilsgstrabo
+
+
+### ⚙️ Miscellaneous Tasks
+
+- Reusable workflow - ([1af1c46](https://github.com/nilsgstrabo/learnrelease/commit/1af1c460744b5669de63c0b9057d9875d965550d)) by @nilsgstrabo
+
+- Define args - ([153a75d](https://github.com/nilsgstrabo/learnrelease/commit/153a75d1b55ef15db2719f28bff2339101c0d385)) by @nilsgstrabo
+
+- Add reusable workflow template for generating release pull requests - ([e4d5a55](https://github.com/nilsgstrabo/learnrelease/commit/e4d5a55cc9c5c96ccb85ed88ccd229c660c7ffd3)) by @nilsgstrabo
+
+- Test reusable workflow - ([4cb9583](https://github.com/nilsgstrabo/learnrelease/commit/4cb958307a6d5bd0a9ac71635a1a2316de213900)) by @nilsgstrabo
+
+- Set permissions - ([5eee93a](https://github.com/nilsgstrabo/learnrelease/commit/5eee93a67081e43783d962d48419197700a2d6c4)) by @nilsgstrabo
+
+- Fix release PR template - ([812c1c1](https://github.com/nilsgstrabo/learnrelease/commit/812c1c1cc024e1506d1592679019f9d8b2bd1368)) by @nilsgstrabo
+
+- Test empty cliff-config-path - ([8267ecd](https://github.com/nilsgstrabo/learnrelease/commit/8267ecdff5575cfb7c953ad862a31afe97d96e5c)) by @nilsgstrabo
+
+- Set cliff-config-path - ([9f4b50d](https://github.com/nilsgstrabo/learnrelease/commit/9f4b50d7fa25accb96c333608ac2c9197af71fdc)) by @nilsgstrabo
+
+- Template for processing a merged release pr - ([52167a6](https://github.com/nilsgstrabo/learnrelease/commit/52167a699c930ec55b4a92ed5aba9ec49b623953)) by @nilsgstrabo
+
+- Manual release pr - ([7ff75bb](https://github.com/nilsgstrabo/learnrelease/commit/7ff75bbcccca2d0c87c1b8699bfd40bb30cbe780)) by @nilsgstrabo
+
+- Release-pr - ([de43f2a](https://github.com/nilsgstrabo/learnrelease/commit/de43f2aa0c21bfd12ac7038bec7344c774919b58)) by @nilsgstrabo
+
+- Set permissions - ([9850955](https://github.com/nilsgstrabo/learnrelease/commit/985095539bbc9fae98367f6112874a37cbb6b91d)) by @nilsgstrabo
+
+- Content read permissions - ([dfc9824](https://github.com/nilsgstrabo/learnrelease/commit/dfc982462a143d36a8acc5c0ccba4a52fabca197)) by @nilsgstrabo
+
+- Disable output - ([e30ebbe](https://github.com/nilsgstrabo/learnrelease/commit/e30ebbef51babdab2a8caeb351cd7d640b156763)) by @nilsgstrabo
+
+- Test template - ([722cc81](https://github.com/nilsgstrabo/learnrelease/commit/722cc817d8e2a73086387240b0949ae52bfe3194)) by @nilsgstrabo
+
+- Test - ([a31d825](https://github.com/nilsgstrabo/learnrelease/commit/a31d82524857c33c3396b350023f484d94432b67)) by @nilsgstrabo
+
+- Test - ([d11feab](https://github.com/nilsgstrabo/learnrelease/commit/d11feab5a6fe2ce3615614fbe2ae3074b93bae07)) by @nilsgstrabo
+
+- Uncomment template action - ([dbc2d68](https://github.com/nilsgstrabo/learnrelease/commit/dbc2d68b45b6c3f08bdf71e45d55e324db5753f8)) by @nilsgstrabo
+
+- Uncomment metadata script - ([2a51a29](https://github.com/nilsgstrabo/learnrelease/commit/2a51a29335c454444fd82f51dd060ba4463bd436)) by @nilsgstrabo
+
+- Test release - ([4c8e597](https://github.com/nilsgstrabo/learnrelease/commit/4c8e59762dc13a5642faf93d2a79bc327fc956fc)) by @nilsgstrabo
+
+- Fix? - ([6ac8a28](https://github.com/nilsgstrabo/learnrelease/commit/6ac8a28ca1c32355159c5e4bff4ac9afa903e330)) by @nilsgstrabo
+
+- Fix - ([733857c](https://github.com/nilsgstrabo/learnrelease/commit/733857c60da9c591d73556ef138d73e13b500996)) by @nilsgstrabo
+
+- Template for getting list of unreleased pull requests - ([782ad0a](https://github.com/nilsgstrabo/learnrelease/commit/782ad0a2a1000c6022bbdcca3eaca66e5062f10f)) by @nilsgstrabo
+
+- Test - ([4ff1749](https://github.com/nilsgstrabo/learnrelease/commit/4ff1749f4949a5aa34e62d4e1f41f01366dd1532)) by @nilsgstrabo
+
+- Rename workflows - ([9d0844a](https://github.com/nilsgstrabo/learnrelease/commit/9d0844a4c6696dc1aba3f91b1cc89023df5225f5)) by @nilsgstrabo
+
+- Prefix reusable workflows with "template" - ([3a4c02d](https://github.com/nilsgstrabo/learnrelease/commit/3a4c02d8feca9ee3aaf3a14ce0147622986d2973)) by @nilsgstrabo
+
+- Fix template - ([8087c1c](https://github.com/nilsgstrabo/learnrelease/commit/8087c1c08556a2fd2c0169c6fe83d86aeaaf58aa)) by @nilsgstrabo
+
+
 ## [2.2.3](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.2..v2.2.3) - 2025-07-09
 
 ### 🐛 Bug Fixes
