@@ -13,6 +13,7 @@ jobs:
     uses: nilsgstrabo/learnrelease/.github/workflows/template-unreleased-prs-metadata.yml@main
   release-pull-request:
     needs: unreleased-prs-metadata
+    if: needs.unreleased-prs-metadata.outputs.unreleased_pull_request_count > 0
     strategy:
       matrix:
         pull-request-number: ${{ fromJson(needs.unreleased-prs-metadata.outputs.unreleased_pull_requests) }}
