@@ -1,4 +1,4 @@
-name: create-release-from-pull-request
+name: Create tag and release for pull request
 on:
   workflow_call: 
     inputs:

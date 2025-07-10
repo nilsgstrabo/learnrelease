@@ -1,4 +1,4 @@
-name: create-release-pull-requests
+name: Prepare release pull requests
 on:
   workflow_call:
     inputs:

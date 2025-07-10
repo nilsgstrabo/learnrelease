@@ -1,4 +1,4 @@
-name: Release
+name: Create tag and release from pull request
 on:
   workflow_dispatch:
     inputs:

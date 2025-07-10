@@ -1,4 +1,4 @@
-name: Process unrelease pull requests
+name: Get metadata for unrelease pull requests
 on:
   workflow_dispatch:
 

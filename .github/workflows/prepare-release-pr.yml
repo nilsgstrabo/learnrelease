@@ -1,5 +1,4 @@
-name: Prepare release PR
-
+name: Prepare release pull requests
 on:
     push: 
         tags:
