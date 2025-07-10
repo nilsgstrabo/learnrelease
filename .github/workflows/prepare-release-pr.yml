@@ -20,10 +20,11 @@ jobs:
     with:
       branch: main
       changelog-path: CHANGELOG.md
-      helm-chart-path: charts/learnrelease/Chart.yaml
       cliff-config-path: cliff.toml
       pre-release-pr-branch: release/prerelease
       stable-release-pr-branch: release/stable
       pre-release-version-prefix: rc
+      extra-files: 
+        charts/learnrelease/Chart.yaml
 
     
