@@ -28,7 +28,6 @@ jobs:
         run: |
           unreleased_pull_requests=$(gh pr list --json number --state merged --label "release: pending" | jq '[.[] | .number]')
           unreleased_pull_request_count=$(echo $unreleased_pull_requests | jq '. | length')
-          echo "unreleased: $unreleased_pull_requests"
-          echo "unreleased: "$unreleased_pull_requests""
-          echo "unreleased_pull_requests=$unreleased_pull_requests" >>"$GITHUB_OUTPUT"
+
+          echo "unreleased_pull_requests="$unreleased_pull_requests"" >>"$GITHUB_OUTPUT"
           echo "unreleased_pull_request_count=$unreleased_pull_request_count" >>"$GITHUB_OUTPUT"
