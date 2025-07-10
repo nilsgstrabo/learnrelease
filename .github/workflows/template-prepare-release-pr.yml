@@ -113,7 +113,9 @@ jobs:
       steps:
         - name: test extra-files
           run: |
-            echo "json: ${{ inputs.extra-files }}"
+            while IFS= read -r line; do
+              echo "extra-file: $line"
+            done <<< "${{ inputs.extra-files }}"
         - uses: actions/checkout@v4
           with:
             fetch-depth: 0
