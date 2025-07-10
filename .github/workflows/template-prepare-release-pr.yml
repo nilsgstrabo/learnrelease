@@ -112,14 +112,6 @@ jobs:
         contents: write
         issues: write
       steps:
-        - name: test extra-files
-          run: |
-            extrafiles="${{ inputs.extra-files }}"
-            echo $extrafiles
-            echo "processing files"
-            for line in $extrafiles; do
-              echo "extra file: $line"
-            done
         - uses: actions/checkout@v4
           with:
             fetch-depth: 0
@@ -148,7 +140,7 @@ jobs:
         - name: Update version tracking file
           if: needs.metadata.outputs.next_stable_version_greater_than_latest == 'true'
           run: |
-            echo "${{ needs.metadata.outputs.next_stable_version }}" > ${{ inputs.version-file-path }}
+            echo -n "${{ needs.metadata.outputs.next_stable_version }}" > ${{ inputs.version-file-path }}
         - name: Update extra files
           if: inputs.extra-files != '' && needs.metadata.outputs.next_stable_version_greater_than_latest == 'true'
           run: |
@@ -195,7 +187,7 @@ jobs:
         - name: Update version tracking file
           if: needs.metadata.outputs.next_prerelease_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
           run: |
-            echo "${{ needs.metadata.outputs.next_prerelease_version }}" > ${{ inputs.version-file-path }}
+            echo -n "${{ needs.metadata.outputs.next_prerelease_version }}" > ${{ inputs.version-file-path }}
         - name: Update extra files
           if: inputs.extra-files != '' && needs.metadata.outputs.next_stable_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
           run: |
