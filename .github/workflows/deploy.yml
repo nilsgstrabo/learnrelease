@@ -94,6 +94,8 @@ jobs:
           echo "helm_packages="$helm_packages"" >>"$GITHUB_OUTPUT"
       - name: Upload Helm packages to release
         if: needs.metadata.outputs.release-exist == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           for file in "${{ steps.deploy-helm.outputs.helm_packages }}"; do
             echo $file
