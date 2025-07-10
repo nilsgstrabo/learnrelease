@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.5](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.4..v2.2.5) - 2025-07-10
+
+### 🐛 Bug Fixes
+
+- Root 8 - ([2d0271a](https://github.com/nilsgstrabo/learnrelease/commit/2d0271a44e55aec418da7f9caf291e489d81c1de)) by @nilsgstrabo
+
+- Root 9 - ([7c070b6](https://github.com/nilsgstrabo/learnrelease/commit/7c070b69ec3cb8521e50c3370efafbb7f1baf8b6)) by @nilsgstrabo
+
+
+### ⚙️ Miscellaneous Tasks
+
+- Change incorrect doc=>docs in cliff.toml - ([cb34f7d](https://github.com/nilsgstrabo/learnrelease/commit/cb34f7d1e46c4ee1c0eda030d0b3e1b4255125d1)) by @nilsgstrabo
+
+- Fix array output - ([f9d7a57](https://github.com/nilsgstrabo/learnrelease/commit/f9d7a57595a02e93e7ee6098fc0e66ac52025285)) by @nilsgstrabo
+
+- Matrix - ([6498180](https://github.com/nilsgstrabo/learnrelease/commit/6498180e4cdf55eb38fdb9904f88d23e5e1ac6db)) by @nilsgstrabo
+
+- Release pr workflow - ([f4a080a](https://github.com/nilsgstrabo/learnrelease/commit/f4a080a2576c036f420f99b2c736fcc3bb12b179)) by @nilsgstrabo
+
+- Rename worklfow - ([c9db532](https://github.com/nilsgstrabo/learnrelease/commit/c9db532956b8f7b85bddda4d06037cf85a073ad8)) by @nilsgstrabo
+
+- Print release output - ([f8a434b](https://github.com/nilsgstrabo/learnrelease/commit/f8a434bf5a774da46d95162db746305208b79c62)) by @nilsgstrabo
+
+- Remove workflow for manual release of single pr - ([2de2184](https://github.com/nilsgstrabo/learnrelease/commit/2de2184d3d372732eb03503b38cb51d0f785c2bd)) by @nilsgstrabo
+
+
 ## [2.2.4](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.3..v2.2.4) - 2025-07-10
 
 ### 🐛 Bug Fixes
