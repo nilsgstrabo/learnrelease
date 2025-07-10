@@ -83,7 +83,7 @@ jobs:
           oci_repo=oci://${{ env.OCI_REGISTRY }}/${{ github.repository }}/helm
           helm push learnrelease-$version.tgz $oci_repo
           
-          echo "helm_packages="$helm_packages" >>"$GITHUB_OUTPUT"
+          echo "helm_packages="$helm_packages"" >>"$GITHUB_OUTPUT"
       - name: Upload Helm packages to release
         run: |
           echo "${{steps.deploy-helm.outputs.helm_packages}}"
