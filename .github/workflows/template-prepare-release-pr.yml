@@ -113,7 +113,7 @@ jobs:
       steps:
         - name: test extra-files
           run: |
-            echo "json: ${{ toJson(fromJson(inputs.extra-files)) }}"
+            echo "json: ${{ inputs.extra-files }}"
         - uses: actions/checkout@v4
           with:
             fetch-depth: 0
