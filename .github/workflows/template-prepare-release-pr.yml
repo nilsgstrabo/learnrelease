@@ -111,7 +111,8 @@ jobs:
         contents: write
         issues: write
       steps:
-        - run: |
+        - name: test extra-files
+          run: |
             echo "json: ${{ toJson(fromJson(inputs.extra-files)) }}"
         - uses: actions/checkout@v4
           with:
