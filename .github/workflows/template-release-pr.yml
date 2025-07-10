@@ -57,7 +57,7 @@ jobs:
           commit=$(echo $pr_info | jq -r .mergeCommit.oid)
           version=$(git show "$commit":"${{ inputs.version-file-path }}")
 
-          # Check that extracted version is valid semver
+          # Check that version is valid semver
           if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$ ]]; then
             echo "Invalid version format for '"$version"'. Use full semver: X.Y.Z, X.Y.Z-alpha, etc."
             exit 1
