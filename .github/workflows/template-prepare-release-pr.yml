@@ -1,4 +1,4 @@
-name: Prepare release pull requests
+name: Template - Prepare release pull requests
 on:
   workflow_call:
     inputs:
