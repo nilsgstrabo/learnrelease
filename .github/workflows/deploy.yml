@@ -8,15 +8,23 @@ jobs:
   metadata:
     runs-on: ubuntu-latest
     outputs:
-      version: ${{ steps.version.outputs.version }}
+      version: ${{ steps.metadata.outputs.version }}
+      release-exist: ${{ steps.metadata.outputs.release_exist }}
     steps:
-      - name: Parse version from tag
-        id: version
+      - name: Metadata
+        id: metadata
         env:
           tag: ${{ github.ref_name }}
         run: |
           version=${tag#v}
+
+          release_exist="true"
+          if ! gh release view v2.2.7 &> /dev/null ; then
+            release_exist="false"
+          fi
+
           echo "version="$version"" >>"$GITHUB_OUTPUT"
+          echo "release_exist="$release_exist"" >>"$GITHUB_OUTPUT"
   deploy-docker:
     runs-on: ubuntu-latest
     needs: metadata
@@ -85,11 +93,12 @@ jobs:
           
           echo "helm_packages="$helm_packages"" >>"$GITHUB_OUTPUT"
       - name: Upload Helm packages to release
+        if: needs.metadata.outputs.release-exist == 'true'
         run: |
-          echo "${{steps.deploy-helm.outputs.helm_packages}}"
-          echo ""
-          echo ${{steps.deploy-helm.outputs.helm_packages}}
-          
-  
+          for file in "${{ steps.deploy-helm.outputs.helm_packages }}"; do
+            echo $file
+            
+          done
 
-    
+          gh release upload --clobber "v${{ needs.metadata.outputs.version }}" ${{ steps.deploy-helm.outputs.helm_packages }}
+
