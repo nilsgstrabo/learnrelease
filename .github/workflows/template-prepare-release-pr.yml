@@ -151,9 +151,8 @@ jobs:
             echo "${{ needs.metadata.outputs.next_stable_version }}" > ${{ inputs.version-file-path }}
         - name: Update extra files
           if: inputs.extra-files != '' && needs.metadata.outputs.next_stable_version_greater_than_latest == 'true'
-          working-directory: ./scripts
           run: |
-            ./patch-semver.sh "${{ needs.metadata.outputs.next_stable_version }}" "${{ inputs.extra-files }}"
+            ./scripts/patch-semver.sh "${{ needs.metadata.outputs.next_stable_version }}" "${{ inputs.extra-files }}"
         - name: Create stable release PR
           uses: peter-evans/create-pull-request@v7
           with:
@@ -199,9 +198,8 @@ jobs:
             echo "${{ needs.metadata.outputs.next_prerelease_version }}" > ${{ inputs.version-file-path }}
         - name: Update extra files
           if: inputs.extra-files != '' && needs.metadata.outputs.next_stable_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
-          working-directory: ./scripts
           run: |
-            ./patch-semver.sh "${{ needs.metadata.outputs.next_prerelease_version }}" "${{ inputs.extra-files }}"            
+            ./scripts/patch-semver.sh "${{ needs.metadata.outputs.next_prerelease_version }}" "${{ inputs.extra-files }}"            
         - name: Create prerelease PR
           uses: peter-evans/create-pull-request@v7
           with:
