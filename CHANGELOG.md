@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.10](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.9..v2.2.10) - 2025-07-10
+
+### 🐛 Bug Fixes
+
+- Checkout - ([f534726](https://github.com/nilsgstrabo/learnrelease/commit/f53472650a9fd72b43f7496015d44bc9b55fcda1)) by @nilsgstrabo
+
+
 ## [2.2.9](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.8..v2.2.9) - 2025-07-10
 
 ### 🐛 Bug Fixes
