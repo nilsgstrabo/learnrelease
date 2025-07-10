@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.8](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.7..v2.2.8) - 2025-07-10
+
+### 🐛 Bug Fixes
+
+- Dummy 8 - ([8671107](https://github.com/nilsgstrabo/learnrelease/commit/86711075653e19d287b1144a68809d855c13fcc2)) by @nilsgstrabo
+
+
+### ⚙️ Miscellaneous Tasks
+
+- Test - ([618fc17](https://github.com/nilsgstrabo/learnrelease/commit/618fc17589528a292360e3ed6d8ed45106959823)) by @nilsgstrabo
+
+
 ## [2.2.7](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.6..v2.2.7) - 2025-07-10
 
 ### 🐛 Bug Fixes
