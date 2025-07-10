@@ -11,6 +11,7 @@ jobs:
       version: ${{ steps.metadata.outputs.version }}
       release-exist: ${{ steps.metadata.outputs.release_exist }}
     steps:
+      - uses: actions/checkout@v4
       - name: Metadata
         id: metadata
         env:
