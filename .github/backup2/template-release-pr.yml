@@ -1,0 +1,97 @@
+name: Template - Create tag and release for pull request
+on:
+  workflow_call: 
+    inputs:
+      pull-request-number:
+        description: The pull request number to create release and tag from
+        required: true
+        type: string
+    secrets:
+      gh-release-token:
+        description: A Github token with permission to create GitHub release for a specific target commit
+        required: true
+    outputs:
+      commit:
+        description: The commit that was released
+        value: ${{ jobs.metadata.outputs.commit }}
+      version:
+        description: The commit that was released
+        value: ${{ jobs.metadata.outputs.version }}
+      tag:
+        description: The commit that was released
+        value: ${{ jobs.metadata.outputs.tag }}
+      is-prerelease:
+        description: The commit that was released
+        value: ${{ jobs.metadata.outputs.is_prerelease }}
+        
+jobs:
+  metadata:
+    name: Metadata
+    runs-on: ubuntu-latest
+    permissions: 
+      pull-requests: read
+      contents: read
+    outputs:
+      commit: ${{ steps.metadata.outputs.commit }}
+      version: ${{ steps.metadata.outputs.version }}
+      tag: ${{ steps.metadata.outputs.tag }}
+      is_prerelease: ${{ steps.metadata.outputs.is_prerelease }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: metadata
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+        run: |
+          set -Eeuo pipefail
+          pr_number=${{ inputs.pull-request-number }}
+          pr_info=$(gh pr view $pr_number --json title,labels,mergeCommit,state,number | jq 'select(.state=="MERGED" and (.labels[] | .name=="release: pending"))')
+          [[ -z "$pr_info" ]] && { echo "Pull request $pr_number has invalid release state"; exit 1; }
+
+          commit=$(echo $pr_info | jq -r .mergeCommit.oid)
+          version=$(git show "$commit":charts/learnrelease/Chart.yaml | yq .version)
+          version=${version#v}
+          tag=v${version}
+          is_prerelease="false"
+          if [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+- ]]; then
+              is_prerelease="true"
+          fi
+
+          echo "commit=$commit" >>"$GITHUB_OUTPUT"
+          echo "version=$version" >>"$GITHUB_OUTPUT"
+          echo "tag=$tag" >>"$GITHUB_OUTPUT"
+          echo "is_prerelease=$is_prerelease" >>"$GITHUB_OUTPUT"
+      - name: Print release metadata
+        run: |
+          echo "commit: ${{ steps.metadata.outputs.commit }}"
+          echo "version: ${{ steps.metadata.outputs.version }}"
+          echo "tag: ${{ steps.metadata.outputs.tag }}"
+          echo "is_prerelease: ${{ steps.metadata.outputs.is_prerelease }}"
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    permissions: 
+      pull-requests: write
+    needs: metadata
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Create tag and release
+        env:
+          GH_TOKEN: ${{ secrets.gh-release-token }}
+        run: |
+          notes=$(gh pr view ${{ inputs.pull-request-number }} --json body | jq -r .body)
+          gh release create ${{ needs.metadata.outputs.tag }} \
+            --notes "$notes" \
+            --target ${{ needs.metadata.outputs.commit }} \
+            --title ${{ needs.metadata.outputs.tag }} \
+            --prerelease=${{ needs.metadata.outputs.is_prerelease }}
+      - name: Mark pull request as tagged
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr edit ${{ inputs.pull-request-number }} \
+            --remove-label "release: pending" \
+            --add-label "release: tagged"

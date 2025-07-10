@@ -1,0 +1,202 @@
+name: Template - Prepare release pull requests
+on:
+  workflow_call:
+    inputs:
+      pre-release-version-prefix:
+        description: The prefix to use in identifier for calculating pre-release versions. For example, if this value is set to "rc" (default), the first pre-release version for version "1.5.0" will be "1.5.0-rc.1", then "1.5.0-rc.2", and so on.
+        required: true
+        type: string
+        default: rc
+      branch:
+        description: The name of the branch to analyze commits for calculating next version. This is also used as the base branch when creating release pull requests. 
+        required: true
+        type: string
+        default: main
+      pre-release-pr-branch:
+        description: The pull request branch name for pre-releases
+        required: true
+        type: string
+        default: release/pre-release
+      stable-release-pr-branch:
+        description: The pull request branch name for stable releases
+        required: true
+        type: string
+        default: release/stable-release
+      changelog-path:
+        description: The path to the changelog to update for stable release pull requests
+        required: true
+        type: string
+        default: CHANGELOG.md
+      helm-chart-path:
+        description: The path to the Chart.yaml to update for stable- and pre-release pull requests
+        required: true
+        type: string
+      cliff-config-path:
+        description: The path to cliff.toml configuration file, used to configure the layout of the changelog. See https://git-cliff.org/docs/configuration/ for more information.
+        type: string
+
+jobs:
+    metadata:
+      name: Metadata
+      runs-on: ubuntu-latest
+      permissions:
+        contents: read
+      outputs:
+        next_stable_tag: ${{ steps.ver.outputs.next_stable_tag }}
+        next_prerelease_tag: ${{ steps.ver.outputs.next_prerelease_tag }}
+        next_stable_tag_greater_than_latest: ${{ steps.ver.outputs.next_stable_tag_greater_than_latest }}
+        next_prerelease_tag_greater_than_latest: ${{ steps.ver.outputs.next_prerelease_tag_greater_than_latest }}
+        latest_tag: ${{ steps.ver.outputs.latest_tag }}
+        commits_since_latest_tag: ${{ steps.ver.outputs.commits_since_latest_tag }}
+      steps:
+        - uses: actions/checkout@v4
+          with:
+            fetch-depth: 0
+        - uses: actions/setup-go@v5
+          with:
+              go-version-file: go.mod
+        - name: Install git-semver
+          run: |
+            go install github.com/psanetra/git-semver/cli@v1.1.2
+            mv $(which cli) $(dirname $(which cli))/git-semver
+        - name: Build release and prerelease tag
+          id: ver
+          run: |
+            next_prerelease_tag=v$(git-semver next --pre-release-tag ${{ inputs.pre-release-version-prefix }} --pre-release-counter)
+            next_stable_tag=v$(git-semver next)
+            latest_tag=v$(git-semver latest --include-pre-releases)
+
+            if git show-ref --quiet --verify "refs/tags/${latest_tag}"; then
+                echo "Counting commits since ${latest_tag}"
+                commits_since_latest_tag=$(git log  --oneline ${latest_tag}..HEAD | wc -l)
+            else
+                echo "Counting all commits"
+                commits_since_latest_tag=$(git log --oneline | wc -l)
+            fi
+
+            next_stable_tag_greater_than_latest="false"
+            if [ "$(git-semver compare $next_stable_tag $latest_tag 2>&1)" = ">" ]; then
+                next_stable_tag_greater_than_latest="true"
+            fi
+
+            next_prerelease_tag_greater_than_latest="false"
+            if [ "$(git-semver compare $next_prerelease_tag $latest_tag 2>&1)" = ">" ]; then
+                next_prerelease_tag_greater_than_latest="true"
+            fi
+
+            echo "next_prerelease_tag=$next_prerelease_tag" >>"$GITHUB_OUTPUT"
+            echo "next_stable_tag=$next_stable_tag" >>"$GITHUB_OUTPUT"
+            echo "next_stable_tag_greater_than_latest=$next_stable_tag_greater_than_latest" >>"$GITHUB_OUTPUT"
+            echo "next_prerelease_tag_greater_than_latest=$next_prerelease_tag_greater_than_latest" >>"$GITHUB_OUTPUT"
+            echo "commits_since_latest_tag=$commits_since_latest_tag" >>"$GITHUB_OUTPUT"
+        - name: Show computed version
+          run: |
+            echo "next_prerelease_tag = ${{ steps.ver.outputs.next_prerelease_tag }}"
+            echo "next_stable_tag = ${{ steps.ver.outputs.next_stable_tag }}"
+            echo "next_stable_tag_greater_than_latest = ${{ steps.ver.outputs.next_stable_tag_greater_than_latest }}"
+            echo "next_prerelease_tag_greater_than_latest = ${{ steps.ver.outputs.next_prerelease_tag_greater_than_latest }}"
+            echo "commits_since_latest_tag = ${{ steps.ver.outputs.commits_since_latest_tag }}"        
+
+    stable-release-pr:
+      name: Stable release PR
+      runs-on: ubuntu-latest
+      needs: metadata
+      permissions: 
+        pull-requests: write
+        contents: write
+        issues: write
+      steps:
+        - uses: actions/checkout@v4
+          with:
+            fetch-depth: 0
+            ref: ${{ inputs.branch }}
+        - name: Generate stable release changelog
+          if: needs.metadata.outputs.next_stable_tag_greater_than_latest == 'true'
+          uses: orhun/git-cliff-action@v4
+          with:
+            config: ${{ inputs.cliff-config-path }}
+            args:
+              -vv --tag ${{ needs.metadata.outputs.next_stable_tag }} --ignore-tags ${{ inputs.pre-release-version-prefix }}
+          env:
+            OUTPUT: ${{ inputs.changelog-path }}
+
+        - name: Generate stable release changelog for PR body
+          if: needs.metadata.outputs.next_stable_tag_greater_than_latest == 'true'  
+          id: stable-changelog
+          uses: orhun/git-cliff-action@v4
+          with:
+            config: ${{ inputs.cliff-config-path }}
+            args:
+              -vv -u --strip all --tag ${{ needs.metadata.outputs.next_stable_tag }} --ignore-tags ${{ inputs.pre-release-version-prefix }}
+          env:
+            OUTPUT: ${{ runner.temp }}/stablechangelog.md
+
+        - name: Update stable version in Chart.yaml
+          if: needs.metadata.outputs.next_stable_tag_greater_than_latest == 'true'
+          env:
+            tag: ${{ needs.metadata.outputs.next_stable_tag }}
+          run: >
+            yq
+            '.version = (strenv(tag) | sub("^v";"")), .appVersion = (strenv(tag) | sub("^v";""))'
+            -i ${{ inputs.helm-chart-path }}
+            
+        - name: Create stable release PR
+          uses: peter-evans/create-pull-request@v7
+          with:
+            base: ${{ inputs.branch }}
+            delete-branch: true
+            title: "chore: release ${{ needs.metadata.outputs.next_stable_tag }}"
+            branch: ${{ inputs.stable-release-pr-branch }}
+            labels: "release: pending"
+            body: ${{ steps.stable-changelog.outputs.content }}
+            commit-message: "chore(release): prepare for stable release ${{ needs.metadata.outputs.next_stable_tag }}"
+            sign-commits: true
+            add-paths: |
+              ${{ inputs.changelog-path }}
+              ${{ inputs.helm-chart-path }}
+
+    prerelease-pr:
+      name: Prerelease PR
+      runs-on: ubuntu-latest
+      needs: metadata
+      permissions: 
+        pull-requests: write
+        contents: write
+        issues: write
+      steps:
+        - uses: actions/checkout@v4
+          with:
+            fetch-depth: 0
+            ref: ${{ inputs.branch }}
+        - name: Generate prerelease changelog for PR body
+          if: needs.metadata.outputs.next_prerelease_tag_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_tag > 0
+          id: unreleased-changelog
+          uses: orhun/git-cliff-action@v4
+          with:
+            config: ${{ inputs.cliff-config-path }}
+            args:
+              -vv -u --strip all --tag ${{ needs.metadata.outputs.next_prerelease_tag }}
+          env:
+            OUTPUT: ${{ runner.temp }}/prereleasechangelog.md                
+        - name: Update prerelease version in Chart.yaml
+          # if: needs.metadata.outputs.commits_since_latest_tag > 0
+          if: needs.metadata.outputs.next_prerelease_tag_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_tag > 0
+          env:
+            tag: ${{ needs.metadata.outputs.next_prerelease_tag }}
+          run: >
+            yq
+            '.version = (strenv(tag) | sub("^v";"")), .appVersion = (strenv(tag) | sub("^v";""))'
+            -i ${{ inputs.helm-chart-path }}
+        - name: Create prerelease PR
+          uses: peter-evans/create-pull-request@v7
+          with:
+            base: ${{ inputs.branch }}
+            delete-branch: true
+            title: "chore: prerelease ${{ needs.metadata.outputs.next_prerelease_tag }}"
+            branch: ${{ inputs.pre-release-pr-branch }}
+            labels: "release: pending"
+            body: ${{ steps.unreleased-changelog.outputs.content }}
+            commit-message: "chore(release): prepare for prerelease ${{ needs.metadata.outputs.next_prerelease_tag }}"
+            sign-commits: true
+            add-paths: |
+              ${{ inputs.helm-chart-path }}
