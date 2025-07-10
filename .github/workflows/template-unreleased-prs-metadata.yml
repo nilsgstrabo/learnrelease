@@ -1,4 +1,4 @@
-name: unreleased-prs-metadata
+name: Unreleased pull requests metadata
 on:
   workflow_call:
     outputs:
@@ -10,7 +10,7 @@ on:
         value: ${{ jobs.releases-metadata.outputs.unreleased_pull_request_count }}
 jobs:
   releases-metadata:
-    name: Metadata for pending releases
+    name: Metadata for unreleased pull requests
     runs-on: ubuntu-latest
     permissions: 
       pull-requests: read

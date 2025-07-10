@@ -1,0 +1,22 @@
+name: Process unrelease pull requests
+on:
+  workflow_dispatch:
+
+jobs:
+  unreleased-metadata:
+    permissions:
+      pull-requests: write
+      contents: read
+    uses: nilsgstrabo/learnrelease/.github/workflows/template-unreleased-prs-metadata.yml@main
+  print-releases-metadata:
+    runs-on: ubuntu-latest
+    needs: unreleased-metadata
+    steps:
+      - name: print
+        run: |
+          echo "unreleased_pull_requests :${{ needs.unreleased-metadata.outputs.unreleased_pull_requests }}"
+          echo "unreleased_pull_request_count :${{ needs.unreleased-metadata.outputs.unreleased_pull_request_count }}"
+  
+      
+
+    
