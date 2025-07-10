@@ -113,7 +113,7 @@ jobs:
       steps:
         - name: test extra-files
           run: |
-            extrafiles=${{ inputs.extra-files }}
+            extrafiles="${{ inputs.extra-files }}"
             echo $extrafiles
             echo "processing files"
             for line in $extrafiles; do
