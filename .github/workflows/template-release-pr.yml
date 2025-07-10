@@ -6,6 +6,11 @@ on:
         description: The pull request number to create release and tag from
         required: true
         type: string
+      version-file-path:
+        description: The path to the file where the new version is written to.
+        required: false
+        type: string
+        default: version.txt
     secrets:
       gh-release-token:
         description: A Github token with permission to create GitHub release for a specific target commit
@@ -50,7 +55,7 @@ jobs:
           [[ -z "$pr_info" ]] && { echo "Pull request $pr_number has invalid release state"; exit 1; }
 
           commit=$(echo $pr_info | jq -r .mergeCommit.oid)
-          version=$(git show "$commit":charts/learnrelease/Chart.yaml | yq .version)
+          version=$(git show "$commit":"${{ inputs.version-file-path }}" | yq .version)
           version=${version#v}
           tag=v${version}
           is_prerelease="false"
