@@ -74,8 +74,9 @@ jobs:
             next_prerelease_version=$(git-semver next --pre-release-tag ${{ inputs.pre-release-version-prefix }} --pre-release-counter)
             next_stable_version=$(git-semver next)
             latest_version=$(git-semver latest --include-pre-releases)
-
-            if git show-ref --quiet --verify "refs/tags/$v{latest_version}"; then
+            echo "latest_version: $latest_version"
+            
+            if git show-ref --quiet --verify refs/tags/$v{latest_version}; then
                 echo "Counting commits since v${latest_version}"
                 commits_since_latest_version=$(git log  --oneline v${latest_version}..HEAD | wc -l)
             else
