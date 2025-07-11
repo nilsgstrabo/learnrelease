@@ -98,7 +98,7 @@ jobs:
       - name: Upload Helm packages to release
         if: needs.metadata.outputs.release-exist == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.RELEASE_GH_TOKEN }}
         working-directory: charts/learnrelease
         run: |
           for file in "${{ steps.deploy-helm.outputs.helm_packages }}"; do
