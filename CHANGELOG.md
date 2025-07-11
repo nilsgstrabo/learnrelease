@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.14](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.13..v2.2.14) - 2025-07-11
+
+### 🐛 Bug Fixes
+
+- Dummy 13 - ([a78e5de](https://github.com/nilsgstrabo/learnrelease/commit/a78e5dea5a6fa941c258c2c0e195287496d99816)) by @nilsgstrabo
+
+
 ## [2.2.13](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.12..v2.2.13) - 2025-07-11
 
 ### 🐛 Bug Fixes
