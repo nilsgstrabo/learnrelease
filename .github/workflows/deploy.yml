@@ -103,7 +103,7 @@ jobs:
         run: |
           for file in "${{ steps.deploy-helm.outputs.helm_packages }}"; do
             echo $file
-            
+            stat "$file"
           done
 
           gh release upload --clobber "v${{ needs.metadata.outputs.version }}" ${{ steps.deploy-helm.outputs.helm_packages }}
