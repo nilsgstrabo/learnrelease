@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.12](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.11..v2.2.12) - 2025-07-11
+
+### 🐛 Bug Fixes
+
+- Dummy 9 - ([819f404](https://github.com/nilsgstrabo/learnrelease/commit/819f404a92c0efe4a09c09025dbd26e6182333cd)) by @nilsgstrabo
+
+- Dummy 10 - ([afd2570](https://github.com/nilsgstrabo/learnrelease/commit/afd25700ef8d97906f00d146ec1af7992347eed4)) by @nilsgstrabo
+
+- Dummy 11 - ([93f5b7d](https://github.com/nilsgstrabo/learnrelease/commit/93f5b7d246751a5ac2ae98404faa76d88f1ccfab)) by @nilsgstrabo
+
+
+### ⚙️ Miscellaneous Tasks
+
+- Set permissions - ([4c98948](https://github.com/nilsgstrabo/learnrelease/commit/4c98948e78afd7bb1e848988ca616dc4623d94ef)) by @nilsgstrabo
+
+- Use PAT - ([e106247](https://github.com/nilsgstrabo/learnrelease/commit/e10624748976788456a55329c498894e085f7b5e)) by @nilsgstrabo
+
+- Test - ([6a0a23e](https://github.com/nilsgstrabo/learnrelease/commit/6a0a23ecb6712bae85d86a67f7453d2efb6b0066)) by @nilsgstrabo
+
+- Ignore prerelease tags in stable release - ([d363b7e](https://github.com/nilsgstrabo/learnrelease/commit/d363b7e9ffd2a5740dff1b6211f912964df5d848)) by @nilsgstrabo
+
+- Change back - ([ffa4740](https://github.com/nilsgstrabo/learnrelease/commit/ffa47403ba49dedd0124ff53ef053ee4df4ea3bf)) by @nilsgstrabo
+
+- Git cliff version - ([6001372](https://github.com/nilsgstrabo/learnrelease/commit/6001372fed9b9a15e4eb9be92010f225150dfc19)) by @nilsgstrabo
+
+- Git cliff 2.7.0 - ([f1d83e1](https://github.com/nilsgstrabo/learnrelease/commit/f1d83e143d61c86556c3e0fc0a93171d917a87d7)) by @nilsgstrabo
+
+- Git-cliff 2.8.0 - ([6f8f41b](https://github.com/nilsgstrabo/learnrelease/commit/6f8f41b58048ff125f0e70dce6f6450c68f23326)) by @nilsgstrabo
+
+- Release pr - ([fb76b0d](https://github.com/nilsgstrabo/learnrelease/commit/fb76b0dd6b47e87ffc99b8944a19217e448c7425)) by @nilsgstrabo
+
+- Test regex for prerelease - ([c38f9ac](https://github.com/nilsgstrabo/learnrelease/commit/c38f9ac8f9fdd7b604a57a7f85749129c0142a8c)) by @nilsgstrabo
+
+- 2.9.0 - ([13b82d9](https://github.com/nilsgstrabo/learnrelease/commit/13b82d92f18a35dce54e65f04d98827e90ad63ed)) by @nilsgstrabo
+
+- Git cliff 2.8.0 - ([60d30fa](https://github.com/nilsgstrabo/learnrelease/commit/60d30fad0178aae357139945cedfc2eb0a0b7a79)) by @nilsgstrabo
+
+
 ## [2.2.11](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.10..v2.2.11) - 2025-07-10
 
 ### 🐛 Bug Fixes
