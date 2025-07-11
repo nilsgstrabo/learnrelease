@@ -122,7 +122,7 @@ jobs:
           with:
             config: ${{ inputs.cliff-config-path }}
             args:
-              -vv --tag v${{ needs.metadata.outputs.next_stable_version }} --ignore-tags ${{ inputs.pre-release-version-prefix }}
+              -vv --tag v${{ needs.metadata.outputs.next_stable_version }} --ignore-tags "^v\d+\.\d+\.\d+-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*" # ignore prerelease tags, e.g. v1.5.0-rc or v1.5.0-alpha.1
           env:
             OUTPUT: ${{ inputs.changelog-path }}
 
@@ -133,7 +133,7 @@ jobs:
           with:
             config: ${{ inputs.cliff-config-path }}
             args:
-              -vv -u --strip all --tag v${{ needs.metadata.outputs.next_stable_version }} --ignore-tags ${{ inputs.pre-release-version-prefix }}
+              -vv -u --strip all --tag v${{ needs.metadata.outputs.next_stable_version }} --ignore-tags "^v\d+\.\d+\.\d+-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*" # ignore prerelease tags, e.g. v1.5.0-rc or v1.5.0-alpha.1
           env:
             OUTPUT: ${{ runner.temp }}/stablechangelog.md
 
