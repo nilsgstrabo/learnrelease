@@ -20,7 +20,7 @@ jobs:
     with:
       branch: main
       stable-release-pr-branch: release/stable
-      generate_pre-release-pr: false
+      generate_pre-release-pr: true
       pre-release-version-prefix: rc
       pre-release-pr-branch: release/prerelease
       changelog-path: CHANGELOG.md
