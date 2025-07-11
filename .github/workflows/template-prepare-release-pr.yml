@@ -42,7 +42,7 @@ on:
         required: false
 
 env:
-  GIT_CLIFF_VERSION: v2.7.0
+  GIT_CLIFF_VERSION: v2.8.0
 jobs:
     metadata:
       name: Metadata
