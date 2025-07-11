@@ -69,6 +69,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      pull-requests: write
     env:
       OCI_REGISTRY: ghcr.io
     steps:
