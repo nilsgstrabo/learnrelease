@@ -13,7 +13,7 @@ on:
         required: false
         type: string
         default: release/stable-release
-      generate_pre-release-pr:
+      generate-pre-release-pr:
         description: Generate pre-release pull requests. Default is true.
         type: boolean
         default: true
@@ -187,7 +187,7 @@ jobs:
             fetch-depth: 0
             ref: ${{ inputs.branch }}
         - name: Generate prerelease changelog for PR body
-          if: inputs.generate_pre-release-pr == true && needs.metadata.outputs.next_prerelease_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
+          if: inputs.generate-pre-release-pr == true && needs.metadata.outputs.next_prerelease_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
           id: unreleased-changelog
           uses: orhun/git-cliff-action@v4
           with:
@@ -198,11 +198,11 @@ jobs:
           env:
             OUTPUT: ${{ runner.temp }}/prereleasechangelog.md
         - name: Update version tracking file
-          if: inputs.generate_pre-release-pr == true && needs.metadata.outputs.next_prerelease_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
+          if: inputs.generate-pre-release-pr == true && needs.metadata.outputs.next_prerelease_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
           run: |
             echo -n "${{ needs.metadata.outputs.next_prerelease_version }}" > ${{ inputs.version-file-path }}
         - name: Update extra files
-          if: inputs.generate_pre-release-pr == true && inputs.extra-files != '' && needs.metadata.outputs.next_stable_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
+          if: inputs.generate-pre-release-pr == true && inputs.extra-files != '' && needs.metadata.outputs.next_stable_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
           run: |
             ./scripts/patch-semver.sh "${{ needs.metadata.outputs.next_prerelease_version }}" "${{ inputs.extra-files }}"            
         - name: Create prerelease PR
