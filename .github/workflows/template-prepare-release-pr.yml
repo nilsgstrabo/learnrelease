@@ -42,7 +42,7 @@ on:
         required: false
 
 env:
-  GIT_CLIFF_VERSION: v2.9.0 # Do not upgrade to v2.9.x. It has a bug that does not honor --ignore-tags when using --unreleased
+  GIT_CLIFF_VERSION: v2.8.0 # Do not upgrade to v2.9.x. It has a bug that does not honor --ignore-tags when using --unreleased
 jobs:
     metadata:
       name: Metadata
