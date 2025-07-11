@@ -114,7 +114,7 @@ jobs:
         contents: write
         issues: write
       env:
-        PRERELEASE_REGEX: ^v\d+\.\d+\.\d+-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*
+        PRERELEASE_REGEX: ^v[0-9]+\.[0-9]+\.[0-9]+-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*
       steps:
         - uses: actions/checkout@v4
           with:
