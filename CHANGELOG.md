@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.1](https://github.com/nilsgstrabo/learnrelease/compare/v2.3.0..v2.3.1) - 2025-07-11
+
+### 🐛 Bug Fixes
+
+- *(metrics)* Change response - ([40300cd](https://github.com/nilsgstrabo/learnrelease/commit/40300cd4a4f694a3039a7406abc7c95617ac5af1)) by @nilsgstrabo
+
+
+### ⚙️ Miscellaneous Tasks
+
+- Delete backup workflows - ([67259d9](https://github.com/nilsgstrabo/learnrelease/commit/67259d9789e34ccace4f64afe002e3e550049cb3)) by @nilsgstrabo
+
+- Enable pre-release pull requests - ([b064f09](https://github.com/nilsgstrabo/learnrelease/commit/b064f095a311ba6f4d20b17e634a8dad9e112c0a)) by @nilsgstrabo
+
+
 ## [2.3.0](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.14..v2.3.0) - 2025-07-11
 
 ### 🚀 Features
