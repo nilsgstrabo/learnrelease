@@ -42,7 +42,7 @@ on:
         required: false
 
 env:
-  GIT_CLIFF_VERSION: v2.8.0
+  GIT_CLIFF_VERSION: v2.8.0 # v2.9.0 has a bug when using --unreleased
 jobs:
     metadata:
       name: Metadata
@@ -113,6 +113,8 @@ jobs:
         pull-requests: write
         contents: write
         issues: write
+      env:
+        PRERELEASE_REGEX: ^v\d+\.\d+\.\d+-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*
       steps:
         - uses: actions/checkout@v4
           with:
@@ -125,7 +127,7 @@ jobs:
             version: ${{ env.GIT_CLIFF_VERSION }}
             config: ${{ inputs.cliff-config-path }}
             args:
-              -vv --tag v${{ needs.metadata.outputs.next_stable_version }} --ignore-tags ${{ inputs.pre-release-version-prefix }}
+              --tag v${{ needs.metadata.outputs.next_stable_version }} --ignore-tags "${{ env.PRERELEASE_REGEX }}" -vv 
           env:
             OUTPUT: ${{ inputs.changelog-path }}
 
@@ -137,7 +139,7 @@ jobs:
             version: ${{ env.GIT_CLIFF_VERSION }}
             config: ${{ inputs.cliff-config-path }}
             args:
-              -vv -u --strip all --tag v${{ needs.metadata.outputs.next_stable_version }} --ignore-tags ${{ inputs.pre-release-version-prefix }}
+              --tag v${{ needs.metadata.outputs.next_stable_version }} --ignore-tags "${{ env.PRERELEASE_REGEX }}" --unreleased --strip all -vv
           env:
             OUTPUT: ${{ runner.temp }}/stablechangelog.md
 
@@ -186,7 +188,7 @@ jobs:
             version: ${{ env.GIT_CLIFF_VERSION }}
             config: ${{ inputs.cliff-config-path }}
             args:
-              -vv -u --strip all --tag v${{ needs.metadata.outputs.next_prerelease_version }}
+              --tag v${{ needs.metadata.outputs.next_prerelease_version }} --unreleased --strip all -vv
           env:
             OUTPUT: ${{ runner.temp }}/prereleasechangelog.md
         - name: Update version tracking file
