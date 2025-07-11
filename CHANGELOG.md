@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.13](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.12..v2.2.13) - 2025-07-11
+
+### 🐛 Bug Fixes
+
+- Dummy 12 - ([979154e](https://github.com/nilsgstrabo/learnrelease/commit/979154e0b386f79e6e46025a87f7b3dcf6bd8121)) by @nilsgstrabo
+
+- Root 13 - ([039e6f3](https://github.com/nilsgstrabo/learnrelease/commit/039e6f3fdbe43bb49cbc61a13fe3e723c05df86b)) by @nilsgstrabo
+
+
+### ⚙️ Miscellaneous Tasks
+
+- Input to enable/disable generate of pre-release pr - ([f136e19](https://github.com/nilsgstrabo/learnrelease/commit/f136e198feae617b6961da5bf2a128ac9f3a3a5e)) by @nilsgstrabo
+
+- Ensure pre-release pr is deleted when pre-release pr is disabled - ([87c0aa4](https://github.com/nilsgstrabo/learnrelease/commit/87c0aa454ac03b5637d7dfacf58ebd2786a5af8a)) by @nilsgstrabo
+
+- Disable prerelease - ([ea9a2b0](https://github.com/nilsgstrabo/learnrelease/commit/ea9a2b0448d2397e5467593d1488871a23c40542)) by @nilsgstrabo
+
+- Misc - ([028045f](https://github.com/nilsgstrabo/learnrelease/commit/028045ffc78b1fecb9ef3e17607f39d160deda28)) by @nilsgstrabo
+
+- Enable pre-release - ([8760fc8](https://github.com/nilsgstrabo/learnrelease/commit/8760fc84a9720f854b4f9735ad30747e1b69dfb7)) by @nilsgstrabo
+
+- Fix input arg name - ([ed4d35f](https://github.com/nilsgstrabo/learnrelease/commit/ed4d35fed8612aed1ada3c0ba3f3312120a511fe)) by @nilsgstrabo
+
+- Disable pre-release pr - ([0f555c6](https://github.com/nilsgstrabo/learnrelease/commit/0f555c67ed7384889f330b506a9fe75b84c225de)) by @nilsgstrabo
+
+
 ## [2.2.12](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.11..v2.2.12) - 2025-07-11
 
 ### 🐛 Bug Fixes
