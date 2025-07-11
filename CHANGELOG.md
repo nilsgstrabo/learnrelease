@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.0](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.14..v2.3.0) - 2025-07-11
+
+### 🚀 Features
+
+- Bling bling - ([e90672e](https://github.com/nilsgstrabo/learnrelease/commit/e90672edd58575f3683cd99ebc1ba2cd644bf5fe)) by @nilsgstrabo
+
+
+### ⚙️ Miscellaneous Tasks
+
+- Delete workflow backups - ([4ed9386](https://github.com/nilsgstrabo/learnrelease/commit/4ed9386f5831ae03498be91bad9f41de9688d0d1)) by @nilsgstrabo
+
+
+## [2.2.14](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.13..v2.2.14) - 2025-07-11
+
+### 🐛 Bug Fixes
+
+- Dummy 13 - ([a78e5de](https://github.com/nilsgstrabo/learnrelease/commit/a78e5dea5a6fa941c258c2c0e195287496d99816)) by @nilsgstrabo
+
+
 ## [2.2.13](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.12..v2.2.13) - 2025-07-11
 
 ### 🐛 Bug Fixes
@@ -439,11 +458,9 @@ All notable changes to this project will be documented in this file.
 - Detect if version is prerelease - ([faab192](https://github.com/nilsgstrabo/learnrelease/commit/faab192f8c2faee7a9f456adb43ad54be98d11fa)) by @nilsgstrabo
 
 
-## [2.1.0](https://github.com/nilsgstrabo/learnrelease/compare/v2.0.0..v2.1.0) - 2025-07-07
+## [2.1.0](https://github.com/nilsgstrabo/learnrelease/compare/v1.4.0..v2.1.0) - 2025-07-07
 
 ### 🚀 Features
-
-- *(api)* New endpoint - ([4bee5b2](https://github.com/nilsgstrabo/learnrelease/commit/4bee5b26d9f12042bf2417e24fe73ffa39ab25e5)) by @nilsgstrabo
 
 - *(api)* First - ([40db0e0](https://github.com/nilsgstrabo/learnrelease/commit/40db0e0df34c5980d801f0ca2b0fcbabac0af665)) by @nilsgstrabo
 
@@ -456,24 +473,9 @@ All notable changes to this project will be documented in this file.
 - Add magic func - ([8a368dd](https://github.com/nilsgstrabo/learnrelease/commit/8a368dd58a2522fc7f95c18e2e79a1e7e7948077)) by @nilsgstrabo
 
 
-### 🐛 Bug Fixes
-
-- *(api)* Use json response - ([1a9bc0f](https://github.com/nilsgstrabo/learnrelease/commit/1a9bc0fe26f3de54ee822a32886d4e7428826abb)) by @nilsgstrabo
-
-- *(api)* Handle errors - ([0dc44f9](https://github.com/nilsgstrabo/learnrelease/commit/0dc44f9218a04972f078295a07ad30828daed600)) by @nilsgstrabo
-
-
 ### ⚙️ Miscellaneous Tasks
 
-- *(main)* Release 1.4.0 (#30) - ([3de7817](https://github.com/nilsgstrabo/learnrelease/commit/3de78172c569dcabb3414f6895c203a9d010aa27)) by @nilsgstrabo in [#30](https://github.com/nilsgstrabo/learnrelease/pull/30)
-
 - *(main)* Release 1.4.0 (#31) - ([9b58e6f](https://github.com/nilsgstrabo/learnrelease/commit/9b58e6fc3015f64050d7808115342b919bf0400c)) by @nilsgstrabo in [#31](https://github.com/nilsgstrabo/learnrelease/pull/31)
-
-- Test release action - ([944bd82](https://github.com/nilsgstrabo/learnrelease/commit/944bd82f073cb5c8df58a0ea9a822e8a9b82789b)) by @nilsgstrabo
-
-- Change trigger for action - ([d83dad3](https://github.com/nilsgstrabo/learnrelease/commit/d83dad3a3b1d0280acdf3377d1e67f77db6bd90f)) by @nilsgstrabo
-
-- Test release-please - ([94db92a](https://github.com/nilsgstrabo/learnrelease/commit/94db92ae4cad9fc5e078b73b5425d97bc87f9c61)) by @nilsgstrabo
 
 - Disable old workflows - ([c14dc4a](https://github.com/nilsgstrabo/learnrelease/commit/c14dc4a7a06dc92f0ce9619efec7cd88d967bd58)) by @nilsgstrabo
 
@@ -510,6 +512,31 @@ All notable changes to this project will be documented in this file.
 - Release script - ([2967fd3](https://github.com/nilsgstrabo/learnrelease/commit/2967fd38797c0021dcc5b6af5470f79f65c4577f)) by @nilsgstrabo
 
 - Fix release action when no pending release PR - ([7ef7533](https://github.com/nilsgstrabo/learnrelease/commit/7ef75339b53f9a7cddb0988fb3c4b224853ce950)) by @nilsgstrabo
+
+
+## [1.4.0](https://github.com/nilsgstrabo/learnrelease/compare/v2.0.0..v1.4.0) - 2025-07-04
+
+### 🚀 Features
+
+- *(api)* New endpoint - ([4bee5b2](https://github.com/nilsgstrabo/learnrelease/commit/4bee5b26d9f12042bf2417e24fe73ffa39ab25e5)) by @nilsgstrabo
+
+
+### 🐛 Bug Fixes
+
+- *(api)* Use json response - ([1a9bc0f](https://github.com/nilsgstrabo/learnrelease/commit/1a9bc0fe26f3de54ee822a32886d4e7428826abb)) by @nilsgstrabo
+
+- *(api)* Handle errors - ([0dc44f9](https://github.com/nilsgstrabo/learnrelease/commit/0dc44f9218a04972f078295a07ad30828daed600)) by @nilsgstrabo
+
+
+### ⚙️ Miscellaneous Tasks
+
+- *(main)* Release 1.4.0 (#30) - ([3de7817](https://github.com/nilsgstrabo/learnrelease/commit/3de78172c569dcabb3414f6895c203a9d010aa27)) by @nilsgstrabo in [#30](https://github.com/nilsgstrabo/learnrelease/pull/30)
+
+- Test release action - ([944bd82](https://github.com/nilsgstrabo/learnrelease/commit/944bd82f073cb5c8df58a0ea9a822e8a9b82789b)) by @nilsgstrabo
+
+- Change trigger for action - ([d83dad3](https://github.com/nilsgstrabo/learnrelease/commit/d83dad3a3b1d0280acdf3377d1e67f77db6bd90f)) by @nilsgstrabo
+
+- Test release-please - ([94db92a](https://github.com/nilsgstrabo/learnrelease/commit/94db92ae4cad9fc5e078b73b5425d97bc87f9c61)) by @nilsgstrabo
 
 
 ## [2.0.0](https://github.com/nilsgstrabo/learnrelease/compare/v1.0.0..v2.0.0) - 2025-07-03
