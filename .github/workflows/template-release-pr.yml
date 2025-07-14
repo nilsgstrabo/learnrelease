@@ -91,7 +91,7 @@ jobs:
           fetch-depth: 0
       - name: Create tag and release
         env:
-          GH_TOKEN: ${{ secrets.gh-release-token }}
+          GH_TOKEN: ${{ secrets.gh-release-token }} # Cannot use secrets.GITHUB_TOKEN, ref https://github.blog/changelog/2023-11-02-github-actions-enforcing-workflow-scope-when-creating-a-release/ and issue https://github.com/cli/cli/issues/9514
         run: |
           notes=$(gh pr view ${{ inputs.pull-request-number }} --json body | jq -r .body)
           gh release create ${{ needs.metadata.outputs.tag }} \

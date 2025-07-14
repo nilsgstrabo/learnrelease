@@ -1,8 +1,8 @@
 name: Create release and tags
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
   workflow_dispatch:
   
 jobs:
@@ -10,30 +10,9 @@ jobs:
     permissions:
       pull-requests: read
     uses: nilsgstrabo/learnrelease/.github/workflows/template-unreleased-prs-metadata.yml@main
-  release-token:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    # needs: unreleased-prs-metadata
-    # if: needs.unreleased-prs-metadata.outputs.unreleased_pull_request_count > 0
-    outputs:
-      token: ${{ steps.app-token.outputs.token }}
-    steps:
-      - uses: actions/create-github-app-token@v2
-        id: app-token
-        with:
-          app-id: ${{ vars.GH_APP_ID }}
-          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
-      - uses: actions/checkout@v4
-      - name: List releases
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          gh release list
   release-pull-request:
     needs: 
       - unreleased-prs-metadata
-      - release-token
     if: needs.unreleased-prs-metadata.outputs.unreleased_pull_request_count > 0
     strategy:
       matrix:
@@ -45,5 +24,5 @@ jobs:
     with:
       pull-request-number: ${{ matrix.pull-request-number }}
     secrets:
-      gh-release-token: ${{ needs.release-token.outputs.token }}
+      gh-release-token: ${{ secrets.RELEASE_GH_TOKEN }}
     
