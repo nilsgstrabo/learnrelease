@@ -19,7 +19,8 @@ jobs:
         pull-request-number: ${{ fromJson(needs.unreleased-prs-metadata.outputs.unreleased_pull_requests) }}
     permissions:
       pull-requests: write
-      contents: write
+      contents: read
+      actions: write
     uses: nilsgstrabo/learnrelease/.github/workflows/template-release-pr.yml@main
     with:
       pull-request-number: ${{ matrix.pull-request-number }}
