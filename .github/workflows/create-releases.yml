@@ -12,8 +12,8 @@ jobs:
     uses: nilsgstrabo/learnrelease/.github/workflows/template-unreleased-prs-metadata.yml@main
   release-token:
     runs-on: ubuntu-latest
-    needs: unreleased-prs-metadata
-    if: needs.unreleased-prs-metadata.outputs.unreleased_pull_request_count > 0
+    # needs: unreleased-prs-metadata
+    # if: needs.unreleased-prs-metadata.outputs.unreleased_pull_request_count > 0
     outputs:
       token: ${{ steps.app-token.outputs.token }}
     steps:
@@ -22,6 +22,11 @@ jobs:
         with:
           app-id: ${{ vars.GH_APP_ID }}
           private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+      - name: List releases
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          gh release list
   release-pull-request:
     needs: 
       - unreleased-prs-metadata
