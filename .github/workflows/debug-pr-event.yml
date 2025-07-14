@@ -13,6 +13,6 @@ jobs:
     steps:
       - name: metadata
         run: |
-          echo "${{ toJson(github.event.pull_request) }}""
+          echo "${{ toJson(github.event.pull_request) }}"
     
     
