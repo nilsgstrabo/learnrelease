@@ -2,6 +2,99 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.1](https://github.com/nilsgstrabo/learnrelease/compare/v2.3.0..v2.3.1) - 2025-07-14
+
+### 🐛 Bug Fixes
+
+- *(metrics)* Change response - ([40300cd](https://github.com/nilsgstrabo/learnrelease/commit/40300cd4a4f694a3039a7406abc7c95617ac5af1)) by @nilsgstrabo
+
+- Bling bling bug - ([ee0470a](https://github.com/nilsgstrabo/learnrelease/commit/ee0470aafaf4e884860427012fad299141c1f5cb)) by @nilsgstrabo
+
+- Bling bling bug 2 - ([b22a14a](https://github.com/nilsgstrabo/learnrelease/commit/b22a14ae0a3ec4ef0a3f7763e9372cae2836794c)) by @nilsgstrabo
+
+- Bling bling bug 3 - ([dff92ff](https://github.com/nilsgstrabo/learnrelease/commit/dff92ffab9a9561086b0848d8a08aaac6eddf31a)) by @nilsgstrabo
+
+- Bling bling bug 4 - ([939c8c1](https://github.com/nilsgstrabo/learnrelease/commit/939c8c1a230dd9a288fe72198e08ce37c7eef16c)) by @nilsgstrabo
+
+- Bling bling bug 5 - ([2ff3131](https://github.com/nilsgstrabo/learnrelease/commit/2ff31315d57e9856a9441ef2bc71ac9458261bda)) by @nilsgstrabo
+
+- Bling bling bug 7 - ([96d1e73](https://github.com/nilsgstrabo/learnrelease/commit/96d1e73bc0dfcc6f0f5d106f9fddf34dbcebe78c)) by @nilsgstrabo
+
+- Bling bling bug 8 - ([3550229](https://github.com/nilsgstrabo/learnrelease/commit/3550229424107fb8ec712be45ba9fd48c7b33cad)) by @nilsgstrabo
+
+- Bling bling bug 9 - ([fdfc0db](https://github.com/nilsgstrabo/learnrelease/commit/fdfc0db25bc720cf857295271443872a8d333859)) by @nilsgstrabo
+
+- Bling bling bug 10 - ([d88121c](https://github.com/nilsgstrabo/learnrelease/commit/d88121c9eacbb3871f34c9937e1882eef17fa8c5)) by @nilsgstrabo
+
+- Bling bling bug 11 - ([f3bf5c0](https://github.com/nilsgstrabo/learnrelease/commit/f3bf5c09ba68b3a12fa470820e8e116b7e227edf)) by @nilsgstrabo
+
+- Bling bling bug 12 - ([478f55f](https://github.com/nilsgstrabo/learnrelease/commit/478f55fce21ab6ec2f15eb3141a4d98d4b1d6a55)) by @nilsgstrabo
+
+
+### 📚 Documentation
+
+- Readme - ([3030c68](https://github.com/nilsgstrabo/learnrelease/commit/3030c68b779ca282ebcef95ea8cd0f5f089265d6)) by @nilsgstrabo
+
+
+### ⚙️ Miscellaneous Tasks
+
+- Delete backup workflows - ([67259d9](https://github.com/nilsgstrabo/learnrelease/commit/67259d9789e34ccace4f64afe002e3e550049cb3)) by @nilsgstrabo
+
+- Enable pre-release pull requests - ([b064f09](https://github.com/nilsgstrabo/learnrelease/commit/b064f095a311ba6f4d20b17e634a8dad9e112c0a)) by @nilsgstrabo
+
+- Use bool variable - ([72331c0](https://github.com/nilsgstrabo/learnrelease/commit/72331c048109d4c39b5ead306a518670a80aff4b)) by @nilsgstrabo
+
+- Revert bool test - ([ba2bef2](https://github.com/nilsgstrabo/learnrelease/commit/ba2bef2a739065a32acace6980619156107263e8)) by @nilsgstrabo
+
+- Greant minimum permission - ([b306d85](https://github.com/nilsgstrabo/learnrelease/commit/b306d8513f50e3a84d3516d3140e741cf8ed1ae2)) by @nilsgstrabo
+
+- Helm deploy - ([85df415](https://github.com/nilsgstrabo/learnrelease/commit/85df41576d2d066d3c7814a8116158d10dff88ff)) by @nilsgstrabo
+
+- Try without oce prefix for helm repo - ([0cef941](https://github.com/nilsgstrabo/learnrelease/commit/0cef94179c7cefd80c5a2c13d7af7125bbb820dc)) by @nilsgstrabo
+
+- Add schema prefix back to helm - ([b3cf70c](https://github.com/nilsgstrabo/learnrelease/commit/b3cf70cf7b4833a6eaa1f7197e11699434a6b241)) by @nilsgstrabo
+
+- Debug pr event - ([94fa785](https://github.com/nilsgstrabo/learnrelease/commit/94fa7850b8a7fc279d40af5ce01f86170023d56a)) by @nilsgstrabo
+
+- Debug pr on closed - ([67d6dd2](https://github.com/nilsgstrabo/learnrelease/commit/67d6dd2a9693357c58177d4d608a5f76d47b6d84)) by @nilsgstrabo
+
+- Fix debug - ([aa2df9e](https://github.com/nilsgstrabo/learnrelease/commit/aa2df9e292351d211a576de777275ba9a9603df5)) by @nilsgstrabo
+
+- Print merged - ([73699e2](https://github.com/nilsgstrabo/learnrelease/commit/73699e2722ff30854b4cb924bfd3e1ed54568dff)) by @nilsgstrabo
+
+- Test app token - ([5973918](https://github.com/nilsgstrabo/learnrelease/commit/5973918e87c4d1fbe78da628ec3b53bf297e0245)) by @nilsgstrabo
+
+- Use app secret - ([303b07e](https://github.com/nilsgstrabo/learnrelease/commit/303b07e6975771279ad0edf5190ebf82c1d20826)) by @nilsgstrabo
+
+- Test app token - ([728b236](https://github.com/nilsgstrabo/learnrelease/commit/728b23612e370af1b646bd98276221b3f05520da)) by @nilsgstrabo
+
+- Test - ([b4d646d](https://github.com/nilsgstrabo/learnrelease/commit/b4d646d1fc1ee801ea7342c62364119d55d38c80)) by @nilsgstrabo
+
+- Test - ([93de76b](https://github.com/nilsgstrabo/learnrelease/commit/93de76b299607c89283c475271fbd9c10b0e0afd)) by @nilsgstrabo
+
+- Checkout branch when examining version, tags and commits - ([65c9a18](https://github.com/nilsgstrabo/learnrelease/commit/65c9a180f9c4d38eb1a81f9da82ad27377c6486d)) by @nilsgstrabo
+
+- Test verify-tag - ([7e3ebe9](https://github.com/nilsgstrabo/learnrelease/commit/7e3ebe9b8dc5c899624d0f640ac7bd9f80c1aebf)) by @nilsgstrabo
+
+- Create tag manually - ([505e639](https://github.com/nilsgstrabo/learnrelease/commit/505e639f43211f936ca39eb9b22485847c80502a)) by @nilsgstrabo
+
+- Grant content: write to release pr - ([cbbf862](https://github.com/nilsgstrabo/learnrelease/commit/cbbf862b7609d463e4718675c8def85a125e7f7e)) by @nilsgstrabo
+
+- Fix permissions in calling workflow - ([ed2c4b6](https://github.com/nilsgstrabo/learnrelease/commit/ed2c4b6fe8c1e4290b1c20a894314f01c897310c)) by @nilsgstrabo
+
+- Test - ([5c2a942](https://github.com/nilsgstrabo/learnrelease/commit/5c2a942b3f41b9e39100217d70a0ef7fa7a31061)) by @nilsgstrabo
+
+- Revert attempt to release - ([65ca848](https://github.com/nilsgstrabo/learnrelease/commit/65ca84883049ada314315f3cfd7e20f7cdc94157)) by @nilsgstrabo
+
+- Set persist-credentials to false - ([f06d496](https://github.com/nilsgstrabo/learnrelease/commit/f06d4967acccf1edf5925a656204f168ed09759b)) by @nilsgstrabo
+
+- Test conditional token - ([300a59d](https://github.com/nilsgstrabo/learnrelease/commit/300a59db8ebc3c4e57b6aff14a801410547c1ceb)) by @nilsgstrabo
+
+- Name actions - ([fd49deb](https://github.com/nilsgstrabo/learnrelease/commit/fd49deb453828c1c14f76666971722c65112c315)) by @nilsgstrabo
+
+- Use app token - ([f406a44](https://github.com/nilsgstrabo/learnrelease/commit/f406a442796da64e32a313a8f737e646841412e9)) by @nilsgstrabo
+
+
 ## [2.3.0](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.14..v2.3.0) - 2025-07-11
 
 ### 🚀 Features
@@ -741,11 +834,9 @@ All notable changes to this project will be documented in this file.
 - Test3 again - ([dbb1fca](https://github.com/nilsgstrabo/learnrelease/commit/dbb1fca023eb71bc2c4296289a63ea1721ae4634)) by @nilsgstrabo
 
 
-## [0.2.0](https://github.com/nilsgstrabo/learnrelease/compare/v0.1.1..v0.2.0) - 2025-06-27
+## [0.2.0](https://github.com/nilsgstrabo/learnrelease/compare/v0.1.2..v0.2.0) - 2025-06-27
 
 ### 🚀 Features
-
-- Add extra endpoint - ([64944cb](https://github.com/nilsgstrabo/learnrelease/commit/64944cb951cd9cfbd8f37766755ab07f136b0df2)) by @nilsgstrabo
 
 - Fancy styff - ([aba0c9a](https://github.com/nilsgstrabo/learnrelease/commit/aba0c9a1a27970f79fa2565f4fcc685b9bd2b2e7)) by @nilsgstrabo
 
@@ -753,14 +844,6 @@ All notable changes to this project will be documented in this file.
 
 
 ### 🐛 Bug Fixes
-
-- Test some funky stuff - ([03e67b4](https://github.com/nilsgstrabo/learnrelease/commit/03e67b4e78de66bd5e84c4834df871d1c29008d0)) by @nilsgstrabo
-
-- Config - ([3e820fb](https://github.com/nilsgstrabo/learnrelease/commit/3e820fb7692105f443ac8052ca6c5e463a2a1030)) by @nilsgstrabo
-
-- Msg - ([d3f145e](https://github.com/nilsgstrabo/learnrelease/commit/d3f145eef96bed6fc7a473537d5c71c114cdbd3b)) by @nilsgstrabo
-
-- Msg again - ([65a2eb2](https://github.com/nilsgstrabo/learnrelease/commit/65a2eb2490ab87f43b219275f8b8e190c9134e16)) by @nilsgstrabo
 
 - Release main (#5) - ([5e4e20e](https://github.com/nilsgstrabo/learnrelease/commit/5e4e20e933bb7749956105d69c9cfb09ba28a9ca)) by @nilsgstrabo in [#5](https://github.com/nilsgstrabo/learnrelease/pull/5)
 
@@ -793,12 +876,6 @@ All notable changes to this project will be documented in this file.
 
 - *(main)* Release 1.4.0 (#15) - ([79a722e](https://github.com/nilsgstrabo/learnrelease/commit/79a722e013a82ec679235add40ac2ce8731735ec)) by @nilsgstrabo in [#15](https://github.com/nilsgstrabo/learnrelease/pull/15)
 
-- Release main (#2) - ([aec3f7f](https://github.com/nilsgstrabo/learnrelease/commit/aec3f7fa79402c7859a902cce530b193ef804b5f)) by @nilsgstrabo in [#2](https://github.com/nilsgstrabo/learnrelease/pull/2)
-
-- Release main (#3) - ([cf5d950](https://github.com/nilsgstrabo/learnrelease/commit/cf5d950be5533a042acb621c3576522a8f51fbac)) by @nilsgstrabo in [#3](https://github.com/nilsgstrabo/learnrelease/pull/3)
-
-- Release main (#4) - ([82390bf](https://github.com/nilsgstrabo/learnrelease/commit/82390bfb7e9dc3f2957d7eda95ecef30b4b352ad)) by @nilsgstrabo in [#4](https://github.com/nilsgstrabo/learnrelease/pull/4)
-
 - Fix - ([2163d83](https://github.com/nilsgstrabo/learnrelease/commit/2163d838eb8b047f31c1178e78ef0633ef2adf55)) by @nilsgstrabo
 
 - Cleanup - ([f77035f](https://github.com/nilsgstrabo/learnrelease/commit/f77035fd060623f6d205ed6fb418c9cf45765dcf)) by @nilsgstrabo
@@ -824,6 +901,33 @@ All notable changes to this project will be documented in this file.
 - Cleanup - ([014efcd](https://github.com/nilsgstrabo/learnrelease/commit/014efcd2aad000ad2891a2e19e8756fc49d6369f)) by @nilsgstrabo
 
 - Release 1.4.0 - ([b4ee263](https://github.com/nilsgstrabo/learnrelease/commit/b4ee26395e2dd117fdf675b9079a6774b4348ef0)) by @nilsgstrabo
+
+
+## [0.1.2](https://github.com/nilsgstrabo/learnrelease/compare/v0.1.1..v0.1.2) - 2025-06-25
+
+### 🚀 Features
+
+- Add extra endpoint - ([64944cb](https://github.com/nilsgstrabo/learnrelease/commit/64944cb951cd9cfbd8f37766755ab07f136b0df2)) by @nilsgstrabo
+
+
+### 🐛 Bug Fixes
+
+- Test some funky stuff - ([03e67b4](https://github.com/nilsgstrabo/learnrelease/commit/03e67b4e78de66bd5e84c4834df871d1c29008d0)) by @nilsgstrabo
+
+- Config - ([3e820fb](https://github.com/nilsgstrabo/learnrelease/commit/3e820fb7692105f443ac8052ca6c5e463a2a1030)) by @nilsgstrabo
+
+- Msg - ([d3f145e](https://github.com/nilsgstrabo/learnrelease/commit/d3f145eef96bed6fc7a473537d5c71c114cdbd3b)) by @nilsgstrabo
+
+- Msg again - ([65a2eb2](https://github.com/nilsgstrabo/learnrelease/commit/65a2eb2490ab87f43b219275f8b8e190c9134e16)) by @nilsgstrabo
+
+
+### ⚙️ Miscellaneous Tasks
+
+- Release main (#2) - ([aec3f7f](https://github.com/nilsgstrabo/learnrelease/commit/aec3f7fa79402c7859a902cce530b193ef804b5f)) by @nilsgstrabo in [#2](https://github.com/nilsgstrabo/learnrelease/pull/2)
+
+- Release main (#3) - ([cf5d950](https://github.com/nilsgstrabo/learnrelease/commit/cf5d950be5533a042acb621c3576522a8f51fbac)) by @nilsgstrabo in [#3](https://github.com/nilsgstrabo/learnrelease/pull/3)
+
+- Release main (#4) - ([82390bf](https://github.com/nilsgstrabo/learnrelease/commit/82390bfb7e9dc3f2957d7eda95ecef30b4b352ad)) by @nilsgstrabo in [#4](https://github.com/nilsgstrabo/learnrelease/pull/4)
 
 
 ## [0.1.1](https://github.com/nilsgstrabo/learnrelease/compare/v0.1.0..v0.1.1) - 2025-06-25
@@ -854,7 +958,7 @@ All notable changes to this project will be documented in this file.
 - Bootstrap releases for path: . (#1) - ([0ad0de0](https://github.com/nilsgstrabo/learnrelease/commit/0ad0de0c06e939259c6862e2926f6af53b17ef38)) by @nilsgstrabo in [#1](https://github.com/nilsgstrabo/learnrelease/pull/1)
 
 
-## [0.1.0] - 2025-06-25
+## [0.1.0](https://github.com/nilsgstrabo/learnrelease/compare/v0.0.1..v0.1.0) - 2025-06-25
 
 ### 🚀 Features
 
@@ -867,6 +971,8 @@ All notable changes to this project will be documented in this file.
 
 - Update readme - ([3cd1eb2](https://github.com/nilsgstrabo/learnrelease/commit/3cd1eb212559ba2755c35f05c2613c7127c2570c)) by @nilsgstrabo
 
+
+## [0.0.1] - 2025-06-25
 
 ## New Contributors ❤️
 
