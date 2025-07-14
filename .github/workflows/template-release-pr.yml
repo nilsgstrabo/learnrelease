@@ -11,10 +11,23 @@ on:
         required: false
         type: string
         default: version.txt
+      use-gh-app-token:
+        description: |
+          Use GitHub App to make authenticated request for creating release and tag.
+          When true, requires `github-app-id` and `gh-app-private-key` to be set.
+          When set to false, requires a token (PAT) to be set in `gh-release-token`.
+          Defaults to false.
+        type: boolean
+        default: false
+      github-app-id:
+        description: The GitHub App ID to use for authentication when `use-gh-app-token` is true.
+        type: string
+
     secrets:
       gh-release-token:
         description: A Github token with permission to create GitHub release for a specific target commit
-        required: true
+      gh-app-private-key:
+        description: The private key for the GitHub App defined by `github-app-id`. Required when `use-gh-app-token` is set to true.
     outputs:
       commit:
         description: The commit that was released
@@ -87,13 +100,26 @@ jobs:
       contents: read
     needs: metadata
     steps:
+      - id: app-token
+        if: inputs.use-gh-app-token == true
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ inputs.github-app-id }}
+          private-key: ${{ secrets.gh-app-private-key }}
+      - id: select-token
+        run: |
+          token="${{ secrets.gh-release-token }}"
+          if [[ "${{ inputs.use-gh-app-token }}" == "true" ]]; then
+            token=${{ steps.app-token.outputs.token }}
+          fi
+          echo "token=$token" >>"$GITHUB_OUTPUT"
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Create tag and release
         env:
-          GH_TOKEN: ${{ secrets.gh-release-token }} # Cannot use secrets.GITHUB_TOKEN, ref https://github.blog/changelog/2023-11-02-github-actions-enforcing-workflow-scope-when-creating-a-release/ and issue https://github.com/cli/cli/issues/9514
+          GH_TOKEN: ${{ steps.select-token.outputs.token }} # Cannot use secrets.GITHUB_TOKEN, ref https://github.blog/changelog/2023-11-02-github-actions-enforcing-workflow-scope-when-creating-a-release/ and issue https://github.com/cli/cli/issues/9514
         run: |
           notes=$(gh pr view ${{ inputs.pull-request-number }} --json body | jq -r .body)
           gh release create ${{ needs.metadata.outputs.tag }} \
