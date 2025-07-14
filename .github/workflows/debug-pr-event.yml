@@ -1,0 +1,16 @@
+name: Debug pr event
+on:
+  pull_request: 
+    branches:
+      - main
+
+  
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - name: metadata
+        run: |
+          echo "${{ toJson(github.event.pull_request) }}""
+    
+    
