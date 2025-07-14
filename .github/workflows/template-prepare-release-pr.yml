@@ -88,14 +88,14 @@ jobs:
                 commits_since_latest_version=$(git log --oneline | wc -l)
             fi
 
-            next_stable_version_greater_than_latest="false"
+            next_stable_version_greater_than_latest=false
             if [ "$(git-semver compare $next_stable_version $latest_version 2>&1)" = ">" ]; then
-                next_stable_version_greater_than_latest="true"
+                next_stable_version_greater_than_latest=true
             fi
 
-            next_prerelease_version_greater_than_latest="false"
+            next_prerelease_version_greater_than_latest=false
             if [ "$(git-semver compare $next_prerelease_version $latest_version 2>&1)" = ">" ]; then
-                next_prerelease_version_greater_than_latest="true"
+                next_prerelease_version_greater_than_latest=true
             fi
 
             echo "next_prerelease_version=$next_prerelease_version" >>"$GITHUB_OUTPUT"
@@ -127,7 +127,7 @@ jobs:
             fetch-depth: 0
             ref: ${{ inputs.branch }}
         - name: Generate stable release changelog
-          if: needs.metadata.outputs.next_stable_version_greater_than_latest == 'true'
+          if: needs.metadata.outputs.next_stable_version_greater_than_latest == true
           uses: orhun/git-cliff-action@v4
           with:
             version: ${{ env.GIT_CLIFF_VERSION }}
@@ -138,7 +138,7 @@ jobs:
             OUTPUT: ${{ inputs.changelog-path }}
 
         - name: Generate stable release changelog for PR body
-          if: needs.metadata.outputs.next_stable_version_greater_than_latest == 'true'  
+          if: needs.metadata.outputs.next_stable_version_greater_than_latest == true
           id: stable-changelog
           uses: orhun/git-cliff-action@v4
           with:
@@ -150,11 +150,11 @@ jobs:
             OUTPUT: ${{ runner.temp }}/stablechangelog.md
 
         - name: Update version tracking file
-          if: needs.metadata.outputs.next_stable_version_greater_than_latest == 'true'
+          if: needs.metadata.outputs.next_stable_version_greater_than_latest == true
           run: |
             echo -n "${{ needs.metadata.outputs.next_stable_version }}" > ${{ inputs.version-file-path }}
         - name: Update extra files
-          if: inputs.extra-files != '' && needs.metadata.outputs.next_stable_version_greater_than_latest == 'true'
+          if: inputs.extra-files != '' && needs.metadata.outputs.next_stable_version_greater_than_latest == true
           run: |
             ./scripts/patch-semver.sh "${{ needs.metadata.outputs.next_stable_version }}" "${{ inputs.extra-files }}"
         - name: Create stable release PR
@@ -187,7 +187,7 @@ jobs:
             fetch-depth: 0
             ref: ${{ inputs.branch }}
         - name: Generate prerelease changelog for PR body
-          if: inputs.generate-pre-release-pr == true && needs.metadata.outputs.next_prerelease_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
+          if: inputs.generate-pre-release-pr == true && needs.metadata.outputs.next_prerelease_version_greater_than_latest == true && needs.metadata.outputs.commits_since_latest_version > 0
           id: unreleased-changelog
           uses: orhun/git-cliff-action@v4
           with:
@@ -198,11 +198,11 @@ jobs:
           env:
             OUTPUT: ${{ runner.temp }}/prereleasechangelog.md
         - name: Update version tracking file
-          if: inputs.generate-pre-release-pr == true && needs.metadata.outputs.next_prerelease_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
+          if: inputs.generate-pre-release-pr == true && needs.metadata.outputs.next_prerelease_version_greater_than_latest == true && needs.metadata.outputs.commits_since_latest_version > 0
           run: |
             echo -n "${{ needs.metadata.outputs.next_prerelease_version }}" > ${{ inputs.version-file-path }}
         - name: Update extra files
-          if: inputs.generate-pre-release-pr == true && inputs.extra-files != '' && needs.metadata.outputs.next_stable_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
+          if: inputs.generate-pre-release-pr == true && inputs.extra-files != '' && needs.metadata.outputs.next_stable_version_greater_than_latest == true && needs.metadata.outputs.commits_since_latest_version > 0
           run: |
             ./scripts/patch-semver.sh "${{ needs.metadata.outputs.next_prerelease_version }}" "${{ inputs.extra-files }}"            
         - name: Create prerelease PR
