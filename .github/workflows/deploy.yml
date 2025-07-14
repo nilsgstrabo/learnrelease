@@ -71,7 +71,7 @@ jobs:
       packages: write
       pull-requests: write
     env:
-      HELM_CHART_REGISTRY: ghcr.io
+      HELM_CHART_REGISTRY: oci://ghcr.io
     steps:
       - name: Install Helm
         uses: azure/setup-helm@v4
