@@ -71,7 +71,7 @@ jobs:
       packages: write
       pull-requests: write
     env:
-      OCI_REGISTRY: ghcr.io
+      HELM_CHART_REGISTRY: oci://ghcr.io
     steps:
       - name: Install Helm
         uses: azure/setup-helm@v4
@@ -79,7 +79,7 @@ jobs:
           version: v3.18.3
       - name: Helm login
         run: |
-          helm registry login ${{env.OCI_REGISTRY }} \
+          helm registry login ${{env.HELM_CHART_REGISTRY }} \
             --username ${{ github.actor }} \
             --password ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v4
@@ -91,8 +91,8 @@ jobs:
           helm package --version $version --app-version $version .
           
           helm_packages=$(git status --short | sed s/^...//)
-          oci_repo=oci://${{ env.OCI_REGISTRY }}/${{ github.repository }}/helm
-          helm push learnrelease-$version.tgz $oci_repo
+          helm_repo=${{ env.HELM_CHART_REGISTRY }}/${{ github.repository }}/helm
+          helm push learnrelease-$version.tgz $helm_repo
           
           echo "helm_packages="$helm_packages"" >>"$GITHUB_OUTPUT"
       - name: Upload Helm packages to release
@@ -101,10 +101,5 @@ jobs:
           GH_TOKEN: ${{ secrets.RELEASE_GH_TOKEN }}
         working-directory: charts/learnrelease
         run: |
-          for file in "${{ steps.deploy-helm.outputs.helm_packages }}"; do
-            echo $file
-            stat "$file"
-          done
-
           gh release upload --clobber "v${{ needs.metadata.outputs.version }}" ${{ steps.deploy-helm.outputs.helm_packages }}
 
