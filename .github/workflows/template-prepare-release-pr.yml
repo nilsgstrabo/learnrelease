@@ -127,6 +127,7 @@ jobs:
           with:
             fetch-depth: 0
             ref: ${{ inputs.branch }}
+            persist-credentials: false
         - name: Generate stable release changelog
           if: needs.metadata.outputs.next_stable_version_greater_than_latest == 'true'
           uses: orhun/git-cliff-action@v4
@@ -187,6 +188,7 @@ jobs:
           with:
             fetch-depth: 0
             ref: ${{ inputs.branch }}
+            persist-credentials: false
         - name: Generate prerelease changelog for PR body
           if: inputs.generate-pre-release-pr == true && needs.metadata.outputs.next_prerelease_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
           id: unreleased-changelog
