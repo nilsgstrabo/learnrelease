@@ -96,6 +96,7 @@ jobs:
           notes=$(gh pr view ${{ inputs.pull-request-number }} --json body | jq -r .body)
           gh release create ${{ needs.metadata.outputs.tag }} \
             --notes "$notes" \
+            --verify-tag \
             --target ${{ needs.metadata.outputs.commit }} \
             --title ${{ needs.metadata.outputs.tag }} \
             --prerelease=${{ needs.metadata.outputs.is_prerelease }}
