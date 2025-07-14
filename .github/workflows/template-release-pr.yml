@@ -84,6 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions: 
       pull-requests: write
+      contents: write
     needs: metadata
     steps:
       - uses: actions/checkout@v4
