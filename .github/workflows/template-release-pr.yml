@@ -89,9 +89,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ needs.metadata.outputs.commit }}
+      - name: Create tag
+        run: |
+          git tag ${{ needs.metadata.outputs.tag }} ${{ needs.metadata.outputs.commit }}
+          git push --tags
       - name: Create tag and release
         env:
-          GH_TOKEN: ${{ secrets.gh-release-token }} # Cannot use secrets.GITHUB_TOKEN, ref https://github.blog/changelog/2023-11-02-github-actions-enforcing-workflow-scope-when-creating-a-release/ and issue https://github.com/cli/cli/issues/9514
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Cannot use secrets.GITHUB_TOKEN, ref https://github.blog/changelog/2023-11-02-github-actions-enforcing-workflow-scope-when-creating-a-release/ and issue https://github.com/cli/cli/issues/9514
         run: |
           notes=$(gh pr view ${{ inputs.pull-request-number }} --json body | jq -r .body)
           gh release create ${{ needs.metadata.outputs.tag }} \
