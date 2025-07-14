@@ -100,13 +100,15 @@ jobs:
       contents: read
     needs: metadata
     steps:
-      - id: app-token
+      - name: Create app token
+        id: app-token
         if: inputs.use-gh-app-token == true
         uses: actions/create-github-app-token@v2
         with:
           app-id: ${{ inputs.github-app-id }}
           private-key: ${{ secrets.gh-app-private-key }}
-      - id: select-token
+      - name: Select token
+        id: select-token
         run: |
           token="${{ secrets.gh-release-token }}"
           if [[ "${{ inputs.use-gh-app-token }}" == "true" ]]; then
