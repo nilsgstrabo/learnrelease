@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.2](https://github.com/nilsgstrabo/learnrelease/compare/v2.3.1..v2.3.2) - 2025-07-15
+
+### 🐛 Bug Fixes
+
+- Bling bling bug 13 - ([f2eefca](https://github.com/nilsgstrabo/learnrelease/commit/f2eefca9124865a633a61eaaebde756da23cae12)) by @nilsgstrabo
+
+
+### ⚙️ Miscellaneous Tasks
+
+- Test harden runner - ([228b421](https://github.com/nilsgstrabo/learnrelease/commit/228b421fe8932f8d0372b2ede3d3e6408b9846a4)) by @nilsgstrabo
+
+- Remove harden-runner (for now) - ([dcb72d5](https://github.com/nilsgstrabo/learnrelease/commit/dcb72d5bfc9995adaa6a02466583e3bdf18fec1b)) by @nilsgstrabo
+
+- Do we need issues permission - ([0f082f5](https://github.com/nilsgstrabo/learnrelease/commit/0f082f525d780646fbcc4cb8ca0c3d5f6a1e975b)) by @nilsgstrabo
+
+- Remove issues perm,ission - ([7b918ea](https://github.com/nilsgstrabo/learnrelease/commit/7b918ea2cb79267dc49722276fcfffc78b0e8960)) by @nilsgstrabo
+
+- Context read? - ([27bdfcd](https://github.com/nilsgstrabo/learnrelease/commit/27bdfcd1771b670c7d588df21ff2afbe7db92a7e)) by @nilsgstrabo
+
+- Content write - ([0819b01](https://github.com/nilsgstrabo/learnrelease/commit/0819b01068a775acd70bf4c284fd8239e3a49957)) by @nilsgstrabo
+
+- Pre-release pr disabled by default - ([5b5b07f](https://github.com/nilsgstrabo/learnrelease/commit/5b5b07f6cd0a24cc70e3e22f43b350e4ff4fc5a8)) by @nilsgstrabo
+
+- Remove name from template workflow - ([be958e1](https://github.com/nilsgstrabo/learnrelease/commit/be958e184bed22a5d3ed67fce1b40983c6ca15a9)) by @nilsgstrabo
+
+- Specify go version - ([ee45f2e](https://github.com/nilsgstrabo/learnrelease/commit/ee45f2e6f02f90e4cf67d0b5b76af6a96110ce40)) by @nilsgstrabo
+
+- Disable go cache - ([9d2fe0f](https://github.com/nilsgstrabo/learnrelease/commit/9d2fe0ff07f272aadf293b1c8efa090215f31d46)) by @nilsgstrabo
+
+
 ## [2.3.1](https://github.com/nilsgstrabo/learnrelease/compare/v2.3.0..v2.3.1) - 2025-07-14
 
 ### 🐛 Bug Fixes
@@ -93,6 +123,8 @@ All notable changes to this project will be documented in this file.
 - Name actions - ([fd49deb](https://github.com/nilsgstrabo/learnrelease/commit/fd49deb453828c1c14f76666971722c65112c315)) by @nilsgstrabo
 
 - Use app token - ([f406a44](https://github.com/nilsgstrabo/learnrelease/commit/f406a442796da64e32a313a8f737e646841412e9)) by @nilsgstrabo
+
+- Check for pending release prs on push to main - ([f57789e](https://github.com/nilsgstrabo/learnrelease/commit/f57789ecdb7e2adba273cb706110e9b9d6ab7012)) by @nilsgstrabo
 
 
 ## [2.3.0](https://github.com/nilsgstrabo/learnrelease/compare/v2.2.14..v2.3.0) - 2025-07-11
