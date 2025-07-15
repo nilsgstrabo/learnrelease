@@ -10,6 +10,9 @@ on:
 concurrency:
   group: ${{ github.workflow }}
 
+permissions:
+  contents: read
+
 jobs:
   prepare-release-pr:
     name: Prepare release pull requests
@@ -28,3 +31,16 @@ jobs:
       cliff-config-path: cliff.toml
       extra-files: 
         charts/learnrelease/Chart.yaml
+  print-pr-info:
+    runs-on: ubuntu-latest
+    needs: prepare-release-pr
+    steps:
+      - name: Print pr info
+        run: |
+          echo "stable pr: ${{ needs.prepare-release-pr.outputs.stable-release-pull-request-number }}"
+          echo "stable operation: ${{ needs.prepare-release-pr.outputs.stable-release-pull-request-operation }}"
+          echo "pre pr: ${{ needs.prepare-release-pr.outputs.pre-release-pull-request-number }}"
+          echo "pre operation: ${{ needs.prepare-release-pr.outputs.pre-release-pull-request-operation }}"
+    
+    
+      
