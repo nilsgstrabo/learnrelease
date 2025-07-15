@@ -12,6 +12,7 @@ concurrency:
 
 jobs:
   prepare-release-pr:
+    name: Prepare release pull requests
     permissions:
       contents: write
       pull-requests: write
