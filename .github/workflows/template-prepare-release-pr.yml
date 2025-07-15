@@ -10,7 +10,7 @@ on:
         description: The pull request branch name for stable releases
         required: false
         type: string
-        default: release/stable-release
+        default: release-pull-request/stable-release
       generate-pre-release-pr:
         description: Generate pre-release pull requests. Default is false.
         type: boolean
@@ -24,7 +24,7 @@ on:
         description: The pull request branch name for pre-releases
         required: false
         type: string
-        default: release/pre-release
+        default: release-pull-request/pre-release
       version-file-path:
         description: The path to the file where the new version is written to.
         required: false
@@ -160,6 +160,9 @@ jobs:
           if: inputs.extra-files != '' && needs.metadata.outputs.next_stable_version_greater_than_latest == 'true'
           run: |
             ./scripts/patch-semver.sh "${{ needs.metadata.outputs.next_stable_version }}" "${{ inputs.extra-files }}"
+        - name: Test git
+          run: |
+            
         - name: Create stable release PR
           uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
           with:

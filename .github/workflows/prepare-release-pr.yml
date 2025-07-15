@@ -19,10 +19,10 @@ jobs:
     uses: nilsgstrabo/learnrelease/.github/workflows/template-prepare-release-pr.yml@main
     with:
       branch: main
-      stable-release-pr-branch: release/stable
+      # stable-release-pr-branch: release/stable
       generate-pre-release-pr: true
       pre-release-version-prefix: rc
-      pre-release-pr-branch: release/prerelease
+      # pre-release-pr-branch: release/prerelease
       changelog-path: CHANGELOG.md
       cliff-config-path: cliff.toml
       extra-files: 
