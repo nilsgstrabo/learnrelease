@@ -14,9 +14,9 @@ on:
         type: string
         default: release/stable-release
       generate-pre-release-pr:
-        description: Generate pre-release pull requests. Default is true.
+        description: Generate pre-release pull requests. Default is false.
         type: boolean
-        default: true
+        default: false
       pre-release-version-prefix:
         description: The prefix to use in identifier for calculating pre-release versions. For example, if this value is set to "rc" (default), the first pre-release version for version "1.5.0" will be "1.5.0-rc.1", then "1.5.0-rc.2", and so on.
         required: false
