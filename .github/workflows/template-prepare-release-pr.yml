@@ -3,9 +3,8 @@ on:
     inputs:
       branch:
         description: The name of the branch to analyze commits for calculating next version. This is also used as the base branch when creating release pull requests.
-        required: false
+        required: true
         type: string
-        default: main
       stable-release-pr-branch:
         description: The pull request branch name for stable releases
         required: false
