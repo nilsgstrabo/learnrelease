@@ -121,7 +121,7 @@ jobs:
       needs: metadata
       permissions: 
         pull-requests: write
-        contents: read
+        contents: write
       env:
         PRERELEASE_REGEX: ^v[0-9]+\.[0-9]+\.[0-9]+-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*
       steps:
@@ -183,7 +183,7 @@ jobs:
       needs: metadata
       permissions: 
         pull-requests: write
-        contents: read
+        contents: write
       steps:
         - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
           with:

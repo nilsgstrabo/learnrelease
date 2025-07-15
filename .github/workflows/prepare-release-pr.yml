@@ -13,7 +13,7 @@ concurrency:
 jobs:
   prepare-release-pr:
     permissions:
-      contents: read
+      contents: write
       pull-requests: write
     uses: nilsgstrabo/learnrelease/.github/workflows/template-prepare-release-pr.yml@main
     with:
