@@ -20,7 +20,7 @@ jobs:
     permissions:
       pull-requests: write
       contents: read
-    uses: nilsgstrabo/learnrelease/.github/workflows/template-release-pr.yml@main
+    uses: nilsgstrabo/learnrelease/.github/workflows/template-create-release-from-pr.yml@main
     with:
       pull-request-number: ${{ matrix.pull-request-number }}
       github-app-id: ${{ vars.GH_APP_ID }}

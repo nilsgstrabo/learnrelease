@@ -42,6 +42,19 @@ on:
         description: A space or newline separated list of files to update with new version number. For each file, the workflow will look for lines containing the text '# x-patch-semver', and replace anything that matches a semver version with the new version.
         type: string
         required: false
+    outputs:
+      stable-release-pull-request-number:
+        description: The stable release pull request number
+        value: ${{ jobs.stable-release-pr.outputs.pull-request-number }}
+      stable-release-pull-request-operation:
+        description: The stable release pull request operation performed by the workflow
+        value: ${{ jobs.stable-release-pr.outputs.pull-request-operation }}
+      pre-release-pull-request-number:
+        description: The pre-release pull request number
+        value: ${{ jobs.pre-release-pr.outputs.pull-request-number }}
+      pre-release-pull-request-operation:
+        description: The pre-release pull request operation performed by the workflow
+        value: ${{ jobs.pre-release-pr.outputs.pull-request-operation }}
 
 env:
   GIT_CLIFF_VERSION: v2.8.0 # Do not upgrade to v2.9.x. It has a bug that does not honor --ignore-tags when using --unreleased
@@ -105,7 +118,7 @@ jobs:
             echo "next_stable_version_greater_than_latest=$next_stable_version_greater_than_latest" >>"$GITHUB_OUTPUT"
             echo "next_prerelease_version_greater_than_latest=$next_prerelease_version_greater_than_latest" >>"$GITHUB_OUTPUT"
             echo "commits_since_latest_version=$commits_since_latest_version" >>"$GITHUB_OUTPUT"
-        - name: Show computed version
+        - name: Print computed version
           run: |
             echo "next_prerelease_version = ${{ steps.ver.outputs.next_prerelease_version }}"
             echo "next_stable_version = ${{ steps.ver.outputs.next_stable_version }}"
@@ -117,6 +130,9 @@ jobs:
       name: Process stable release pull request
       runs-on: ubuntu-latest
       needs: metadata
+      outputs:
+        pull-request-operation: ${{ steps.pull-request.outputs.pull-request-operation }}
+        pull-request-number: ${{ steps.pull-request.outputs.pull-request-number }}
       permissions: 
         pull-requests: write
         contents: write
@@ -164,6 +180,7 @@ jobs:
           run: |
             
         - name: Create stable release PR
+          id: pull-request
           uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
           with:
             base: ${{ inputs.branch }}
@@ -179,10 +196,13 @@ jobs:
               ${{ inputs.version-file-path }}
               ${{ inputs.extra-files }}
 
-    prerelease-pr:
+    pre-release-pr:
       name: Process pre-release pull request
       runs-on: ubuntu-latest
       needs: metadata
+      outputs:
+        pull-request-operation: ${{ steps.pull-request.outputs.pull-request-operation }}
+        pull-request-number: ${{ steps.pull-request.outputs.pull-request-number }}
       permissions: 
         pull-requests: write
         contents: write
@@ -213,6 +233,7 @@ jobs:
           run: |
             ./scripts/patch-semver.sh "${{ needs.metadata.outputs.next_prerelease_version }}" "${{ inputs.extra-files }}"            
         - name: Create prerelease PR
+          id: pull-request
           uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
           with:
             base: ${{ inputs.branch }}
