@@ -19,7 +19,7 @@ jobs:
       github-app-id: ${{ vars.GH_APP_ID }}
       use-github-app-token: true
       github-app-owner: ${{ github.repository_owner }}
-      github-app-repositories: ${{ github.repository }}
+      github-app-repositories: ${{ github.event.repository.name }}
     secrets:
       github-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
   print-result:
