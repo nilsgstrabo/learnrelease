@@ -1,4 +1,3 @@
-name: Template - Create tag and release for pull request
 on:
   workflow_call: 
     inputs:

@@ -1,4 +1,3 @@
-name: Template - Get unreleased pull requests metadata
 on:
   workflow_call:
     outputs:

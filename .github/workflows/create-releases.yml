@@ -7,10 +7,12 @@ on:
   
 jobs:
   unreleased-prs-metadata:
+    name: Get list of unrelease pull requests
     permissions:
       pull-requests: read
     uses: nilsgstrabo/learnrelease/.github/workflows/template-unreleased-prs-metadata.yml@main
   release-pull-request:
+    name: Release pull requests
     needs: 
       - unreleased-prs-metadata
     if: needs.unreleased-prs-metadata.outputs.unreleased_pull_request_count > 0
@@ -29,6 +31,7 @@ jobs:
       gh-release-token: ${{ secrets.RELEASE_GH_TOKEN }}
       gh-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
   print-result:
+    name: Print results of release
     runs-on: ubuntu-latest
     needs: release-pull-request
     steps:
