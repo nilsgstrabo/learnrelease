@@ -9,7 +9,7 @@ on:
         value: ${{ jobs.releases-metadata.outputs.unreleased_pull_request_count }}
 jobs:
   releases-metadata:
-    name: Metadata for unreleased pull requests
+    name: Metadata
     runs-on: ubuntu-latest
     permissions: 
       pull-requests: read
