@@ -18,12 +18,16 @@ jobs:
         with:
           app-id: ${{ vars.GH_APP_ID }}
           private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: set secret
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh secret set MYSECRET --body "${{ steps.app-token.outputs.token }}"
   release-pull-request:
+    needs: refresh-app-token
     name: Release pull request
     permissions:
       pull-requests: write
