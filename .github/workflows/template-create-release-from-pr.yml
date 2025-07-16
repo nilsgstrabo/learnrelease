@@ -3,7 +3,7 @@ on:
   workflow_call: 
     inputs:
       pull-request-number:
-        description: The pull request number to create release and tag from
+        description: The pull request number to create release and tag from.
         required: true
         type: string
       version-file-path:
@@ -25,22 +25,24 @@ on:
 
     secrets:
       gh-release-token:
-        description: A Github token with permission to create GitHub release for a specific target commit
+        description: A Github token with permission to create GitHub release for a specific target commit.
       gh-app-private-key:
         description: The private key for the GitHub App defined by `github-app-id`. Required when `use-gh-app-token` is set to true.
     outputs:
       commit:
-        description: The commit that was released
+        description: The commit that was released.
         value: ${{ jobs.metadata.outputs.commit }}
       version:
-        description: The commit that was released
+        description: The commit that was released.
         value: ${{ jobs.metadata.outputs.version }}
       tag:
-        description: The commit that was released
+        description: The commit that was released.
         value: ${{ jobs.metadata.outputs.tag }}
       is-prerelease:
-        description: The commit that was released
+        description: The commit that was released.
         value: ${{ jobs.metadata.outputs.is_prerelease }}
+      release-result:
+        value: ${{ jobs.release.result }}
         
 jobs:
   metadata:
@@ -54,6 +56,7 @@ jobs:
       version: ${{ steps.metadata.outputs.version }}
       tag: ${{ steps.metadata.outputs.tag }}
       is_prerelease: ${{ steps.metadata.outputs.is_prerelease }}
+      releasable: ${{ steps.metadata.outputs.releasable }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -63,9 +66,15 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
         run: |
           set -Eeuo pipefail
+
           pr_number=${{ inputs.pull-request-number }}
           pr_info=$(gh pr view $pr_number --json title,labels,mergeCommit,state,number | jq 'select(.state=="MERGED" and (.labels[] | .name=="release: pending"))')
-          [[ -z "$pr_info" ]] && { echo "Pull request $pr_number has invalid release state"; exit 1; }
+          
+          if [[ -z "$pr_info" ]]; then
+            echo "Pull request $pr_number has invalid release state"
+            echo "releasable=false" >>"$GITHUB_OUTPUT"
+            exit 0
+          fi
 
           commit=$(echo $pr_info | jq -r .mergeCommit.oid)
           version=$(git show "$commit":"${{ inputs.version-file-path }}")
@@ -81,17 +90,12 @@ jobs:
           if [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+- ]]; then
               is_prerelease="true"
           fi
-
+          
+          echo "releasable=true" >>"$GITHUB_OUTPUT"
           echo "commit=$commit" >>"$GITHUB_OUTPUT"
           echo "version=$version" >>"$GITHUB_OUTPUT"
           echo "tag=$tag" >>"$GITHUB_OUTPUT"
           echo "is_prerelease=$is_prerelease" >>"$GITHUB_OUTPUT"
-      - name: Print release metadata
-        run: |
-          echo "commit: ${{ steps.metadata.outputs.commit }}"
-          echo "version: ${{ steps.metadata.outputs.version }}"
-          echo "tag: ${{ steps.metadata.outputs.tag }}"
-          echo "is_prerelease: ${{ steps.metadata.outputs.is_prerelease }}"
   release:
     name: Release
     runs-on: ubuntu-latest
@@ -99,6 +103,7 @@ jobs:
       pull-requests: write
       contents: read
     needs: metadata
+    if: ${{ needs.metadata.outputs.releasable == 'true' }}
     steps:
       - name: Create app token
         id: app-token
