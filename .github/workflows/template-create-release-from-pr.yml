@@ -29,7 +29,7 @@ on:
       github-app-repositories:
         description: |
           Comma or newline-separated list of repositories to grant access to for GitHub App when `use-github-app-token` is `true`.
-          If `github-app-owner` is set and `github-app-repositories` is empty, access will be scoped to all repositories `the GitHub App is installed in.
+          If `github-app-owner` is set and `github-app-repositories` is empty, access will be scoped to all repositories the GitHub App is installed in.
           If `github-app-owner` and `github-app-repositories` are empty, access will be scoped to only the current repository.
         type: string
     secrets:
