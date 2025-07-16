@@ -112,6 +112,7 @@ jobs:
     permissions: 
       pull-requests: write
       contents: read
+      issues: write
     needs: metadata
     if: ${{ needs.metadata.outputs.releasable == 'true' }}
     steps:
