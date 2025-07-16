@@ -9,6 +9,7 @@ on:
   
 jobs:
   release-pull-request:
+    name: Release pull request
     permissions:
       pull-requests: write
       contents: read
@@ -21,6 +22,7 @@ jobs:
       gh-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
   print-result:
     runs-on: ubuntu-latest
+    name: Print outcome of release
     needs: release-pull-request
     steps:
       - name: Print result
