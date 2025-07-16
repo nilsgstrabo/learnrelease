@@ -125,6 +125,7 @@ jobs:
           owner: ${{inputs.github-app-owner }}
           repositories: ${{ inputs.github-app-repositories }}
           permission-workflows: write
+          permission-contents: write
       - name: Select token
         id: select-token
         run: |
