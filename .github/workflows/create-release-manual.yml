@@ -1,0 +1,33 @@
+name: Create release and tags from PR
+on:
+  workflow_dispatch:
+    inputs:
+      pr-number:
+        description: The pull request to release
+        type: string
+        required: true
+  
+jobs:
+  release-pull-request:
+    permissions:
+      pull-requests: write
+      contents: read
+    uses: nilsgstrabo/learnrelease/.github/workflows/template-create-release-from-pr.yml@main
+    with:
+      pull-request-number: ${{ inputs.pr-number }}
+      github-app-id: ${{ vars.GH_APP_ID }}
+      use-gh-app-token: true
+    secrets:
+      gh-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+  print-result:
+    runs-on: ubuntu-latest
+    needs: release-pull-request
+    steps:
+      - name: Print result
+        run: |
+          echo "release-result: ${{ needs.release-pull-request.outputs.release-result }}"
+          echo "version: ${{ needs.release-pull-request.outputs.version }}"
+          echo "tag: ${{ needs.release-pull-request.outputs.tag }}"
+          echo "commit: ${{ needs.release-pull-request.outputs.commit }}"
+          echo "is-prerelease: ${{ needs.release-pull-request.outputs.is-prerelease }}"
+    
