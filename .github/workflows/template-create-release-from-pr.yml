@@ -42,6 +42,7 @@ on:
         description: The commit that was released.
         value: ${{ jobs.metadata.outputs.is_prerelease }}
       release-result:
+        description: The result of the release job. Possible values are success, failure, cancelled, or skipped.
         value: ${{ jobs.release.result }}
         
 jobs:

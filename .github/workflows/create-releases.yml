@@ -34,6 +34,7 @@ jobs:
     steps:
       - name: Print result
         run: |
+          echo "release-result: ${{ needs.release-pull-request.outputs.release-result }}"
           echo "version: ${{ needs.release-pull-request.outputs.version }}"
           echo "tag: ${{ needs.release-pull-request.outputs.tag }}"
           echo "commit: ${{ needs.release-pull-request.outputs.commit }}"
