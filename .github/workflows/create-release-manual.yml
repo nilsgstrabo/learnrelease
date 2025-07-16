@@ -17,9 +17,9 @@ jobs:
     with:
       pull-request-number: ${{ inputs.pr-number }}
       github-app-id: ${{ vars.GH_APP_ID }}
-      use-gh-app-token: true
+      use-github-app-token: true
     secrets:
-      gh-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+      github-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
   print-result:
     runs-on: ubuntu-latest
     name: Print outcome of release

@@ -26,10 +26,9 @@ jobs:
     with:
       pull-request-number: ${{ matrix.pull-request-number }}
       github-app-id: ${{ vars.GH_APP_ID }}
-      use-gh-app-token: true
+      use-github-app-token: true
     secrets:
-      gh-release-token: ${{ secrets.RELEASE_GH_TOKEN }}
-      gh-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+      github-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
   print-result:
     name: Print results of last release job
     runs-on: ubuntu-latest
