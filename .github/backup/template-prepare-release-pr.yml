@@ -6,12 +6,12 @@ on:
         required: true
         type: string
       stable-release-pr-branch:
-        description: The pull request branch name for stable releases.
+        description: The pull request branch name for stable releases
         required: false
         type: string
         default: release-pull-request/stable-release
       generate-pre-release-pr:
-        description: Generate pre-release pull requests.
+        description: Generate pre-release pull requests. Default is false.
         type: boolean
         default: false
       pre-release-version-prefix:
@@ -20,7 +20,7 @@ on:
         type: string
         default: rc
       pre-release-pr-branch:
-        description: The pull request branch name for pre-releases.
+        description: The pull request branch name for pre-releases
         required: false
         type: string
         default: release-pull-request/pre-release
@@ -30,7 +30,7 @@ on:
         type: string
         default: version.txt
       changelog-path:
-        description: The path to the changelog to update for stable release pull requests.
+        description: The path to the changelog to update for stable release pull requests
         required: false
         type: string
         default: CHANGELOG.md
@@ -44,16 +44,16 @@ on:
         required: false
     outputs:
       stable-release-pull-request-number:
-        description: The stable release pull request number.
+        description: The stable release pull request number
         value: ${{ jobs.stable-release-pr.outputs.pull-request-number }}
       stable-release-pull-request-operation:
-        description: The stable release pull request operation performed by the workflow.
+        description: The stable release pull request operation performed by the workflow
         value: ${{ jobs.stable-release-pr.outputs.pull-request-operation }}
       pre-release-pull-request-number:
-        description: The pre-release pull request number.
+        description: The pre-release pull request number
         value: ${{ jobs.pre-release-pr.outputs.pull-request-number }}
       pre-release-pull-request-operation:
-        description: The pre-release pull request operation performed by the workflow.
+        description: The pre-release pull request operation performed by the workflow
         value: ${{ jobs.pre-release-pr.outputs.pull-request-operation }}
 
 env:
