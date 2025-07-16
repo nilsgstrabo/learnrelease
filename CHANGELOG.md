@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.4](https://github.com/nilsgstrabo/learnrelease/compare/v2.3.3..v2.3.4) - 2025-07-16
+
+### 🐛 Bug Fixes
+
+- Bling bling bug 16 - ([a7d40da](https://github.com/nilsgstrabo/learnrelease/commit/a7d40daccba969db1ebbdd321238876466d193c2)) by @nilsgstrabo
+
+- Bling bling bug 17 - ([e982ad3](https://github.com/nilsgstrabo/learnrelease/commit/e982ad390db34ff6413fc016b68c45e6dd455003)) by @nilsgstrabo
+
+
+### ⚙️ Miscellaneous Tasks
+
+- App token - ([0db6312](https://github.com/nilsgstrabo/learnrelease/commit/0db6312e5fe06d5d2bf2fa75271b865ed6aa4f6e)) by @nilsgstrabo
+
+- Test - ([b5d34bd](https://github.com/nilsgstrabo/learnrelease/commit/b5d34bd3b70c330071b526c6195077de5a89f46d)) by @nilsgstrabo
+
+- Checkout - ([7a555f0](https://github.com/nilsgstrabo/learnrelease/commit/7a555f0de35f97c0a2bf2ec5c97e7cdf55c82b94)) by @nilsgstrabo
+
+- Revert - ([654a8ae](https://github.com/nilsgstrabo/learnrelease/commit/654a8ae9d1704d0cd7f575528607be9d738fc95d)) by @nilsgstrabo
+
+- App owner - ([517a215](https://github.com/nilsgstrabo/learnrelease/commit/517a215cc546ff37e2dbe2b92d27674837798fc7)) by @nilsgstrabo
+
+- Test with app owner - ([ce7ea3a](https://github.com/nilsgstrabo/learnrelease/commit/ce7ea3a8272b7d8ef97c4c1fb18fd6c4ce8dfd86)) by @nilsgstrabo
+
+- Try with incorrect app owner - ([64d30c1](https://github.com/nilsgstrabo/learnrelease/commit/64d30c1f2ff5bc59316d67c57ff557c862043b21)) by @nilsgstrabo
+
+- Repositoryies input - ([8699375](https://github.com/nilsgstrabo/learnrelease/commit/86993750675dd41a11fa6244d2f33392b1848d13)) by @nilsgstrabo
+
+- Try owner and repository - ([c2ac5a3](https://github.com/nilsgstrabo/learnrelease/commit/c2ac5a3dab322d4bce2ecf9238c41c5b218c0234)) by @nilsgstrabo
+
+- Fix repository name - ([f905a7c](https://github.com/nilsgstrabo/learnrelease/commit/f905a7cadb481cddae5059ae192e5fac6ef1573d)) by @nilsgstrabo
+
+- Test with permission-workflows only - ([83a5fee](https://github.com/nilsgstrabo/learnrelease/commit/83a5fee3024fc7591fadaf3bfba4f72288cfc5e8)) by @nilsgstrabo
+
+- Define explicit permissions - ([25def09](https://github.com/nilsgstrabo/learnrelease/commit/25def09edf70fd48c64bb0486f7caa4ef7087c88)) by @nilsgstrabo
+
+- Fix description - ([c623e82](https://github.com/nilsgstrabo/learnrelease/commit/c623e829cf5cc1b323f66da2dcf6f6241a9f44da)) by @nilsgstrabo
+
+
 ## [2.3.3](https://github.com/nilsgstrabo/learnrelease/compare/v2.3.2..v2.3.3) - 2025-07-16
 
 ### 🐛 Bug Fixes
