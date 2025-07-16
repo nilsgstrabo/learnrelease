@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.3](https://github.com/nilsgstrabo/learnrelease/compare/v2.3.2..v2.3.3) - 2025-07-16
+
+### 🐛 Bug Fixes
+
+- Bling bling bug 15 - ([597e736](https://github.com/nilsgstrabo/learnrelease/commit/597e7362cf181fc680eaa272985765da19340930)) by @nilsgstrabo
+
+
+### ⚙️ Miscellaneous Tasks
+
+- Change logic - ([136354d](https://github.com/nilsgstrabo/learnrelease/commit/136354d9546b79fa63ea21c8b507af7e521758ad)) by @nilsgstrabo
+
+- Misc - ([830c814](https://github.com/nilsgstrabo/learnrelease/commit/830c81490363b7e124f0c1f718fd6ee8b55a0438)) by @nilsgstrabo
+
+- Misc - ([913df79](https://github.com/nilsgstrabo/learnrelease/commit/913df7995767953e05f234482348c7c9b2c25d86)) by @nilsgstrabo
+
+- Manual release - ([cbc070a](https://github.com/nilsgstrabo/learnrelease/commit/cbc070a7528f45055bcbd1c8d4879daf254db451)) by @nilsgstrabo
+
+- Misc - ([8185011](https://github.com/nilsgstrabo/learnrelease/commit/8185011b34c722d51783482b1d787716a69a5e3f)) by @nilsgstrabo
+
+- Misc - ([c68db25](https://github.com/nilsgstrabo/learnrelease/commit/c68db252425038ad2c03408603f57657508ff162)) by @nilsgstrabo
+
+- Misc - ([54b196c](https://github.com/nilsgstrabo/learnrelease/commit/54b196cd6f2d9024343ed8f7f22a1cd085b41b27)) by @nilsgstrabo
+
+- Disable auto release - ([8d209e0](https://github.com/nilsgstrabo/learnrelease/commit/8d209e0b0c742daac940a6175e16ab1e197bd58b)) by @nilsgstrabo
+
+- Rename inputs and secrets - ([187f303](https://github.com/nilsgstrabo/learnrelease/commit/187f303978d664c36ac97f1139c85020e17b0fef)) by @nilsgstrabo
+
+- Fix - ([369049b](https://github.com/nilsgstrabo/learnrelease/commit/369049bc821255a4cc3b6db4aca2760d42224dd0)) by @nilsgstrabo
+
+
 ## [2.3.2](https://github.com/nilsgstrabo/learnrelease/compare/v2.3.1..v2.3.2) - 2025-07-15
 
 ### 🐛 Bug Fixes
