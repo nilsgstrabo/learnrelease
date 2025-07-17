@@ -2,10 +2,10 @@ on:
   workflow_call:
     outputs:
       unreleased-pull-requests:
-        description: "A JSON array containing numbers (ID) of pull requests that are merged and labelled with \"release: pending\""
+        description: "A JSON array containing numbers (ID) of pull requests that are merged and labelled with \"release: pending\", e.g. [55, 57]"
         value: ${{ jobs.releases-metadata.outputs.unreleased_pull_requests }}
       unreleased-pull-request-count:
-        description: Number of items in unreleased_pull_requests JSON array
+        description: Number of items in unreleased-pull-requests JSON array
         value: ${{ jobs.releases-metadata.outputs.unreleased_pull_request_count }}
 jobs:
   releases-metadata:
