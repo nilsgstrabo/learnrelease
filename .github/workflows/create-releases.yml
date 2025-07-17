@@ -10,7 +10,7 @@ jobs:
     name: Get list of pending release pull requests
     permissions:
       pull-requests: read
-    uses: nilsgstrabo/learnrelease/.github/workflows/template-unreleased-prs-metadata.yml@main
+    uses: nilsgstrabo/learnrelease/.github/workflows/template-unreleased-pr-metadata.yml@main
   release-pull-request:
     name: Release pull request
     needs: 
