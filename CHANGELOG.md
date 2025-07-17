@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.5](https://github.com/nilsgstrabo/learnrelease/compare/v2.3.4..v2.3.5) - 2025-07-17
+
+### 🐛 Bug Fixes
+
+- Bling bling bug 18 - ([9da1fb3](https://github.com/nilsgstrabo/learnrelease/commit/9da1fb38efe289a1de15ff8212bdd0ff9f01b104)) by @nilsgstrabo
+
+
+### ⚙️ Miscellaneous Tasks
+
+- Require issues: write to be able to create labels - ([cb61ff1](https://github.com/nilsgstrabo/learnrelease/commit/cb61ff18bd83982e1187dac9d2d5eaa835c68c33)) by @nilsgstrabo
+
+- Create label if not exist - ([f109792](https://github.com/nilsgstrabo/learnrelease/commit/f10979210ad0c1963499d1573302282775813a24)) by @nilsgstrabo
+
+- Rename - ([9022a4e](https://github.com/nilsgstrabo/learnrelease/commit/9022a4e9ed11563465de7ce1227e952e626a60ca)) by @nilsgstrabo
+
+- Fix - ([205b7d9](https://github.com/nilsgstrabo/learnrelease/commit/205b7d9cf343bcf898211f5513cee926e00a76e9)) by @nilsgstrabo
+
+- Auto release - ([59cc801](https://github.com/nilsgstrabo/learnrelease/commit/59cc801cf20d538e949d2b9cce7978b300158d31)) by @nilsgstrabo
+
+- Fix descr - ([27d49d2](https://github.com/nilsgstrabo/learnrelease/commit/27d49d2ed0f8c1b1ac7fd0260e9deb94ac69482f)) by @nilsgstrabo
+
+
 ## [2.3.4](https://github.com/nilsgstrabo/learnrelease/compare/v2.3.3..v2.3.4) - 2025-07-16
 
 ### 🐛 Bug Fixes
