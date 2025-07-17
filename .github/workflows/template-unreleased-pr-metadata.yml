@@ -1,10 +1,10 @@
 on:
   workflow_call:
     outputs:
-      unreleased_pull_requests:
-        description: A number JSON array containing ID(number) for pull requests that are merged but label indicates that no tag and release has been created
+      unreleased-pull-requests:
+        description: "A JSON array containing numbers (ID) of pull requests that are merged and labelled with \"release: pending\""
         value: ${{ jobs.releases-metadata.outputs.unreleased_pull_requests }}
-      unreleased_pull_request_count:
+      unreleased-pull-request-count:
         description: Number of items in unreleased_pull_requests JSON array
         value: ${{ jobs.releases-metadata.outputs.unreleased_pull_request_count }}
 jobs:

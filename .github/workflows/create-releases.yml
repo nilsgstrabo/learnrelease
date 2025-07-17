@@ -15,10 +15,10 @@ jobs:
     name: Release pull request
     needs: 
       - unreleased-prs-metadata
-    if: needs.unreleased-prs-metadata.outputs.unreleased_pull_request_count > 0
+    if: needs.unreleased-prs-metadata.outputs.unreleased-pull-request-count > 0
     strategy:
       matrix:
-        pull-request-number: ${{ fromJson(needs.unreleased-prs-metadata.outputs.unreleased_pull_requests) }}
+        pull-request-number: ${{ fromJson(needs.unreleased-prs-metadata.outputs.unreleased-pull-requests) }}
     permissions:
       pull-requests: write
       contents: read
