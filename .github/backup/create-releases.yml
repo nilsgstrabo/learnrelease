@@ -9,7 +9,7 @@ jobs:
   unreleased-prs-metadata:
     permissions:
       pull-requests: read
-      content: read
+      contents: read
     uses: nilsgstrabo/learnrelease/.github/workflows/template-unreleased-prs-metadata.yml@main
   release-pull-request:
     needs: 
