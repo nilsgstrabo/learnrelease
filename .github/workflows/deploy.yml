@@ -95,10 +95,18 @@ jobs:
           helm push learnrelease-$version.tgz $helm_repo
           
           echo "helm_packages="$helm_packages"" >>"$GITHUB_OUTPUT"
+      - name: Create app token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          # permission-workflows: write
+          permission-contents: write          
       - name: Upload Helm packages to release
         if: needs.metadata.outputs.release-exist == 'true'
         env:
-          GH_TOKEN: ${{ secrets.RELEASE_GH_TOKEN }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         working-directory: charts/learnrelease
         run: |
           gh release upload --clobber "v${{ needs.metadata.outputs.version }}" ${{ steps.deploy-helm.outputs.helm_packages }}
