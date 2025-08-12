@@ -149,6 +149,8 @@ jobs:
           set -Eeuo pipefail
 
           pr_body=$(gh pr view ${{ inputs.pull-request-number }} --json body | jq -r .body)
+
+          echo $pr_body
           echo "release_notes=$pr_body" >>"$GITHUB_OUTPUT"
       - name: Create tag and release
         env:
