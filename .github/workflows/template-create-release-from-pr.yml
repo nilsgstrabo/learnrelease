@@ -130,6 +130,8 @@ jobs:
       - name: Select token
         id: select-token
         run: |
+          set -Eeuo pipefail
+
           token="${{ secrets.release-token }}"
           if [[ "${{ inputs.use-github-app-token }}" == "true" ]]; then
             token=${{ steps.app-token.outputs.token }}
@@ -143,6 +145,8 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.select-token.outputs.token }} # Cannot use secrets.GITHUB_TOKEN, ref https://github.blog/changelog/2023-11-02-github-actions-enforcing-workflow-scope-when-creating-a-release/ and issue https://github.com/cli/cli/issues/9514
         run: |
+          set -Eeuo pipefail
+
           notes=$(gh pr view ${{ inputs.pull-request-number }} --json body | jq -r .body)
           gh release create ${{ needs.metadata.outputs.tag }} \
             --notes "$notes" \
@@ -153,6 +157,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -Eeuo pipefail
+
           if [[ -z "$(gh label list --json name -q '.[] | select(.name=="release: tagged")')" ]]; then
             gh label create "release: tagged"
           fi
