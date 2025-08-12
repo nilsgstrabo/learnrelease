@@ -162,6 +162,7 @@ jobs:
         run: |
           set -Eeuo pipefail
 
+          
           gh release create ${{ needs.metadata.outputs.tag }} \
             --notes "${{ needs.metadata.outputs.pr_body }}" \
             --target ${{ needs.metadata.outputs.commit }} \
