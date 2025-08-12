@@ -161,7 +161,7 @@ jobs:
           set -Eeuo pipefail
 
           file=${{ runner.temp }}/releasenotes
-          gh pr view $pr_number --json body | jq -r .body > "$file"
+          gh pr view ${{ inputs.pull-request-number }} --json body | jq -r .body > "$file"
 
           echo "release_notes_file=$file" >>"$GITHUB_OUTPUT"
       - name: Create tag and release
