@@ -35,20 +35,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: prepare-release-pr
     steps:
-      - name: Harden the runner (Audit all outbound calls)
-        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
-        with:
-          egress-policy: audit
-
       - name: Print pr info
         run: |
           echo "stable pr: ${{ needs.prepare-release-pr.outputs.stable-release-pull-request-number }}"
           echo "stable operation: ${{ needs.prepare-release-pr.outputs.stable-release-pull-request-operation }}"
           echo "pre pr: ${{ needs.prepare-release-pr.outputs.pre-release-pull-request-number }}"
           echo "pre operation: ${{ needs.prepare-release-pr.outputs.pre-release-pull-request-operation }}"
-      - name: curl
-        run: |
-          curl -4 https://ifconfig.me/
     
     
       
