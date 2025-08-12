@@ -67,6 +67,7 @@ jobs:
       tag: ${{ steps.metadata.outputs.tag }}
       is_prerelease: ${{ steps.metadata.outputs.is_prerelease }}
       releasable: ${{ steps.metadata.outputs.releasable }}
+      pr_body: ${{ steps.metadata.outputs.pr_body }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -77,8 +78,20 @@ jobs:
         run: |
           set -Eeuo pipefail
 
+          set_output() {
+            local name="$1"
+            local value="$2"
+            local delimiter
+            delimiter="$(uuidgen)"
+            {
+              echo "${name}<<${delimiter}"
+              echo "${value}"
+              echo "${delimiter}"
+            } >> "$GITHUB_OUTPUT"
+          }
+
           pr_number=${{ inputs.pull-request-number }}
-          pr_info=$(gh pr view $pr_number --json title,labels,mergeCommit,state,number | jq 'select(.state=="MERGED" and (.labels[] | .name=="release: pending"))')
+          pr_info=$(gh pr view $pr_number --json title,labels,mergeCommit,state,number,body | jq 'select(.state=="MERGED" and (.labels[] | .name=="release: pending"))')
           
           if [[ -z "$pr_info" ]]; then
             echo "Pull request $pr_number has invalid release state"
@@ -87,6 +100,7 @@ jobs:
           fi
 
           commit=$(echo $pr_info | jq -r .mergeCommit.oid)
+          pr_body=$(echo $pr_info | jq -r .body)
           version=$(git show "$commit":"${{ inputs.version-file-path }}")
 
           # Check that version is valid semver
@@ -106,6 +120,7 @@ jobs:
           echo "version=$version" >>"$GITHUB_OUTPUT"
           echo "tag=$tag" >>"$GITHUB_OUTPUT"
           echo "is_prerelease=$is_prerelease" >>"$GITHUB_OUTPUT"
+          set_output "pr_body" "$pr_body"
   release:
     name: Release
     runs-on: ubuntu-latest
@@ -141,27 +156,27 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Generate release notes
-        id: release-notes
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -Eeuo pipefail
+      # - name: Generate release notes
+      #   id: release-notes
+      #   env:
+      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   run: |
+      #     set -Eeuo pipefail
 
-          set_output() {
-            local name="$1"
-            local value="$2"
-            local delimiter
-            delimiter="$(uuidgen)"
-            {
-              echo "${name}<<${delimiter}"
-              echo "${value}"
-              echo "${delimiter}"
-            } >> "$GITHUB_OUTPUT"
-          }
+      #     set_output() {
+      #       local name="$1"
+      #       local value="$2"
+      #       local delimiter
+      #       delimiter="$(uuidgen)"
+      #       {
+      #         echo "${name}<<${delimiter}"
+      #         echo "${value}"
+      #         echo "${delimiter}"
+      #       } >> "$GITHUB_OUTPUT"
+      #     }
 
-          pr_body=$(gh pr view ${{ inputs.pull-request-number }} --json body | jq -r .body)
-          set_output "release_notes" "$pr_body"
+      #     pr_body=$(gh pr view ${{ inputs.pull-request-number }} --json body | jq -r .body)
+      #     set_output "release_notes" "$pr_body"
       - name: Create tag and release
         env:
           GH_TOKEN: ${{ steps.select-token.outputs.token }} # Cannot use secrets.GITHUB_TOKEN, ref https://github.blog/changelog/2023-11-02-github-actions-enforcing-workflow-scope-when-creating-a-release/ and issue https://github.com/cli/cli/issues/9514
@@ -169,9 +184,9 @@ jobs:
           set -Eeuo pipefail
 
           # notes=$(gh pr view ${{ inputs.pull-request-number }} --json body | jq -r .body)
-          echo "${{ steps.release-notes.outputs.release_notes }}"
+          echo "${{ needs.metadata.outputs.pr_body }}"
           gh release create ${{ needs.metadata.outputs.tag }} \
-            --notes "${{ steps.release-notes.outputs.release_notes }}" \
+            --notes "${{ needs.metadata.outputs.pr_body }}" \
             --target ${{ needs.metadata.outputs.commit }} \
             --title ${{ needs.metadata.outputs.tag }} \
             --prerelease=${{ needs.metadata.outputs.is_prerelease }}
