@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.8](https://github.com/nilsgstrabo/learnrelease/compare/v2.3.7..v2.3.8) - 2025-08-12
+
+### 🐛 Bug Fixes
+
+- Get token from gh app - ([b3e00d8](https://github.com/nilsgstrabo/learnrelease/commit/b3e00d8010527a834e0c9d8b07e8e784dc273a5c))
+
+
 ## [2.3.7](https://github.com/nilsgstrabo/learnrelease/compare/v2.3.6..v2.3.7) - 2025-08-12
 
 ### 🐛 Bug Fixes
