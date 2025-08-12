@@ -115,11 +115,17 @@ jobs:
               is_prerelease="true"
           fi
           
-          echo "releasable=true" >>"$GITHUB_OUTPUT"
-          echo "commit=$commit" >>"$GITHUB_OUTPUT"
-          echo "version=$version" >>"$GITHUB_OUTPUT"
-          echo "tag=$tag" >>"$GITHUB_OUTPUT"
-          echo "is_prerelease=$is_prerelease" >>"$GITHUB_OUTPUT"
+          # echo "releasable=true" >>"$GITHUB_OUTPUT"
+          # echo "commit=$commit" >>"$GITHUB_OUTPUT"
+          # echo "version=$version" >>"$GITHUB_OUTPUT"
+          # echo "tag=$tag" >>"$GITHUB_OUTPUT"
+          # echo "is_prerelease=$is_prerelease" >>"$GITHUB_OUTPUT"
+          
+          set_output "releasable" true
+          set_output "commit" $commit
+          set_output "version" $version
+          set_output "tag" $tag
+          set_output "is_prerelease" $is_prerelease
           set_output "pr_body" "$pr_body"
   release:
     name: Release
