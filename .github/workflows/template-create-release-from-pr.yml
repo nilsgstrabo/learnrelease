@@ -161,7 +161,6 @@ jobs:
           GH_TOKEN: ${{ steps.select-token.outputs.token }} # Cannot use secrets.GITHUB_TOKEN, ref https://github.blog/changelog/2023-11-02-github-actions-enforcing-workflow-scope-when-creating-a-release/ and issue https://github.com/cli/cli/issues/9514
         run: |
           set -Eeuo pipefail
-
           
           gh release create ${{ needs.metadata.outputs.tag }} \
             --notes "${{ needs.metadata.outputs.pr_body }}" \
