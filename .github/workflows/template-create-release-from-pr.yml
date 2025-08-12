@@ -171,7 +171,7 @@ jobs:
           # notes=$(gh pr view ${{ inputs.pull-request-number }} --json body | jq -r .body)
           echo "${{ steps.release-notes.outputs.release_notes }}"
           gh release create ${{ needs.metadata.outputs.tag }} \
-            --notes ${{ steps.release-notes.outputs.release_notes }} \
+            --notes "${{ steps.release-notes.outputs.release_notes }}" \
             --target ${{ needs.metadata.outputs.commit }} \
             --title ${{ needs.metadata.outputs.tag }} \
             --prerelease=${{ needs.metadata.outputs.is_prerelease }}
