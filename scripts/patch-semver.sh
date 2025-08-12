@@ -1,4 +1,5 @@
 #!/bin/bash
+set -Eeuo pipefail
 
 new_version="$1"
 shift #removes version from list of arguments

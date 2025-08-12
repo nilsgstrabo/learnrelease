@@ -77,18 +77,6 @@ jobs:
         run: |
           set -Eeuo pipefail
 
-          set_output() {
-            local name="$1"
-            local value="$2"
-            local delimiter
-            delimiter="$(uuidgen)"
-            {
-              echo "${name}<<${delimiter}"
-              echo "${value}"
-              echo "${delimiter}"
-            } >> "$GITHUB_OUTPUT"
-          }
-
           pr_number=${{ inputs.pull-request-number }}
           pr_info=$(gh pr view $pr_number --json title,labels,mergeCommit,state,number,body | jq 'select(.state=="MERGED" and (.labels[] | .name=="release: pending"))')
           
@@ -113,11 +101,11 @@ jobs:
               is_prerelease="true"
           fi
           
-          set_output "releasable" true
-          set_output "commit" $commit
-          set_output "version" $version
-          set_output "tag" $tag
-          set_output "is_prerelease" $is_prerelease
+          echo "releasable=true" >>"$GITHUB_OUTPUT"
+          echo "commit=$commit" >>"$GITHUB_OUTPUT"
+          echo "version=$version" >>"$GITHUB_OUTPUT"
+          echo "tag=$tag" >>"$GITHUB_OUTPUT"
+          echo "is_prerelease=$is_prerelease" >>"$GITHUB_OUTPUT"
   release:
     name: Release
     runs-on: ubuntu-latest
@@ -153,7 +141,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Create file with release notes
+      - name: Create release notes file
         id: release-notes
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
