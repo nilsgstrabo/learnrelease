@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.6](https://github.com/nilsgstrabo/learnrelease/compare/v2.3.5..v2.3.6) - 2025-08-12
+
+### 🐛 Bug Fixes
+
+- Add set options in script to handle errors - ([5e208f7](https://github.com/nilsgstrabo/learnrelease/commit/5e208f7abe108ba5968bb393314d93b0da5112fd))
+
+
 ## [2.3.5](https://github.com/nilsgstrabo/learnrelease/compare/v2.3.4..v2.3.5) - 2025-08-12
 
 ### 🐛 Bug Fixes
