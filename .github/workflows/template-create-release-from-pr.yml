@@ -148,10 +148,20 @@ jobs:
         run: |
           set -Eeuo pipefail
 
-          pr_body=$(gh pr view ${{ inputs.pull-request-number }} --json body | jq -r .body)
+          set_output() {
+            local name="$1"
+            local value="$2"
+            local delimiter
+            delimiter="$(uuidgen)"
+            {
+              echo "${name}<<${delimiter}"
+              echo "${value}"
+              echo "${delimiter}"
+            } >> "$GITHUB_OUTPUT"
+          }
 
-          echo $pr_body
-          echo "release_notes=$pr_body" >>"$GITHUB_OUTPUT"
+          pr_body=$(gh pr view ${{ inputs.pull-request-number }} --json body | jq -r .body)
+          set_output "release_notes" "$pr_body"
       - name: Create tag and release
         env:
           GH_TOKEN: ${{ steps.select-token.outputs.token }} # Cannot use secrets.GITHUB_TOKEN, ref https://github.blog/changelog/2023-11-02-github-actions-enforcing-workflow-scope-when-creating-a-release/ and issue https://github.com/cli/cli/issues/9514
@@ -159,7 +169,7 @@ jobs:
           set -Eeuo pipefail
 
           # notes=$(gh pr view ${{ inputs.pull-request-number }} --json body | jq -r .body)
-          echo ${{ steps.release-notes.outputs.release_notes }}
+          echo "${{ steps.release-notes.outputs.release_notes }}"
           gh release create ${{ needs.metadata.outputs.tag }} \
             --notes ${{ steps.release-notes.outputs.release_notes }} \
             --target ${{ needs.metadata.outputs.commit }} \
