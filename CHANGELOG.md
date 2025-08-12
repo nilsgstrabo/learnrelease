@@ -2,6 +2,45 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.7](https://github.com/nilsgstrabo/learnrelease/compare/v2.3.6..v2.3.7) - 2025-08-12
+
+### 🐛 Bug Fixes
+
+- Test - ([8de109b](https://github.com/nilsgstrabo/learnrelease/commit/8de109b10f7705e75217bb956d80283f16821e74))
+
+- Release notes - ([16c14cb](https://github.com/nilsgstrabo/learnrelease/commit/16c14cbc7d4fbabbbd3ba8a7e388b1964d91b2e8))
+
+- Echo release body - ([19625e8](https://github.com/nilsgstrabo/learnrelease/commit/19625e85ce5a481e0cbbbdb34d6e4fa11afb4f8d))
+
+- Multiline - ([d513855](https://github.com/nilsgstrabo/learnrelease/commit/d5138557fbee52c58800a2ffd2b4ad368992de90))
+
+- Notes - ([f2e955a](https://github.com/nilsgstrabo/learnrelease/commit/f2e955af2dc1790baa5bfa34b43e9796be924eae))
+
+- Extract pr_body in metadata - ([db73265](https://github.com/nilsgstrabo/learnrelease/commit/db73265024429ba57d91b92dfa179412d18e2c58))
+
+- Use set_output - ([f9b7780](https://github.com/nilsgstrabo/learnrelease/commit/f9b778084e1d08c84e2faf581e5be90fc7067351))
+
+- Noop fix 5 - ([813ef3f](https://github.com/nilsgstrabo/learnrelease/commit/813ef3fec297654449951f87df539d057091447d))
+
+- Remove commented coide - ([609dc0b](https://github.com/nilsgstrabo/learnrelease/commit/609dc0b724a9ee05430c82e4e8d2be49d0a84a9a))
+
+- Test with "quotes" in commit message - ([f78405f](https://github.com/nilsgstrabo/learnrelease/commit/f78405feff38e052c16c60d456023f6df3755f9f))
+
+- Noop fix 6 - ([98d06f0](https://github.com/nilsgstrabo/learnrelease/commit/98d06f02b2627cc92ba1f0897e35f53712495541))
+
+- Test with backtick `sdfsdfsdf` sdfsdfsdfsd - ([0770fb7](https://github.com/nilsgstrabo/learnrelease/commit/0770fb74ce05056bd227533587b3fcf2ea019470))
+
+- Use release noites from file - ([04941f0](https://github.com/nilsgstrabo/learnrelease/commit/04941f0bd9df2990dae3d714b17eae8b152c2c91))
+
+- Contains  in message - ([7e3b065](https://github.com/nilsgstrabo/learnrelease/commit/7e3b065e7c5dab7afd7e7e5a56aa799cd27eebc9))
+
+- There is a `backtick` in commit message #2 - ([47c9683](https://github.com/nilsgstrabo/learnrelease/commit/47c9683d7e61e58a3fdf8d3497de41d1870ec60e))
+
+- Use input - ([38acc0d](https://github.com/nilsgstrabo/learnrelease/commit/38acc0dc418d2d2f04f63f2c4111dcc3c7b81bfa))
+
+- Add set options to patch-semver.sh - ([3f4941e](https://github.com/nilsgstrabo/learnrelease/commit/3f4941e508a241123e36ca2bcd814e1d27b1ebbc))
+
+
 ## [2.3.6](https://github.com/nilsgstrabo/learnrelease/compare/v2.3.5..v2.3.6) - 2025-08-12
 
 ### 🐛 Bug Fixes
