@@ -28,7 +28,6 @@ jobs:
             tag=${{ inputs.tag }}
           fi
 
-          echo $tag
           echo "tag="$tag"" >>"$GITHUB_OUTPUT"
       - uses: actions/checkout@v4
       - name: Metadata
