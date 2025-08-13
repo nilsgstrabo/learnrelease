@@ -22,6 +22,8 @@ jobs:
       - name: resolve tag
         run: |
           echo ${{ github.event_name }}
+          echo ${{ github.ref_type }}
+          echo ${{ github.ref_name }}
     
     
       
