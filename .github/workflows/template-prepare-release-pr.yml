@@ -188,7 +188,6 @@ jobs:
             title: "chore: release ${{ needs.metadata.outputs.next_stable_version }}"
             branch: ${{ inputs.stable-release-pr-branch }}
             labels: "release: pending"
-            # body: ${{ steps.stable-changelog.outputs.content }}
             body-path: ${{ steps.stable-changelog.outputs.changelog }}
             commit-message: "chore(release): prepare for stable release ${{ needs.metadata.outputs.next_stable_version }}"
             sign-commits: true
@@ -242,7 +241,6 @@ jobs:
             title: "chore: prerelease ${{ needs.metadata.outputs.next_prerelease_version }}"
             branch: ${{ inputs.pre-release-pr-branch }}
             labels: "release: pending"
-            # body: ${{ steps.unreleased-changelog.outputs.content }}
             body-path: ${{ steps.unreleased-changelog.outputs.changelog }}
             commit-message: "chore(release): prepare for prerelease ${{ needs.metadata.outputs.next_prerelease_version }}"
             sign-commits: true
