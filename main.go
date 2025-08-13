@@ -3,11 +3,13 @@ package main
 import (
 	"net/http"
 
+	"github.com/nilsgstrabo/mygolib/v2"
 	"github.com/rs/zerolog/log"
 )
 
 func main() {
-	log.Info().Msg("starting")
+	log.Info().Msg(mygolib.FooV1("starting"))
+	log.Info().Msg(mygolib.Bar("message"))
 	err := http.ListenAndServe(":8080", initHandler())
 	log.Info().Err(err).Msg("stopping")
 
@@ -29,7 +31,8 @@ func rootHandler(w http.ResponseWriter, req *http.Request) {
 
 func apiHandler(w http.ResponseWriter, req *http.Request) {
 	w.WriteHeader(200)
-	w.Write([]byte("hello universe"))
+	s := mygolib.FooV1("hello universe")
+	w.Write([]byte(s))
 }
 
 func statusHandler(w http.ResponseWriter, req *http.Request) {
