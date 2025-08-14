@@ -228,10 +228,16 @@ jobs:
           if: inputs.generate-pre-release-pr == true && needs.metadata.outputs.next_prerelease_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
           run: |
             echo -n "${{ needs.metadata.outputs.next_prerelease_version }}" > ${{ inputs.version-file-path }}
+        # - name: Update extra files
+        #   if: inputs.generate-pre-release-pr == true && inputs.extra-files != '' && needs.metadata.outputs.next_stable_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
+        #   run: |
+        #     ./scripts/patch-semver.sh "${{ needs.metadata.outputs.next_prerelease_version }}" "${{ inputs.extra-files }}"
         - name: Update extra files
           if: inputs.generate-pre-release-pr == true && inputs.extra-files != '' && needs.metadata.outputs.next_stable_version_greater_than_latest == 'true' && needs.metadata.outputs.commits_since_latest_version > 0
-          run: |
-            ./scripts/patch-semver.sh "${{ needs.metadata.outputs.next_prerelease_version }}" "${{ inputs.extra-files }}"            
+          uses: ./.github/actions/update-extra-files
+          with:
+            version: ${{ needs.metadata.outputs.next_prerelease_version }}
+            files: ${{ inputs.extra-files }}
         - name: Create prerelease PR
           id: pull-request
           uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
