@@ -9,7 +9,7 @@ if [[ ! "$new_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z
   exit 1
 fi
 
-for file in "$@"; do # loop over the rest of the arguments and replace content directly in the file
+for file in $@; do # loop over the rest of the arguments and replace content directly in the file
   sed -Ei "/# x-patch-semver/ {
     s/[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?/$new_version/
   }" "$file"
