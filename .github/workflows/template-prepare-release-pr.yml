@@ -243,7 +243,6 @@ jobs:
                 s/[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?/$new_version/
               }" "$file"
             done
-            # ./scripts/patch-semver.sh "${{ needs.metadata.outputs.next_prerelease_version }}" "${{ inputs.extra-files }}"            
         - name: Create prerelease PR
           id: pull-request
           uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
@@ -256,6 +255,6 @@ jobs:
             body-path: ${{ steps.unreleased-changelog.outputs.changelog }}
             commit-message: "chore(release): prepare for prerelease ${{ needs.metadata.outputs.next_prerelease_version }}"
             sign-commits: true
-            add-paths: 
+            add-paths: |
               ${{ inputs.version-file-path }}
               ${{ inputs.extra-files }}
