@@ -256,5 +256,6 @@ jobs:
             body-path: ${{ steps.unreleased-changelog.outputs.changelog }}
             commit-message: "chore(release): prepare for prerelease ${{ needs.metadata.outputs.next_prerelease_version }}"
             sign-commits: true
-            add-paths: ${{ inputs.version-file-path }},
-              # ${{ inputs.extra-files }}
+            add-paths: 
+              ${{ inputs.version-file-path }}
+              ${{ inputs.extra-files }}
