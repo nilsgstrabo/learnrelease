@@ -47,7 +47,7 @@ jobs:
         id: container-metadata
         uses: docker/metadata-action@v5
         with:
-          images: "${{ env.CONTAINER_REGISTRY }}/nilsgstrabo/barimage"
+          images: "${{ env.CONTAINER_REGISTRY }}/nilsgstrabo/custompath/barimage"
           tags: ${{ needs.metadata.outputs.version }}
       - name: Print container metadata
         run: |
