@@ -47,7 +47,7 @@ jobs:
         id: container-metadata
         uses: docker/metadata-action@v5
         with:
-          images: "${{ env.CONTAINER_REGISTRY }}/nilsgstrabo/myapp/learnrelease"
+          images: "${{ env.CONTAINER_REGISTRY }}/nilsgstrabo/learnrelease"
           tags: ${{ needs.metadata.outputs.version }}
       - name: Print container metadata
         run: |
@@ -91,7 +91,7 @@ jobs:
           helm package --version $version --app-version $version .
           
           helm_packages=$(git status --short | sed s/^...//)
-          helm_repo=${{ env.HELM_CHART_REGISTRY }}/nilsgstrabo/myapp/charts
+          helm_repo=${{ env.HELM_CHART_REGISTRY }}/nilsgstrabo/charts
           helm push learnrelease-$version.tgz $helm_repo
           
           echo "helm_packages="$helm_packages"" >>"$GITHUB_OUTPUT"
