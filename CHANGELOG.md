@@ -2,6 +2,59 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.4.1](https://github.com/nilsgstrabo/learnrelease/compare/v2.4.0..v2.4.1) - 2025-08-18
+
+### 🐛 Bug Fixes
+
+- Test composite action - ([7d10ce1](https://github.com/nilsgstrabo/learnrelease/commit/7d10ce13dda349494bdfd9a6c039e70b110f3508)) by @nilsgstrabo
+
+- Try to use composite action - ([6abdd67](https://github.com/nilsgstrabo/learnrelease/commit/6abdd673a1dd99d131f9c9300302878a24c25ea1)) by @nilsgstrabo
+
+- Use composite action - ([29020bc](https://github.com/nilsgstrabo/learnrelease/commit/29020bcf43fd0b87a6811f822f2f1b80c8c393ce)) by @nilsgstrabo
+
+- Revert - ([9e6a92c](https://github.com/nilsgstrabo/learnrelease/commit/9e6a92c038b6a532bb1196dcded795ebf6ba2ab2)) by @nilsgstrabo
+
+- Try inline semver - ([cec10ef](https://github.com/nilsgstrabo/learnrelease/commit/cec10efd58ae61cc7c62bc8ed3dc7a6051557b67)) by @nilsgstrabo
+
+- Multiple files - ([3d7fcbc](https://github.com/nilsgstrabo/learnrelease/commit/3d7fcbcaf4f51db7bacd80396e6a05e4765819a7)) by @nilsgstrabo
+
+- Test without add-paths - ([29f3b58](https://github.com/nilsgstrabo/learnrelease/commit/29f3b584b47ecb61c51d9788f4f27459f1e7e92d)) by @nilsgstrabo
+
+- Test comma sep - ([4d3d316](https://github.com/nilsgstrabo/learnrelease/commit/4d3d316a01467a1975fc9f3eaef2d40baf38d086)) by @nilsgstrabo
+
+- Empty after comma - ([0ac8a1b](https://github.com/nilsgstrabo/learnrelease/commit/0ac8a1b2c75a977eabcfde68555edc90d1203a08)) by @nilsgstrabo
+
+- Test - ([46672e6](https://github.com/nilsgstrabo/learnrelease/commit/46672e6e06e2535f2c68b337e0065a14ec5d20dc)) by @nilsgstrabo
+
+- Test 2 - ([d1683e7](https://github.com/nilsgstrabo/learnrelease/commit/d1683e75846f027300959e6be994a01741d57c00)) by @nilsgstrabo
+
+- Remov etest workflow - ([f564e7e](https://github.com/nilsgstrabo/learnrelease/commit/f564e7ede6df4b10002ce62619bbe67d87444a7e)) by @nilsgstrabo
+
+- Test some more - ([3657ffc](https://github.com/nilsgstrabo/learnrelease/commit/3657ffc07ab93c373dd78321181cd172434a6063)) by @nilsgstrabo
+
+- Inline extra files script in stable release - ([513e824](https://github.com/nilsgstrabo/learnrelease/commit/513e8246f845c07689f11bd5b9a19970f5b75443)) by @nilsgstrabo
+
+- Test without extra files - ([69ed51a](https://github.com/nilsgstrabo/learnrelease/commit/69ed51a4ebc9a29f142d6f262dc7e57a5acd0ee1)) by @nilsgstrabo
+
+- Include extra files - ([fe5f4f4](https://github.com/nilsgstrabo/learnrelease/commit/fe5f4f4bdffcbad0479c266c0b18c413a2772577)) by @nilsgstrabo
+
+- Update #1 - ([201416e](https://github.com/nilsgstrabo/learnrelease/commit/201416e97072f2e282a94230479361b177f42593)) by @nilsgstrabo
+
+- Remove an extra-file - ([fb9990c](https://github.com/nilsgstrabo/learnrelease/commit/fb9990c464e6228502fc26a453e5cd0e36df1884)) by @nilsgstrabo
+
+- Test image - ([83e10da](https://github.com/nilsgstrabo/learnrelease/commit/83e10dab24d16aabe6783ef946f22c91c736460e)) by @nilsgstrabo
+
+- Test custom path - ([aeb4c78](https://github.com/nilsgstrabo/learnrelease/commit/aeb4c7838c8ce8841fd701a06e6aa48d852b9a07)) by @nilsgstrabo
+
+- Oci path - ([23b55bf](https://github.com/nilsgstrabo/learnrelease/commit/23b55bf974a15daae5c712d3cab124df5b1061ba)) by @nilsgstrabo
+
+- Revert container and chart target - ([8fcd783](https://github.com/nilsgstrabo/learnrelease/commit/8fcd7831f9eb215c3aa55abaaa89f59122acc7b6)) by @nilsgstrabo
+
+- Root response - ([4385e24](https://github.com/nilsgstrabo/learnrelease/commit/4385e242ab61a46bdb640ec9d87ab5b782e25882)) by @nilsgstrabo
+
+- Response 15 in root - ([267829c](https://github.com/nilsgstrabo/learnrelease/commit/267829ce0139eadebacc5713fd9e237815268d53)) by @nilsgstrabo
+
+
 ## [2.4.0](https://github.com/nilsgstrabo/learnrelease/compare/v2.3.8..v2.4.0) - 2025-08-14
 
 ### 🚀 Features
