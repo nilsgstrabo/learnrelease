@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.4.2](https://github.com/nilsgstrabo/learnrelease/compare/v2.4.1..v2.4.2) - 2025-08-19
+
+### 🐛 Bug Fixes
+
+- Response 16 - ([f1cfddf](https://github.com/nilsgstrabo/learnrelease/commit/f1cfddfd3d23c224ad01cf50ab4ecb8e5e283eca)) by @nilsgstrabo
+
+- Return 17 - ([af9a59e](https://github.com/nilsgstrabo/learnrelease/commit/af9a59e0b76d8c3be16d7bad68022bc79c57be42)) by @nilsgstrabo
+
+
 ## [2.4.1](https://github.com/nilsgstrabo/learnrelease/compare/v2.4.0..v2.4.1) - 2025-08-18
 
 ### 🐛 Bug Fixes
