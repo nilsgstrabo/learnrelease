@@ -67,9 +67,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: metadata
     permissions:
-      contents: read
+      contents: write
       packages: write
-      pull-requests: write
+      # pull-requests: write
     env:
       HELM_CHART_REGISTRY: oci://ghcr.io
     steps:
