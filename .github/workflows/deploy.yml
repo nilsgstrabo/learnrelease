@@ -107,7 +107,7 @@ jobs:
         if: needs.metadata.outputs.release-exist == 'true'
         env:
           # GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          GH_TOKEN: $${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
         working-directory: charts/learnrelease
         run: |
           gh release upload --clobber "v${{ needs.metadata.outputs.version }}" ${{ steps.deploy-helm.outputs.helm_packages }}
