@@ -2,7 +2,48 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.4.2](https://github.com/nilsgstrabo/learnrelease/compare/v2.4.1..v2.4.2) - 2025-08-19
+## [2.5.0](https://github.com/nilsgstrabo/learnrelease/compare/v2.4.2..v2.5.0) - 2025-08-27
+
+### 🚀 Features
+
+- *(nils)* Code review - ([6b1d1fa](https://github.com/nilsgstrabo/learnrelease/commit/6b1d1fa064cc36c952529de2765564aca499096a)) by @nilsgstrabo
+
+
+### 🐛 Bug Fixes
+
+- Code review - ([5a4987f](https://github.com/nilsgstrabo/learnrelease/commit/5a4987f60392f8fd262248733bba30698b4083b2)) by @nilsgstrabo
+
+- Workflow - ([73a43e2](https://github.com/nilsgstrabo/learnrelease/commit/73a43e2599b54960bd555d51ab4d93ea5e7e7a7d)) by @nilsgstrabo
+
+- Last commit - ([d49cafb](https://github.com/nilsgstrabo/learnrelease/commit/d49cafb0add9abcc949c2ea83cbd11e4474455cb)) by @nilsgstrabo
+
+- Last commit 1 - ([d19f614](https://github.com/nilsgstrabo/learnrelease/commit/d19f614cb64d2884f7b36288a5ffb5a8a9cdbb6c)) by @nilsgstrabo
+
+- Remove app token step - ([254d651](https://github.com/nilsgstrabo/learnrelease/commit/254d65145ec80b50031870369beebae751fd8eed)) by @nilsgstrabo
+
+- Try with contents: read - ([29cfc6d](https://github.com/nilsgstrabo/learnrelease/commit/29cfc6defcc434d2f740e059f74f3d2faf152efe)) by @nilsgstrabo
+
+- Remove pr-write - ([b039a96](https://github.com/nilsgstrabo/learnrelease/commit/b039a96e003db77cb1696e4a567048fca7ba2e64)) by @nilsgstrabo
+
+- Remove commented code - ([e1bf554](https://github.com/nilsgstrabo/learnrelease/commit/e1bf554c12a3850b1876599259dbcd9bab3b386f)) by @nilsgstrabo
+
+- Response 18 - ([95ab7a8](https://github.com/nilsgstrabo/learnrelease/commit/95ab7a88a904648faed317094cae3a65ec181df9)) by @nilsgstrabo
+
+- Last commit 3 - ([75325c6](https://github.com/nilsgstrabo/learnrelease/commit/75325c6814175b55001456cc239c32936f30d0cf)) by @nilsgstrabo
+
+- Last commit 4 - ([7cb740f](https://github.com/nilsgstrabo/learnrelease/commit/7cb740f4f9a61361e7c81b78e00cf48a0312d83b)) by @nilsgstrabo
+
+
+### ⚙️ Miscellaneous Tasks
+
+- Try with GITHUB_TOKEN - ([1e60505](https://github.com/nilsgstrabo/learnrelease/commit/1e60505751bc42d4d25d35fe3f6b2dc071d42b8e)) by @nilsgstrabo
+
+- Remove contributors from cliff.toml - ([3dfcca0](https://github.com/nilsgstrabo/learnrelease/commit/3dfcca056dd6295268e4cd51e432d7d3a8e58169)) by @nilsgstrabo
+
+- Add contr - ([dc7aa10](https://github.com/nilsgstrabo/learnrelease/commit/dc7aa101f70075fe3fe58098cb5f079e310f2162)) by @nilsgstrabo
+
+
+## [2.4.2](https://github.com/nilsgstrabo/learnrelease/compare/v2.4.1..v2.4.2) - 2025-08-20
 
 ### 🐛 Bug Fixes
 
