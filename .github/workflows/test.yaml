@@ -1,3 +1,4 @@
+name: Test tags
 on:
   workflow_dispatch:
     inputs:
