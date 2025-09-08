@@ -5,9 +5,6 @@ on:
       version:
         description: version
         type: string
-      use-latest:
-        description: use latest
-        type: boolean
         
 jobs:
   metadata:
