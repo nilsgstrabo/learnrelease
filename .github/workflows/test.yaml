@@ -65,7 +65,7 @@ jobs:
         with:
           images: "${{ env.CONTAINER_REGISTRY }}/nilsgstrabo/learnrelease"
           tags: |
-             ${{ inputs.version }}
+             type=raw,value=${{ inputs.version }}
              type=raw,value=latest,enable=${{ needs.metadata.outputs.is-stable-release }}
       - name: Print container metadata
         run: |
