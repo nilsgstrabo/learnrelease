@@ -18,6 +18,8 @@ All notable changes to this project will be documented in this file.
 
 ### ⚙️ Miscellaneous Tasks
 
+- *(release)* Release 2.8.0 (#189) - ([af052ce](https://github.com/nilsgstrabo/learnrelease/commit/af052ce50fe1597f839905aca5783c59330086fd)) by @github-actions[bot] in [#189](https://github.com/nilsgstrabo/learnrelease/pull/189)
+
 - Prerelease 2.7.0-rc.1 (#185) - ([971efd6](https://github.com/nilsgstrabo/learnrelease/commit/971efd616d244e9630e97179ff5ff38171b6a362)) by @github-actions[bot] in [#185](https://github.com/nilsgstrabo/learnrelease/pull/185)
 
 
