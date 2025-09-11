@@ -26,7 +26,7 @@ func initHandler() http.Handler {
 
 func rootHandler(w http.ResponseWriter, req *http.Request) {
 	w.WriteHeader(200)
-	w.Write([]byte("root #21"))
+	w.Write([]byte("root #22"))
 }
 
 func apiHandler(w http.ResponseWriter, req *http.Request) {
