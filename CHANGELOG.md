@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.7.0](https://github.com/nilsgstrabo/learnrelease/compare/v2.6.0..v2.7.0) - 2025-09-11
+## [2.8.0](https://github.com/nilsgstrabo/learnrelease/compare/v2.6.0..v2.8.0) - 2025-09-11
 
 ### 🚀 Features
 
